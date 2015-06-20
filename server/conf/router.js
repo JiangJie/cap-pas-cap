@@ -1,4 +1,4 @@
-'use strict';
+'use strong';
 
 /*
 npm模块
@@ -12,6 +12,8 @@ const views = require('../views');
 
 const API = new Router();
 
-API.get('get index page', '/', views.index);
+API.get('show index page', '/', views.index);
+
+API.get('show signin page', '/signin', views.signin);
 
 exports.rule = API.middleware();

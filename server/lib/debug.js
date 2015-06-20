@@ -1,4 +1,4 @@
-'use strict';
+'use strong';
 
 const path = require('path');
 const debug = require('debug');

@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "npm test",
-    "local": "set NODE_DEBUG=* && set DEBUG=app:* && set DEBUG_FD=1 && set NODE_ENV=dev&& node-dev --harmony --harmony_arrow_functions --harmony-rest-parameters --harmony-computed-property-names --harmony_unicode --harmony_unicode_regexps server/app.js"
+    "local": "set NODE_DEBUG=* && set DEBUG=app:* && set DEBUG_FD=1 && set NODE_ENV=dev&& node-dev --harmony --harmony_arrow_functions --harmony-rest-parameters --harmony-computed-property-names --harmony_unicode --harmony_unicode_regexps --harmony_modules --strong_mode server/app.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,11 @@
     "koa-router": "^5.1.2",
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0"
+  },
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-stylus": "^2.0.5",
+    "nib": "^1.1.0"
   }
 }

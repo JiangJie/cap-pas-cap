@@ -1,4 +1,4 @@
-'use strict';
+'use strong';
 
 module.exports = {
     MONGO: {
