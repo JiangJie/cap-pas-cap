@@ -1,0 +1,104 @@
+html,
+body,
+section,
+div,
+h1,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+html {
+  font-size: 125%;
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+::-webkit-input-placeholder {
+  color: #fff;
+}
+body {
+  background: url("img/ballon-bg.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.page {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 1rem;
+  bottom: 1rem;
+  background: rgba(255,255,255,0.6);
+  padding: 0 1.75rem;
+}
+.page .logo {
+  text-align: center;
+  padding: 2.5rem;
+}
+.page .account .input {
+  display: block;
+  width: 100%;
+  height: 3.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(137,195,235,0.6);
+  text-indent: 0.75rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.page .account .input:first-child {
+  margin-bottom: 1px;
+}
+.page .account .btn {
+  display: block;
+  width: 5rem;
+  height: 2.5rem;
+  margin: 2.5rem auto 0 auto;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  background: #89c3eb;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.page .other {
+  margin-top: 2.25rem;
+}
+.page .other .text {
+  color: #999;
+  font-size: 0.9rem;
+}
+.page .other .social {
+  margin-top: 1rem;
+  text-align: center;
+}
+.page .other .icon-social {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-background-size: 2.5rem 2.5rem;
+  -moz-background-size: 2.5rem 2.5rem;
+  background-size: 2.5rem 2.5rem;
+  margin-right: 1rem;
+}
+.page .other .icon-social:last-child {
+  margin-right: 0;
+}
+.page .other .icon-social.facebook {
+  background-image: url("icon/facebook.png");
+}
+.page .other .icon-social.twitter {
+  background-image: url("icon/twitter.png");
+}
+.page .other .icon-social.weibo {
+  background-image: url("icon/weibo.png");
+}
+.page .other .icon-social.weixin {
+  background-image: url("icon/weixin.png");
+}

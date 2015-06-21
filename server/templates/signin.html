@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
 
+{% block css %}
+<link rel="stylesheet" href="/css/signin.css">
+{% endblock %}
+
 {% block page %}
-<h1>Cap Pas Cap</h1>
+<section class="page">
+    <h1 class="logo">Cap Pas Cap</h1>
+    <section class="account">
+        <input class="input" type="text" placeholder="Account:">
+        <input class="input" type="password" placeholder="Password:">
+        <button class="btn">Sign in</button>
+    </section>
+    <section class="other">
+        <span class="text">Sign with others</span>
+        <div class="social">
+            <span class="icon-social facebook"></span>
+            <span class="icon-social twitter"></span>
+            <span class="icon-social weibo"></span>
+            <span class="icon-social weixin"></span>
+        </div>
+    </section>
+</section>
 {% endblock %}

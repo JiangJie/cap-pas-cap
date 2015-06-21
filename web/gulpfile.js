@@ -14,12 +14,16 @@ var dist = './dist/';
 var paths = {
     stylus: {
         src: 'stylus/!(_)*.styl',
-        watchSrc: 'stylus/*.styl',
+        watchSrc: 'stylus/**',
         dist: 'css'
     },
     img: {
         src: 'stylus/img/**',
         dist: 'css/img'
+    },
+    icon: {
+        src: 'stylus/icon/**',
+        dist: 'css/icon'
     }
 };
 
@@ -43,6 +47,10 @@ function img() {
     return gulp.src(paths.img.src)
         .pipe(gulp.dest(paths.img.dist));
 }
+function icon() {
+    return gulp.src(paths.icon.src)
+        .pipe(gulp.dest(paths.icon.dist));
+}
 
 function clean(done) {
     del(dist, done);
@@ -51,12 +59,13 @@ function clean(done) {
 function watch() {
     gulp.watch(paths.stylus.watchSrc, css);
     gulp.watch(paths.img.watchSrc, img);
+    gulp.watch(paths.icon.watchSrc, icon);
 }
 gulp.task(clean);
 
 gulp.task('default', gulp.series(
     clean,
-    gulp.parallel(css, img)
+    gulp.parallel(css, img, icon)
 ));
 
 gulp.task('dev', gulp.series('default', watch));
