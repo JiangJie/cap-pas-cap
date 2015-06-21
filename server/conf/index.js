@@ -2,9 +2,7 @@
 
 module.exports = {
     MONGO: {
-        url: `mongodb://127.0.0.1:20107/cappascap`,
-        // user: 'alloyteam',
-        // pass: '@alloy123',
+        url: `mongodb://127.0.0.1:27017/cappascap`,
         options: {
             server: {
                 poolSize: 10,

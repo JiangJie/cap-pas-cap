@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Cap Pas Cap | 参数有误{% endblock %}
+{% block page %}
+<section class="supplimental">
+    <div class="wrapper">
+        {% if msg %}
+        <div>{{ msg }}</div>
+        {% else %}
+        <div class="err500"></div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

@@ -8,6 +8,7 @@ const path = require('path');
 /*
 npm第三方模块
 */
+const co = require('co');
 const koa = require('koa');
 const staticServer = require('koa-static');
 const render = require('koa-swig');
@@ -18,7 +19,6 @@ const mount = require('koa-mount');
 内部模块
 */
 const config = require('./conf');
-const router = require('./conf/router');
 const debug = require('./lib/debug')(__filename);
 
 const app = module.exports = koa();
@@ -90,11 +90,32 @@ app.use(function* firstHandler(next) {
 // logger
 app.use(logger());
 
-app.use(mount('/', router.rule));
+function* init() {
+    debug.log('trying to connect database');
+    yield * require('./conf/mongo').connect();
+    debug.log('database connected');
 
-app.listen(config.PORT, function() {
-    debug.log('koa application listen @ port %d @ %s', config.PORT, (new Date()).toLocaleString());
-    debug.log('already registered middleware: %s', app.middleware.map(function(item) {
-        return item.name;
-    }));
+    const router = require('./conf/router');
+    app.use(mount('/', router.rule));
+}
+
+co(init()).then(function() {
+    debug.log('start co resolve');
+
+    app.listen(config.PORT, function() {
+        debug.log('koa application listen @ port %d @ %s', config.PORT, (new Date()).toLocaleString());
+        debug.log('already registered middleware: %s', app.middleware.map(function(item) {
+            return item.name;
+        }));
+    });
+}, function(err) {
+    debug.error('==========');
+    debug.error('start co reject %s', err.stack);
+    debug.error('==========');
+    // process.exit(1);
+}).catch(function(err) {
+    debug.error('==========');
+    debug.error('start co catch error %s', err.stack);
+    debug.error('==========');
+    // process.exit(1);
 });
