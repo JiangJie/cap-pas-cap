@@ -53,18 +53,15 @@ body {
         }
         .social {
             margin-top: 1rem;
-            text-align: center;
+            display: flex;
         }
         .icon-social {
-            display: inline-block;
-            width: 2.5rem;
-            height: @width;
-            background-size: @width @height;
-            margin-right: 1rem;
-
-            &:last-child {
-                margin-right: 0;
-            }
+            flex: 1;
+            /*width: 2.5rem;*/
+            height: 2.5rem;
+            background-size: @height @height;
+            background-repeat: no-repeat;
+            background-position: center;
 
             &.facebook {
                 background-image: url(icon/facebook.png);

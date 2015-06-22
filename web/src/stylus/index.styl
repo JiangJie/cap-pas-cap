@@ -1,0 +1,121 @@
+@import "_layout";
+
+.page {
+    width: 100%;
+
+    header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #89C3EB;
+        color: #fff;
+        font-size: 1.2rem;
+        line-height: @font-size;
+        padding: 1rem 0;
+
+        .title {
+            text-align: center;
+        }
+        .icon-create {
+            position: absolute;
+            top: 50%;
+            right: .5rem;
+            transform: translateY(-50%);
+        }
+    }
+
+    footer {
+        display: flex;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        margin-bottom: .5rem;
+
+        .icon-menu {
+            position: relative;
+            flex: 1;
+            /*width: 2rem;*/
+            height: 2.75rem;
+            background-size: 2rem 2rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-size: .75rem;
+            color: #a1a1a1;
+
+            &:after {
+                position: absolute;
+                bottom: -0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &.ranking {
+                background-image: url(icon/ranking.png);
+                &:after {
+                    content: "RANKING";
+                }
+            }
+            &.moment {
+                background-image: url(icon/moment.png);
+                &:after {
+                    content: "MOMENT";
+                }
+            }
+            &.accept {
+                background-image: url(icon/accept.png);
+                &:after {
+                    content: "ACCEPT";
+                }
+            }
+            &.forum {
+                background-image: url(icon/forum.png);
+                &:after {
+                    content: "FORUM";
+                }
+            }
+            &.profile {
+                background-image: url(icon/profile.png);
+                &:after {
+                    content: "PROFILE";
+                }
+            }
+
+            &:active, &.active {
+                color: #89C3EB;
+
+                &.ranking {
+                    background-image: url(icon/ranking-active.png);
+                }
+                &.moment {
+                    background-image: url(icon/moment-active.png);
+                }
+                &.accept {
+                    background-image: url(icon/accept-active.png);
+                }
+                &.forum {
+                    background-image: url(icon/forum-active.png);
+                }
+                &.profile {
+                    background-image: url(icon/profile-active.png);
+                }
+            }
+        }
+    }
+
+    .main {
+        position: relative;
+        top: 3.2rem;
+        .tabs {
+            display: flex;
+            width: 100%;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            color: #a1a1a1;
+            font-size: .9rem;
+        }
+    }
+}

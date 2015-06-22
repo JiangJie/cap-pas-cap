@@ -9,6 +9,7 @@ button {
   padding: 0;
   border: 0;
   outline: none;
+  font-weight: normal;
 }
 html {
   font-size: 125%;
@@ -76,19 +77,28 @@ body {
 }
 .page .other .social {
   margin-top: 1rem;
-  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
 }
 .page .other .icon-social {
-  display: inline-block;
-  width: 2.5rem;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+/*width: 2.5rem;*/
   height: 2.5rem;
   -webkit-background-size: 2.5rem 2.5rem;
   -moz-background-size: 2.5rem 2.5rem;
   background-size: 2.5rem 2.5rem;
-  margin-right: 1rem;
-}
-.page .other .icon-social:last-child {
-  margin-right: 0;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .page .other .icon-social.facebook {
   background-image: url("icon/facebook.png");

@@ -1,2 +1,27 @@
 {% extends 'layout.html' %}
 
+{% block css %}
+<link rel="stylesheet" href="/css/index.css">
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <h1 class="title">Accept Challenge</h1>
+        <span class="icon-create">+</span>
+    </header>
+    <section class="main">
+        <section class="tabs">
+            <span class="tab">MERCHANT</span>
+            <span class="tab">INDIVIDUAL</span>
+        </section>
+    </section>
+    <footer>
+        <span class="icon-menu ranking"></span>
+        <span class="icon-menu moment"></span>
+        <span class="icon-menu accept"></span>
+        <span class="icon-menu forum"></span>
+        <span class="icon-menu profile"></span>
+    </footer>
+</section>
+{% endblock %}
