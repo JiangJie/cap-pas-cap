@@ -140,8 +140,82 @@
         .tab {
             flex: 1;
             text-align: center;
-            color: #a1a1a1;
-            font-size: .9rem;
+            font-size: 1.1rem;
+
+            &.active {
+                color: #298CCF;
+
+                .bar {
+                    background: #298CCF;
+                }
+            }
+
+            .bar {
+                width: 100%;
+                height: .2rem;
+                border-radius: @height;
+            }
+        }
+
+        .separation {
+            height: .75rem;
+            background: #F5F5F5;
+        }
+
+        .content {
+            padding: .75rem;
+
+            .title {
+                border-left: .25rem solid black;
+                text-indent: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .item {
+                height: 10rem;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                margin-top: .75rem;
+            }
+            .detail {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(255,255,255,.6);
+            }
+            .name {
+                font-size: 1.1rem;
+            }
+            .icon-time {
+                display: inline-block;
+                width: 1rem;
+                height: @width;
+                background: url(icon/time.png);
+                background-size: @width @height;
+            }
+            .icon-location {
+                display: inline-block;
+                width: .75rem;
+                height: @width;
+                background: url(icon/location.png);
+                background-size: @width @height;
+            }
+            .time {
+                color: #333;
+                font-size: .7rem;
+            }
+            .price {
+                color: #298CCF;
+                font-size: 1.2rem;
+            }
+            .coins {
+                color: #666;
+                font-size: .7rem;
+            }
+            .location {
+                font-size: .7rem;
+            }
         }
     }
 }

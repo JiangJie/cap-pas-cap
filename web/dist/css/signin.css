@@ -4,7 +4,8 @@ section,
 div,
 h1,
 input,
-button {
+button,
+p {
   margin: 0;
   padding: 0;
   border: 0;
