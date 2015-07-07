@@ -5,23 +5,58 @@
 
     header {
         width: 100%;
+        height: 8rem;
         position: fixed;
         top: 0;
         left: 0;
-        background: #89C3EB;
-        color: #fff;
-        font-size: 1.2rem;
-        line-height: @font-size;
-        padding: 1rem 0;
+        padding: 1rem 1.25rem;
+        background: url(img/ballon-bg.jpg);
+        background-size: cover;
+        background-position: center center;
+        box-sizing: border-box;
 
-        .title {
-            text-align: center;
+        .search {
+            background: rgba(255,255,255,.4);
+            width: 100%;
+            height: 2.5rem;
+            border-radius: .5rem;
+            position: relative;
+
+            .icon-search {
+                position: absolute;
+                top: 50%;
+                left: .75rem;
+                transform: translateY(-50%);
+                display: inline-block;
+                width: 1.5rem;
+                height: @width;
+                background: url(icon/search.png);
+                background-size: @width @height;
+            }
+            .input {
+                width: 80%;
+                position: absolute;
+                top: 50%;
+                left: 3rem;
+                transform: translateY(-50%);
+                background: transparent;
+                font-size: 1.1rem;
+                color: #fff;
+            }
         }
+
         .icon-create {
+            display: inline-block;
+            width: 5.75rem;
+            height: 1.75rem;
+            border-radius: 1.25rem;
+            background: rgba(255,255,255,.85);
             position: absolute;
-            top: 50%;
-            right: .5rem;
-            transform: translateY(-50%);
+            bottom: 1rem;
+            right: 1.25rem;
+            color: #298CCF;
+            text-align: center;
+            line-height: @height;
         }
     }
 
@@ -50,52 +85,43 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-
+            
+            &.challenges {
+                background-image: url(icon/challenges.png);
+                &:after {
+                    content: "Challenges";
+                }
+            }
             &.ranking {
                 background-image: url(icon/ranking.png);
                 &:after {
-                    content: "RANKING";
+                    content: "Ranking";
                 }
             }
             &.moment {
                 background-image: url(icon/moment.png);
                 &:after {
-                    content: "MOMENT";
-                }
-            }
-            &.accept {
-                background-image: url(icon/accept.png);
-                &:after {
-                    content: "ACCEPT";
-                }
-            }
-            &.forum {
-                background-image: url(icon/forum.png);
-                &:after {
-                    content: "FORUM";
+                    content: "Moments";
                 }
             }
             &.profile {
                 background-image: url(icon/profile.png);
                 &:after {
-                    content: "PROFILE";
+                    content: "Profile";
                 }
             }
 
             &:active, &.active {
                 color: #89C3EB;
-
+                
+                &.challenges {
+                    background-image: url(icon/challenges-active.png);
+                }
                 &.ranking {
                     background-image: url(icon/ranking-active.png);
                 }
                 &.moment {
                     background-image: url(icon/moment-active.png);
-                }
-                &.accept {
-                    background-image: url(icon/accept-active.png);
-                }
-                &.forum {
-                    background-image: url(icon/forum-active.png);
                 }
                 &.profile {
                     background-image: url(icon/profile-active.png);
@@ -106,7 +132,7 @@
 
     .main {
         position: relative;
-        top: 3.2rem;
+        top: 8rem;
         .tabs {
             display: flex;
             width: 100%;
