@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block title %}Challenge Information{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/publish.css">
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <section class="form">
+        <div class="input-wrap">
+            <input type="text" placeholder="Challenge Name">
+        </div>
+        <div class="input-wrap">
+            <select>
+                <option disabled selected>Challenge Type</option>
+                <option>Food</option>
+                <option>Sport</option>
+                <option>Entertainment</option>
+                <option>Shopping</option>
+                <option>Technical</option>
+                <option>Study</option>
+                <option>Creative</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="input-wrap">
+            <input type="date" placeholder="Sign up deadline">
+        </div>
+        <div class="input-wrap">
+            <input type="date" placeholder="Start Time">
+        </div>
+        <div class="input-wrap">
+            <input type="date" placeholder="End Time">
+        </div>
+        <div class="input-wrap">
+            <input type="text" placeholder="Location">
+        </div>
+        <div class="input-wrap">
+            <input type="text" placeholder="Participating fee (c-coin)">
+        </div>
+        <div class="input-wrap">
+            <input type="text" placeholder="Max Participators">
+        </div>
+        <div class="input-wrap">
+            <input type="text" placeholder="Difficulty">
+        </div>
+        <div class="textarea-wrap">
+            <textarea placeholder="Description"></textarea>
+        </div>
+        <div class="input-wrap">
+            <input type="file" value="+">
+        </div>
+    </section>
+</section>
+{% endblock %}
