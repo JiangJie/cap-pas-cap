@@ -35,6 +35,9 @@ body {
 ::-webkit-file-upload-button {
   display: none;
 }
+.relative {
+  position: relative;
+}
 .page {
   width: 100%;
 }
@@ -45,49 +48,101 @@ body {
 }
 .page .form .textarea-wrap {
   border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+}
+.page .form .img-wrap {
+  height: 4.45rem;
+}
+.page .form .img-wrap .title {
+  display: block;
+  padding: 0.75rem 0;
 }
 .page .form input,
 .page .form textarea,
 .page .form select,
-.page .form option {
+.page .form option,
+.page .form .img-wrap .title {
   width: 100%;
   color: #666;
   font-size: 0.95rem;
   text-indent: 0.75rem;
 }
 .page .form input[type="file"] {
-  -webkit-appearance: button;
-  width: 137px;
-  height: 52px;
-  padding: 5px 10px 6px;
-  font-size: 24px;
-  cursor: pointer;
-  -webkit-transition: background-position 1s;
-  -moz-transition: background-position 1s;
-  -webkit-transition: background-position 1s;
-  -moz-transition: background-position 1s;
-  -o-transition: background-position 1s;
-  -ms-transition: background-position 1s;
-  transition: background-position 1s;
-  vertical-align: baseline;
-  white-space: nowrap;
-  text-decoration: none !important;
-  text-decoration: none;
-  color: #fff;
-  border: 0 none;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  background-color: #34ade9;
-  background-repeat: repeat-x;
-  background-position: bottom left, top right, 0 0;
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-  _padding: 5px 10px 0;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 0.1rem solid #333;
 }
 .page .form textarea {
   padding-top: 0.5rem;
   height: 12rem;
+}
+.page .form .placeholder {
+  display: inline-block;
+  color: #666;
+  font-size: 0.95rem;
+  text-indent: 0.75rem;
+}
+.page .form .difficulty {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.page .form .icon-difficulty {
+  display: inline-block;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-image: url("icon/difficulty.png");
+  -webkit-background-size: 1.75rem 1.75rem;
+  -moz-background-size: 1.75rem 1.75rem;
+  background-size: 1.75rem 1.75rem;
+}
+.page .form .btn-add {
+  display: inline-block;
+  height: 100%;
+}
+.page .form .icon-add {
+  display: inline-block;
+  width: 2.75rem;
+  height: 2.75rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.page .form .icon-add:before,
+.page .form .icon-add:after {
+  content: "";
+  display: inline-block;
+  background: #333;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.page .form .icon-add:before {
+  width: 2.75rem;
+  height: 0.1rem;
+}
+.page .form .icon-add:after {
+  width: 0.1rem;
+  height: 2.75rem;
 }

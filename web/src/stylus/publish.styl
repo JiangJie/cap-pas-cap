@@ -8,6 +8,9 @@
     display: none;
 }
 
+.relative {
+    position: relative;
+}
 .page {
     width: 100%;
 
@@ -19,42 +22,81 @@
         }
         .textarea-wrap {
             border-top: 1px solid #DFDFDF;
+            border-bottom: 1px solid #DFDFDF;
         }
-        input, textarea, select, option {
+        .img-wrap {
+            height: 4.45rem;
+
+            .title {
+                display: block;
+                padding: .75rem 0;
+            }
+        }
+        input, textarea, select, option, .img-wrap .title {
             width: 100%;
             color: #666;
             font-size: .95rem;
             text-indent: .75rem;
         }
         input[type="file"] {
-            -webkit-appearance: button;
-            width: 137px;
-            height: 52px;
-            padding: 5px 10px 6px;
-            font-size: 24px;
-            cursor: pointer;
-            -webkit-transition: background-position 1s;
-            -moz-transition: background-position 1s;
-            transition: background-position 1s;
-            vertical-align: baseline;
-            white-space: nowrap;
-            text-decoration: none !important;
-            text-decoration: none;
-            color: #fff;
-            border: 0 none;
-            border-bottom: 1px solid rgba(0,0,0,.25);
-            border-radius: 6px;
-            background-color: #34ade9;
-            background-repeat: repeat-x;
-            background-position: bottom left, top right, 0 0;
-            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7);
-            box-shadow: 0 1px 3px rgba(0,0,0,.7);
-            text-shadow: 0 -1px 1px rgba(0,0,0,.25);
-            _padding: 5px 10px 0;
+            width: 4.25rem;
+            height: @width;
+            border: .1rem solid #333;
         }
         textarea {
             padding-top: .5rem;
             height: 12rem;
+        }
+        .placeholder {
+            display: inline-block;
+            color: #666;
+            font-size: .95rem;
+            text-indent: .75rem;
+        }
+        .difficulty {
+            display: inline-flex;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+        .icon-difficulty {
+            display: inline-block;
+            width: 1.75rem;
+            height: @width;
+            background-image: url(icon/difficulty.png);
+            background-size: @width @height;
+        }
+        .btn-add {
+            display: inline-block;
+            height: 100%;
+        }
+        .icon-add {
+            display: inline-block;
+            width: 2.75rem;
+            height: @width;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            &:before, &:after {
+                content: "";
+                display: inline-block;
+                background: #333;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:before {
+                width: 2.75rem;
+                height: .1rem;
+            }
+            &:after {
+                width: .1rem;
+                height: 2.75rem;
+            }
         }
     }
 }
