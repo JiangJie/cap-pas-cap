@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/search.css">
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <section class="search">
+            <span class="icon-search"></span>
+            <input type="search" class="input" placeholder="search challenge">
+        </section>
+    </header>
+    <article class="types">
+        <section class="type food"></section>
+        <section class="type sport"></section>
+        <section class="type shopping"></section>
+        <section class="type entertainment"></section>
+        <section class="type technical"></section>
+        <section class="type study"></section>
+        <section class="type creative"></section>
+        <section class="type others"></section>
+    </article>
+</section>
+{% endblock %}

@@ -1,0 +1,75 @@
+@import "_layout";
+
+header {
+    width: 100%;
+    padding: .75rem 3rem;
+    box-sizing: border-box;
+
+    .search {
+        background: rgba(255,255,255,.4);
+        width: 100%;
+        position: relative;
+
+        .icon-search {
+            position: absolute;
+            top: 50%;
+            left: .75rem;
+            transform: translateY(-50%);
+            display: inline-block;
+            width: 1.5rem;
+            height: @width;
+            background: url(icon/search-gray.png);
+            background-size: @width @height;
+        }
+        .input {
+            width: 100%;
+            height: 1.5rem;
+            font-size: .7rem;
+            color: #999;
+            border: 1px solid #333;
+            border-radius: 1.25rem;
+            text-indent: 3rem;
+        }
+    }
+}
+
+.types {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: .5rem;
+    height: 40rem;
+
+    .type {
+        width: 49.5%;
+        height: 9.5rem;
+        background-size: cover;
+        background-position: center;
+
+        &.food {
+            background-image: url(img/food.jpg);
+        }
+        &.sport {
+            background-image: url(img/sport.jpg);
+        }
+        &.shopping {
+            background-image: url(img/shopping.jpg);
+        }
+        &.entertainment {
+            background-image: url(img/entertainment.jpg);
+        }
+        &.technical {
+            background-image: url(img/technical.jpg);
+        }
+        &.study {
+            background-image: url(img/study.jpg);
+        }
+        &.creative {
+            background-image: url(img/creative.jpg);
+        }
+        &.others {
+            background-image: url(img/others.jpg);
+        }
+    }
+}

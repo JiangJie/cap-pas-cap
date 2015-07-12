@@ -22,6 +22,8 @@ API.get('show signin page', '/signin', views.signin);
 
 API.get('show publish challenge page', '/publish', challenge.publish);
 
+API.get('show search challenge page', '/search', challenge.search);
+
 API.get('/admin/create_user', validate(), validator.checkUser, admin.createUser);
 
 exports.rule = API.middleware();
