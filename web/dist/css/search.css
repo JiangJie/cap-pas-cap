@@ -99,28 +99,65 @@ header .search .input {
   -moz-background-size: cover;
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+.types .type:after {
+  color: #fff;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .types .type.food {
   background-image: url("img/food.jpg");
 }
+.types .type.food:after {
+  content: "FOOD";
+}
 .types .type.sport {
   background-image: url("img/sport.jpg");
+}
+.types .type.sport:after {
+  content: "SPORT";
 }
 .types .type.shopping {
   background-image: url("img/shopping.jpg");
 }
+.types .type.shopping:after {
+  content: "SHOPPING";
+}
 .types .type.entertainment {
   background-image: url("img/entertainment.jpg");
+}
+.types .type.entertainment:after {
+  content: "ENTERTAINMENT";
 }
 .types .type.technical {
   background-image: url("img/technical.jpg");
 }
+.types .type.technical:after {
+  content: "TECHNICAL";
+}
 .types .type.study {
   background-image: url("img/study.jpg");
+}
+.types .type.study:after {
+  content: "STUDY";
 }
 .types .type.creative {
   background-image: url("img/creative.jpg");
 }
+.types .type.creative:after {
+  content: "CREATIVE";
+}
 .types .type.others {
   background-image: url("img/others.jpg");
+}
+.types .type.others:after {
+  content: "OTHERS";
 }

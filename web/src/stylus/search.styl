@@ -46,30 +46,64 @@ header {
         height: 9.5rem;
         background-size: cover;
         background-position: center;
+        position: relative;
+
+        &:after {
+            color: #fff;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
         &.food {
             background-image: url(img/food.jpg);
+            &:after {
+                content: "FOOD";
+            }
         }
         &.sport {
             background-image: url(img/sport.jpg);
+            &:after {
+                content: "SPORT";
+            }
         }
         &.shopping {
             background-image: url(img/shopping.jpg);
+            &:after {
+                content: "SHOPPING";
+            }
         }
         &.entertainment {
             background-image: url(img/entertainment.jpg);
+            &:after {
+                content: "ENTERTAINMENT";
+            }
         }
         &.technical {
             background-image: url(img/technical.jpg);
+            &:after {
+                content: "TECHNICAL";
+            }
         }
         &.study {
             background-image: url(img/study.jpg);
+            &:after {
+                content: "STUDY";
+            }
         }
         &.creative {
             background-image: url(img/creative.jpg);
+            &:after {
+                content: "CREATIVE";
+            }
         }
         &.others {
             background-image: url(img/others.jpg);
+            &:after {
+                content: "OTHERS";
+            }
         }
     }
 }

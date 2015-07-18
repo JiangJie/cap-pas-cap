@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="/css/index.css">
 {% endblock %}
 
+{% block js %}
+<script src="/js/lib/zepto.js"></script>
+<script src="/js/index.js"></script>
+{% endblock %}
+
 {% block page %}
 <section class="page">
     <header>
@@ -15,35 +20,57 @@
     </header>
     <section class="main">
         <section class="tabs">
-            <div class="tab active">
+            <div id="merchantTab" class="tab active">
                 <span class="text">Merchant</span>
                 <div class="bar"></div>
             </div>
-            <div class="tab">
+            <div id="individualTab" class="tab">
                 <span class="text">Individual</span>
                 <div class="bar"></div>
             </div>
         </section>
         <section class="separation"></section>
         <section class="content">
-            <h1 class="title">Recommondation</h1>
-            <article class="list">
-                <section class="item" style="background-image: url(/css/img/item.jpg);">
-                    <div class="detail">
-                        <p class="name">12 kilomiter Challenge</p>
-                        <p class="line">
-                            <span class="icon-time"></span>
-                            <span class="time">20 June, 2015</span>
-                            <span class="price">$66</span>
-                            <span class="coins">(c-coins 627)</span>
-                        </p>
-                        <p class="line">
-                            <span class="icon-location"></span>
-                            <span class="location">Lantau Island, Hong Kong</span>
-                        </p>
-                    </div>
-                </section>
-            </article>
+            <section id="merchantContent" class="merchant">
+                <h1 class="title">Recommondation</h1>
+                <article class="list">
+                    <section class="item" style="background-image: url(/css/img/item.jpg);">
+                        <div class="detail">
+                            <p class="name">12 kilomiter Challenge</p>
+                            <p class="line">
+                                <span class="icon-time"></span>
+                                <span class="time">20 June, 2015</span>
+                                <span class="price">$66</span>
+                                <span class="coins">(c-coins 627)</span>
+                            </p>
+                            <p class="line">
+                                <span class="icon-location"></span>
+                                <span class="location">Lantau Island, Hong Kong</span>
+                            </p>
+                        </div>
+                    </section>
+                </article>
+            </section>
+            <section id="individualContent" class="individual hide">
+                <h1 class="title">RecommondationIndividual</h1>
+                <article class="list">
+                    <section class="item" style="background-image: url(/css/img/item.jpg);">
+                        <div class="detail">
+                            <p class="name">12 kilomiter Challenge</p>
+                            <p class="line">
+                                <span class="icon-time"></span>
+                                <span class="time">20 June, 2015</span>
+                                <span class="price">$66</span>
+                                <span class="coins">(c-coins 627)</span>
+                            </p>
+                            <p class="line">
+                                <span class="icon-location"></span>
+                                <span class="location">Lantau Island, Hong Kong</span>
+                            </p>
+                        </div>
+                    </section>
+                </article>
+            </section>
         </section>
     </section>
     <footer>
