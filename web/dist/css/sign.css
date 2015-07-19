@@ -58,6 +58,12 @@ body {
 .page .account .input:first-child {
   margin-bottom: 1px;
 }
+.page .account select {
+  width: 100%;
+  color: #666;
+  font-size: 0.95rem;
+  text-indent: 0.75rem;
+}
 .page .account .btn {
   display: block;
   width: 5rem;

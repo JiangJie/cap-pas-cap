@@ -23,7 +23,7 @@ db.connect = function*() {
 
     db._db = _db;
 
-    ['user'].forEach(function(item) {
+    ['user', 'session'].forEach(function(item) {
         let _item = _db.collection(item);
         _item = collection(_item);
         db[item] = _item;

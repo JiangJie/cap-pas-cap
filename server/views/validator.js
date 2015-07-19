@@ -18,3 +18,10 @@ exports.checkUser = function*(next) {
 
     yield * hasErrors.call(this, next);
 };
+
+exports.checkSignUser = function*(next) {
+    this.checkBody('uid').notEmpty();
+    this.checkBody('pwd').notEmpty();
+
+    yield * hasErrors.call(this, next);
+};

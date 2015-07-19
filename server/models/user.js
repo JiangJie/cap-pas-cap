@@ -8,3 +8,10 @@ exports.createUser = function*(user) {
     
     return yield User.insert(user);
 };
+
+// 根据uid和pwd鉴权
+exports.check = function*(uid, pwd) {
+    if(!uid || !pwd) return false;
+
+    return !!(yield User.findOne({uid: uid, pwd: pwd}));
+};

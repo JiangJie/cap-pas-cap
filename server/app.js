@@ -1,4 +1,4 @@
-'use strict';
+'use strong';
 
 /*
 nodejs内部模块
@@ -13,7 +13,6 @@ const koa = require('koa');
 const staticServer = require('koa-static');
 const render = require('koa-swig');
 const logger = require('koa-logger');
-const mount = require('koa-mount');
 
 /*
 内部模块
@@ -96,7 +95,7 @@ function* init() {
     debug.log('database connected');
 
     const router = require('./conf/router');
-    app.use(mount('/', router.rule));
+    router.register(app);
 }
 
 co(init()).then(function() {

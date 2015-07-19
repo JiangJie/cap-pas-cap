@@ -1,5 +1,9 @@
 'use strict';
 
+const path = require('path');
+
+const es = require('event-stream');
+const glob = require('glob');
 const gulp = require('gulp');
 const stylus = require('gulp-stylus');
 const nib = require('nib');
@@ -15,12 +19,11 @@ const dist = './dist/';
 // 文件映射
 const paths = {
     browserify: {
-        src: 'browserify/index.js',
-        watchSrc: 'browserify/**.js',
+        src: 'browserify/*.js',
         dist: 'js'
     },
     lib: {
-        src: 'browserify/lib/zepto.js',
+        src: 'browserify/lib/*.js',
         dist: 'js/lib'
     },
     stylus: {
@@ -39,18 +42,24 @@ const paths = {
 };
 
 Object.keys(paths).forEach(function(item) {
-    paths[item].src = src + paths[item].src;
     paths[item].watchSrc = src + (paths[item].watchSrc || paths[item].src);
+    paths[item].src = src + paths[item].src;
     paths[item].dist = dist + paths[item].dist;
 });
 
 console.log(paths);
 
-function js() {
-    return browserify(paths.browserify.src)
-        .bundle()
-        .pipe(source('index.js'))
-        .pipe(gulp.dest(paths.browserify.dist));
+function js(done) {
+    const browserifyFiles = glob.sync(paths.browserify.src);
+    const browserifyTasks = browserifyFiles.map(function(file) {
+        console.log('browserify', file, path.basename(file));
+        return browserify(file)
+            .bundle()
+            .pipe(source(path.basename(file)))
+            .pipe(gulp.dest(paths.browserify.dist));
+    });
+
+    es.merge(browserifyTasks).on('end', done);
 }
 
 function lib() {

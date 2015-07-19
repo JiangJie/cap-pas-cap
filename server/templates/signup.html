@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/sign.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/signup.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <section class="account">
+        <form id="signupForm" action="/api/signup" method="POST">
+            <input id="uidInput" class="input" type="email" name="uid" placeholder="Email Address" required maxlength="100">
+            <input id="pwdInput" class="input" type="password" name="pwd" placeholder="Password" required maxlength="20">
+            <input id="repwdInput" class="input" type="password" name="repwd" placeholder="Confirm Password" required maxlength="20">
+            <input id="nicknameInput" class="input" type="text" name="nickname" placeholder="Niche Name" maxlength="20">
+            <select id="genderSelect" class="input" name="gender">
+                <option disabled selected value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <input type="submit" class="btn" value="Register">
+        </form>
+    </section>
+</section>
+{% endblock %}
