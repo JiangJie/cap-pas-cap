@@ -15,6 +15,7 @@ const Views = require('../views');
 const Admin = require('../views/admin');
 const Page = require('../views/page');
 const Api = require('../views/api');
+const challengeApi = require('../views/api/challenge');
 const Validator = require('../views/validator');
 const Common = require('../views/common');
 
@@ -34,6 +35,7 @@ PAGE.get('show search challenge page', '/search', Page.search);
 
 API.post('register a new user', '/signup', bodyParser(), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);
+API.post('create a new challenge', '/challenge/publish', Validator.checkAuth, bodyParser(), challengeApi.publish, Common.success);
 
 exports.register = function(app) {
     app.use(mount('/', ROOT.middleware()));

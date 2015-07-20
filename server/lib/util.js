@@ -65,6 +65,8 @@ exports.encodeToken = function(uid, key) {
 
 // 将加密后的token加密出uid|key
 exports.decodeToken = function(token) {
+    if(!token) return null;
+    
     try {
         token = decryptStr(token, TOKEN_KEY);
         return token.split('|');

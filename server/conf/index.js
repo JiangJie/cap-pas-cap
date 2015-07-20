@@ -12,5 +12,6 @@ module.exports = {
     },
     // cookie名字
     TOKEN: 'SID',
+    DOMAIN: 'airj.me',
     PORT: 20000
 };

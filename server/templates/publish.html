@@ -15,38 +15,38 @@
     <section class="form">
         <form id="publishForm" action="/api/challenge/publish" method="POST">
             <div class="input-wrap">
-                <input class="input" type="text" placeholder="Challenge Name" required maxlength="100">
+                <input id="nameInput" class="input" type="text" value="Test Challenge" placeholder="Challenge Name" required maxlength="100">
             </div>
             <div class="input-wrap">
-                <select class="input" required>
-                    <option disabled selected>Challenge Type</option>
-                    <option>Food</option>
-                    <option>Sport</option>
-                    <option>Entertainment</option>
-                    <option>Shopping</option>
-                    <option>Technical</option>
-                    <option>Study</option>
-                    <option>Creative</option>
-                    <option>Others</option>
+                <select id="typeSelect" class="input" required>
+                    <option disabled selected value="">Challenge Type</option>
+                    <option value="food">Food</option>
+                    <option value="sport">Sport</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="technical">Technical</option>
+                    <option value="study">Study</option>
+                    <option value="creative">Creative</option>
+                    <option value="others">Others</option>
                 </select>
             </div>
             <div class="input-wrap">
-                <input class="input" type="date" placeholder="Sign up deadline" required>
+                <input id="deadlineInput" class="input" type="date" value="2015-08-15" placeholder="Sign up deadline">
             </div>
             <div class="input-wrap">
-                <input class="input" type="date" placeholder="Start Time" required>
+                <input id="startTimeInput" class="input" type="date" value="2015-08-01" placeholder="Start Time" required>
             </div>
             <div class="input-wrap">
-                <input class="input" type="date" placeholder="End Time" required>
+                <input id="endTimeInput" class="input" type="date" value="2015-08-30" placeholder="End Time" required>
             </div>
             <div class="input-wrap">
-                <input class="input" type="text" placeholder="Location" required maxlength="100">
+                <input id="locationInput" class="input" type="text" value="Lantau Island, Hong Kong" placeholder="Location" required maxlength="100">
             </div>
             <div class="input-wrap">
-                <input class="input" type="number" placeholder="Participating fee (c-coin)" required min="1" max="100">
+                <input id="feeInput" class="input" type="number" value="50" placeholder="Participating fee (c-coin)" required min="1" max="100">
             </div>
             <div class="input-wrap">
-                <input class="input" type="text" placeholder="Max Participators" required maxlength="100">
+                <input id="participatorsInput" class="input" type="number" value="100" placeholder="Max Participators" required min="1" max="100">
             </div>
             <div class="input-wrap relative">
                 <!-- <input type="text" placeholder="Difficulty"> -->
@@ -60,7 +60,7 @@
                 </span>
             </div>
             <div class="textarea-wrap">
-                <textarea placeholder="Description" required maxlength="500"></textarea>
+                <textarea id="description" value="12 kilomiter Challenge" placeholder="Description" required maxlength="500"></textarea>
             </div>
             <div class="img-wrap">
                 <span class="title">Upload Picture</span>

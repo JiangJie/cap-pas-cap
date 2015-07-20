@@ -17,7 +17,7 @@ const logger = require('koa-logger');
 /*
 内部模块
 */
-const config = require('./conf');
+const CONFIG = require('./conf');
 const debug = require('./lib/debug')(__filename);
 
 const app = module.exports = koa();
@@ -94,6 +94,8 @@ function* init() {
     yield * require('./conf/mongo').connect();
     debug.log('database connected');
 
+    app.use(require('./views/common').setUser);
+
     const router = require('./conf/router');
     router.register(app);
 }
@@ -101,8 +103,8 @@ function* init() {
 co(init()).then(function() {
     debug.log('start co resolve');
 
-    app.listen(config.PORT, function() {
-        debug.log('koa application listen @ port %d @ %s', config.PORT, (new Date()).toLocaleString());
+    app.listen(CONFIG.PORT, function() {
+        debug.log('koa application listen @ port %d @ %s', CONFIG.PORT, (new Date()).toLocaleString());
         debug.log('already registered middleware: %s', app.middleware.map(function(item) {
             return item.name;
         }));

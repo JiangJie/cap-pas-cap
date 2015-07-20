@@ -22,11 +22,12 @@ db.connect = function*() {
         yield connect(config.url);
 
     db._db = _db;
+    db.collections = {};
 
-    ['user', 'session'].forEach(function(item) {
+    ['user', 'session', 'challenge'].forEach(function(item) {
         let _item = _db.collection(item);
         _item = collection(_item);
-        db[item] = _item;
+        db.collections[item] = _item;
     });
 };
 

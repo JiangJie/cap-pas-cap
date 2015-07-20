@@ -1,6 +1,6 @@
 'use strong';
 
-const Session = require('../conf/mongo').session;
+const Session = require('../conf/mongo').collections.session;
 
 exports.upsert = function*(session) {
     if(!session.key) return;

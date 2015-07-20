@@ -1,6 +1,6 @@
 'use strong';
 
-const User = require('../conf/mongo').user;
+const User = require('../conf/mongo').collections.user;
 const Util = require('../lib/util');
 
 exports.createUser = function*(user) {

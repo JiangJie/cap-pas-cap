@@ -2,7 +2,7 @@
 
 const Session = require('../models/session');
 const Util = require('../lib/util');
-const Config = require('../conf');
+const CONFIG = require('../conf');
 
 // 后台返回成功的统一函数
 exports.success = function*() {
@@ -46,7 +46,22 @@ exports.logined = function*(next) {
 
     // 写cookie
     const token = Util.encodeToken(uid, key);
-    this.cookies.set(Config.TOKEN, token, {signed: false, domain: 'airj.me', expires: Util.getNextDay()});
+    this.cookies.set(CONFIG.TOKEN, token, {signed: false, domain: CONFIG.DOMAIN, expires: Util.getNextDay()});
 
     yield* next;
+};
+
+// 为context添加用户信息
+exports.setUser = function* setUser(next) {
+    let token = this.cookies.get(CONFIG.TOKEN);
+    token = Util.decodeToken(token);
+
+    if (!token) return yield * next;
+
+    const uid = token[0];
+    const key = token[1];
+
+    (yield* Session.check(key)) && (this.state.user = {uid, key});
+
+    yield * next;
 };

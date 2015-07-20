@@ -1,9 +1,9 @@
 'use strong';
 
-const User = require('../models/user');
-const Util = require('../lib/util');
+const User = require('../../models/user');
+const Util = require('../../lib/util');
 
-const ERROR = require('../conf/error');
+const ERROR = require('../../conf/error');
 
 exports.signup = function*(next) {
     const params = this.request.body;

@@ -28,5 +28,5 @@ $signinForm.on('submit', function(e) {
         window.location.href = '/';
     }).fail(function() {
         console.log('fail', arguments);
-    })
+    });
 });

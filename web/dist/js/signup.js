@@ -36,6 +36,6 @@ $signupForm.on('submit', function(e) {
         console.log('success', res);
     }).fail(function() {
         console.log('fail', arguments);
-    })
+    });
 });
 },{}]},{},[1]);

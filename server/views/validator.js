@@ -5,6 +5,7 @@ const ERROR = require('../conf/error');
 function* hasErrors(next) {
     if (!this.errors) return yield * next;
 
+    Array.isArray(this.errors) || (this.errors = [this.errors]);
     const message = this.errors.map(function(item) {
         return typeof item === 'object' ? item[Object.keys(item)[0]] : item;
     }).join(' AND ');
@@ -24,4 +25,10 @@ exports.checkSignUser = function*(next) {
     this.checkBody('pwd').notEmpty();
 
     yield * hasErrors.call(this, next);
+};
+
+exports.checkAuth = function*(next) {
+    if(this.state.user) return yield* next;
+
+    this.throw(new ERROR.ForbiddenError('no login'));
 };
