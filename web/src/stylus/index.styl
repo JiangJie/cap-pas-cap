@@ -1,5 +1,9 @@
 @import "_layout";
 
+body {
+    overflow: hidden;
+}
+
 ::-webkit-input-placeholder {
     color: #fff;
 }
@@ -139,6 +143,8 @@
 
     .main {
         position: relative;
+        overflow-y: auto;
+
         .tabs {
             display: flex;
             width: 100%;

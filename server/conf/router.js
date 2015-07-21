@@ -35,7 +35,7 @@ PAGE.get('show search challenge page', '/search', Page.search);
 
 API.post('register a new user', '/signup', bodyParser(), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);
-API.post('create a new challenge', '/challenge/publish', Validator.checkAuth, bodyParser(), challengeApi.publish, Common.success);
+API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, bodyParser(), challengeApi.publish, Common.success);
 
 exports.register = function(app) {
     app.use(mount('/', ROOT.middleware()));

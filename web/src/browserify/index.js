@@ -2,6 +2,8 @@
 
 var $ = window.$ || window.Zepto;
 
+$('.page > .main').height($(document.body).height() - $('.page > header').height() - $('.page > footer').height());
+
 var $merchantTab = $('#merchantTab');
 var $individualTab = $('#individualTab');
 var $merchantContent = $('#merchantContent');

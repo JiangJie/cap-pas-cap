@@ -24,6 +24,10 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+body {
+  overflow: hidden;
 }
 ::-webkit-input-placeholder {
   color: #fff;
@@ -190,6 +194,7 @@ body {
 }
 .page .main {
   position: relative;
+  overflow-y: auto;
 }
 .page .main .tabs {
   display: -webkit-box;

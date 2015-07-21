@@ -39,7 +39,9 @@ $('#publishForm').on('submit', function(e) {
         location: location,
         fee: fee,
         max: max,
-        desc: desc
+        desc: desc,
+        // Individual
+        launch: 'I'
     };
 
     dealline && (data.dealline = dealline);

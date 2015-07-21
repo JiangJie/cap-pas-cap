@@ -27,8 +27,11 @@ exports.checkSignUser = function*(next) {
     yield * hasErrors.call(this, next);
 };
 
-exports.checkAuth = function*(next) {
+exports.checkLogin = function*(next) {
     if(this.state.user) return yield* next;
 
     this.throw(new ERROR.ForbiddenError('no login'));
+};
+
+exports.checkAuth = function*(next) {
 };

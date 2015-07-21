@@ -1,12 +1,13 @@
 'use strong';
 
-const Chall = require('../../models/challenge');
+const Challenge = require('../../models/challenge');
 const Util = require('../../lib/util');
 
 const ERROR = require('../../conf/error');
 
 exports.publish = function*(next) {
     const user = this.state.user;
+    const uid = user.uid;
 
     const params = this.request.body;
 
@@ -19,14 +20,18 @@ exports.publish = function*(next) {
     const max = Number(params.max);
     const desc = params.desc;
     const difficulty = Number(params.difficulty);
+    const launch = params.launch;
 
-    const chall = {name, start, end, location, fee, max, desc};
+    const chall = {uid, name, start, end, location, fee, max, desc};
 
     dealline && (chall.dealline = dealline);
     difficulty && (chall.difficulty = difficulty);
+    launch && (chall.launch = launch);
+
+    chall.create = new Date();
 
     this.state.extra = {
-        result: yield* Chall.create(chall)
+        result: yield* Challenge.create(chall)
     };
 
     yield* next;
