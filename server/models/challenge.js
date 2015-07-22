@@ -44,6 +44,7 @@ exports.groupByLaunch = function*() {
             _id: '$launch',
             challenges: {
                 $push: {
+                    cid: '$cid',
                     name: '$name',
                     fee: '$fee',
                     location: '$location'

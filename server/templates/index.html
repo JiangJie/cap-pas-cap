@@ -32,9 +32,9 @@
         <section class="content">
             <section id="merchantContent" class="merchant">
                 <h1 class="title">Recommondation</h1>
-                {% for chall in lists.M %}
                 <article class="list">
-                    <section class="item" style="background-image: url(/css/img/item.jpg);">
+                    {% for chall in lists.M %}
+                    <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
                         <div class="detail">
                             <p class="name">{{ chall.name }}</p>
                             <p class="line">
@@ -49,14 +49,14 @@
                             </p>
                         </div>
                     </section>
+                    {% endfor %}
                 </article>
-                {% endfor %}
             </section>
             <section id="individualContent" class="individual hide">
                 <h1 class="title">RecommondationIndividual</h1>
-                {% for chall in lists.I %}
                 <article class="list">
-                    <section class="item" style="background-image: url(/css/img/item.jpg);">
+                    {% for chall in lists.I %}
+                    <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
                         <div class="detail">
                             <p class="name">{{ chall.name }}</p>
                             <p class="line">
@@ -71,8 +71,8 @@
                             </p>
                         </div>
                     </section>
+                    {% endfor %}
                 </article>
-                {% endfor %}
             </section>
         </section>
     </section>

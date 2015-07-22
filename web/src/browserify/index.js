@@ -26,3 +26,8 @@ $individualTab.on('tap', function() {
     $merchantContent.addClass('hide');
     $individualContent.removeClass('hide');
 });
+
+$('[data-cid]').on('tap', function() {
+    var cid = this.dataset.cid;
+    window.location.href = '/page/challenge/' + cid + '/detail';
+});

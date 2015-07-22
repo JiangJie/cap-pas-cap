@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/detail.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/detail.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <section class="tabs">
+            <div id="detailTab" class="tab active">
+                <span class="text">Detail</span>
+                <div class="bar"></div>
+            </div>
+            <div id="reviewTab" class="tab">
+                <span class="text">Reviews</span>
+                <div class="bar"></div>
+            </div>
+        </section>
+    </header>
+    <section class="cover" style="background-image: url(/css/img/cover.png);"></section>
+    <section class="name">
+        <p>{{ challenge.name }}</p>
+    </section>
+    <section class="like">
+        <button class="btn">Favorites</button>
+    </section>
+    <section class="separation"></section>
+    <section class="info">
+        <div class="item">
+            <span class="title">Time:</span>
+            <span>{{ challenge.start|date('Y.m.d') }}-{{ challenge.end|date('Y.m.d') }}</span>
+        </div>
+        <div class="item">
+            <span class="title">Location:</span>
+            <span>{{ challenge.location }}</span>
+        </div>
+        <div class="item">
+            <span class="title">Difficulty:</span>
+            <span class="difficulty">
+                {% for item in challenge.difficulty %}
+                <span class="icon-difficulty active"></span>
+                {% endfor %}
+            </span>
+        </div>
+        <div class="item">
+            <span class="title">Reward:</span>
+            <span>Winners will get losers' c-coins.</span>
+        </div>
+    </section>
+    <section class="separation"></section>
+    <section class="desc">
+        <p class="title">Description</p>
+        <p class="detail">{{ challenge.desc }}</p>
+        <div class="img" style="background-image: url(/css/img/cover.png);"></div>
+        <div class="img" style="background-image: url(/css/img/cover.png);"></div>
+    </section>
+</section>
+{% endblock %}
