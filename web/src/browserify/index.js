@@ -29,5 +29,9 @@ $individualTab.on('tap', function() {
 
 $('[data-cid]').on('tap', function() {
     var cid = this.dataset.cid;
-    window.location.href = '/page/challenge/' + cid + '/detail';
+    window.location.href = '/page/challenge/' + cid;
+});
+
+$('#profileMenu').on('tap', function() {
+    window.location.href = '/page/u';
 });

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/home.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
+        {% if mine %}
+        <span class="icon-edit"></span>
+        {% endif %}
+        <span class="icon-crown"></span>
+        <section class="info">
+            <span class="icon-male"></span>
+            <span class="nickname">{{ ta.nickname }}</span>
+            <span class="follower border-right">15 Followers</span>
+            <span class="following">20 Followings</span>
+        </section>
+        <section class="info second">
+            <span class="favorite border-right">16<br>Favorites</span>
+            <span class="ccoin border-right">98<br>C-Coin</span>
+            <span class="challenge">43<br>Challenges</span>
+        </section>
+    </header>
+    <section class="timeline"></section>
+</section>
+{% endblock %}

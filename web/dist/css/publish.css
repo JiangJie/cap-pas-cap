@@ -8,7 +8,8 @@ textarea,
 button,
 p,
 select,
-option {
+option,
+span {
   margin: 0;
   padding: 0;
   border: 0;

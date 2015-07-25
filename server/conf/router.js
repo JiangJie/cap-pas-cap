@@ -17,6 +17,7 @@ const Page = require('../views/page');
 const Api = require('../views/api');
 const challengeApi = require('../views/api/challenge');
 const challengePage = require('../views/page/challenge');
+const userPage = require('../views/page/user');
 const Validator = require('../views/validator');
 const Common = require('../views/common');
 
@@ -33,7 +34,9 @@ PAGE.get('show signup page', '/signup', Page.signup);
 PAGE.get('show signin page', '/signin', Page.signin);
 PAGE.get('show publish challenge page', '/publish', Page.publish);
 PAGE.get('show search challenge page', '/search', Page.search);
-PAGE.get('show challenge detail page', '/challenge/:cid/detail', challengePage.detail);
+PAGE.get('show challenge detail page', '/challenge/:cid', challengePage.detail);
+PAGE.get('show ranking list page', '/ranking', challengePage.ranking);
+PAGE.get('show presonal home page', '/u/:uid?', userPage.home);
 
 API.post('register a new user', '/signup', bodyParser(), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);

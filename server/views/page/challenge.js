@@ -13,3 +13,7 @@ exports.detail = function*() {
 
     yield* this.render('detail');
 };
+
+exports.ranking = function*() {
+    yield* this.render('ranking');
+};

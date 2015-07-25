@@ -17,7 +17,7 @@ exports.signup = function*(next) {
     nickname && (user.nickname = nickname);
     gender && (user.gender = gender);
 
-    yield* User.createUser(user);
+    yield* User.create(user);
 
     yield* next;
 };

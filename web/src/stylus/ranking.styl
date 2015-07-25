@@ -1,0 +1,125 @@
+@import "_layout";
+
+.page {
+    header {
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .tab {
+            text-align: center;
+            font-size: .9rem;
+
+            &.active {
+                color: #298CCF;
+
+                .bar {
+                    display: block;
+                    background: #298CCF;
+                }
+            }
+
+            .bar {
+                display: none;
+                width: 100%;
+                height: .2rem;
+                border-radius: @height;
+            }
+        }
+    }
+    .ranking {
+        .top3 {
+            background: url(img/ballon-bg.jpg) no-repeat;
+            background-position: center;
+            position: relative;
+            border: .5rem solid transparent;
+            display: flex;
+            padding-bottom: 2rem;
+
+            &:before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, .8);
+                border: 1px solid #ccc;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .item {
+                flex: 1;
+                position: relative;
+                text-align: center;
+            }
+            .crown {
+                display: inline-block;
+                width: 2.5rem;
+                height: @width;
+                background-size: @width @height;
+                background-position: center;
+            }
+            .icon-first {
+                background-image: url(icon/first.png);
+            }
+            .icon-second {
+                background-image: url(icon/second.png);
+            }
+            .icon-third {
+                background-image: url(icon/third.png);
+            }
+            .logo {
+                display: inline-block;
+                width: 5rem;
+                height: @width;
+                background-size: @width @height;
+                background-position: center;
+                background-image: url(img/kfc.png);
+            }
+            .first {
+                order: -1;
+                top: 2rem;
+            }
+            .second {
+                order: -2;
+            }
+            .name {
+                font-size: 1.1rem;
+                color: #333;
+            }
+            .participator {
+                font-size: .95rem;
+                color: #666;
+            }
+        }
+
+        .others {
+            .item {
+                border-bottom: 1px solid #ccc;
+            }
+            .index {
+                font-size: 2.5rem;
+                color: #298CCF;
+            }
+            .logo {
+                display: inline-block;
+                width: 2.5rem;
+                height: @width;
+                background-size: @width @height;
+                background-position: center;
+                background-image: url(img/kfc.png);
+            }
+            .name {
+                color: #333;
+                font-weight: bold;
+            }
+            .participator {
+                font-size: .95rem;
+                color: #666;
+            }
+        }
+    }
+}

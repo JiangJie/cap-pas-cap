@@ -8,5 +8,5 @@ exports.createUser = function*(next) {
 
     const user = {uid, pwd};
 
-    this.body = yield* User.createUser(user);
+    this.body = yield* User.create(user);
 };

@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block title %}Ranking List{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/ranking.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/ranking.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <section class="tabs">
+            <div class="tab active">
+                <span class="text">Popularity</span>
+                <div class="bar"></div>
+            </div>
+            <div class="tab">
+                <span class="text">Participation Times</span>
+                <div class="bar"></div>
+            </div>
+            <div class="tab">
+                <span class="text">Winning Times</span>
+                <div class="bar"></div>
+            </div>
+        </section>
+    </header>
+    <section class="ranking">
+        <section class="top3">
+            <div class="item first">
+                <span class="crown icon-first"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item second">
+                <span class="crown icon-second"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item third">
+                <span class="crown icon-third"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+        </section>
+        <section class="others">
+            <section class="item">
+                <span class="index">4</span>
+                <span class="logo"></span>
+                <span class="name">KFC</span>
+                <span class="participator">3182 participators</span>
+            </section>
+            <section class="item">
+                <span class="index">5</span>
+                <span class="logo"></span>
+                <span class="name">KFC</span>
+                <span class="participator">3182 participators</span>
+            </section>
+        </section>
+    </section>
+</section>
+{% endblock %}
