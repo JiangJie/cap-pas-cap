@@ -14,15 +14,15 @@
 <section class="page">
     <header>
         <section class="tabs">
-            <div class="tab active">
+            <div class="tab{% if type !== 'participation' && type !== 'winning' %} active{% endif %}">
                 <span class="text">Popularity</span>
                 <div class="bar"></div>
             </div>
-            <div class="tab">
+            <div class="tab{% if type === 'participation' %} active{% endif %}">
                 <span class="text">Participation Times</span>
                 <div class="bar"></div>
             </div>
-            <div class="tab">
+            <div class="tab{% if type === 'winning' %} active{% endif %}">
                 <span class="text">Winning Times</span>
                 <div class="bar"></div>
             </div>
@@ -49,6 +49,15 @@
                 <p class="participator">3182 participators</p>
             </div>
         </section>
+        {% if type === 'participation' %}
+        <section class="me">
+            <p>You have participated {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% elseif type === 'winning' %}
+        <section class="me">
+            <p>You have won {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% endif %}
         <section class="others">
             <section class="item">
                 <span class="index">4</span>
@@ -64,5 +73,11 @@
             </section>
         </section>
     </section>
+    <footer>
+        <span class="icon-menu challenges"></span>
+        <span class="icon-menu ranking"></span>
+        <span class="icon-menu moment"></span>
+        <span id="profileMenu" class="icon-menu profile"></span>
+    </footer>
 </section>
 {% endblock %}

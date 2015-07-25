@@ -17,3 +17,7 @@ exports.detail = function*() {
 exports.ranking = function*() {
     yield* this.render('ranking');
 };
+
+exports.comment = function*() {
+    yield* this.render('comment');
+};

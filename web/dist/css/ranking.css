@@ -27,6 +27,92 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+footer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 0.5rem;
+}
+footer .icon-menu {
+  position: relative;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+/*width: 2rem;*/
+  height: 2.75rem;
+  -webkit-background-size: 2rem 2rem;
+  -moz-background-size: 2rem 2rem;
+  background-size: 2rem 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0.75rem;
+  color: #a1a1a1;
+}
+footer .icon-menu:after {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+footer .icon-menu.challenges {
+  background-image: url("icon/challenges.png");
+}
+footer .icon-menu.challenges:after {
+  content: "Challenges";
+}
+footer .icon-menu.ranking {
+  background-image: url("icon/ranking.png");
+}
+footer .icon-menu.ranking:after {
+  content: "Ranking";
+}
+footer .icon-menu.moment {
+  background-image: url("icon/moment.png");
+}
+footer .icon-menu.moment:after {
+  content: "Moments";
+}
+footer .icon-menu.profile {
+  background-image: url("icon/profile.png");
+}
+footer .icon-menu.profile:after {
+  content: "Profile";
+}
+footer .icon-menu:active,
+footer .icon-menu.active {
+  color: #89c3eb;
+}
+footer .icon-menu:active.challenges,
+footer .icon-menu.active.challenges {
+  background-image: url("icon/challenges-active.png");
+}
+footer .icon-menu:active.ranking,
+footer .icon-menu.active.ranking {
+  background-image: url("icon/ranking-active.png");
+}
+footer .icon-menu:active.moment,
+footer .icon-menu.active.moment {
+  background-image: url("icon/moment-active.png");
+}
+footer .icon-menu:active.profile,
+footer .icon-menu.active.profile {
+  background-image: url("icon/profile-active.png");
+}
 .page header .tabs {
   display: -webkit-box;
   display: -moz-box;
@@ -152,6 +238,18 @@ body {
 .page .ranking .top3 .participator {
   font-size: 0.95rem;
   color: #666;
+}
+.page .ranking .me {
+  background: #f5f5f5;
+  color: #666;
+  text-align: center;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+.page .ranking .me p {
+  font-size: 0.7rem;
 }
 .page .ranking .others .item {
   border-bottom: 1px solid #ccc;

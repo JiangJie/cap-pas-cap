@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/comment.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/comment.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <article>
+        <header>
+            <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
+            <div class="detail">
+                <p class="nickname">ca**p</p>
+                <p class="date">2015.06.29</p>
+            </div>
+        </header>
+        <section class="content">
+            <section class="imgs">
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+            </section>
+            <section class="text">
+                <p>cap pas cap cap pas cap cap pas cap</p>
+            </section>
+        </section>
+        <footer>
+            <div class="action">
+                <span class="icon icon-star"></span>
+                <span>0</span>
+                <span class="icon icon-comment"></span>
+                <span>0</span>
+            </div>
+        </footer>
+    </article>
+</section>
+{% endblock %}
