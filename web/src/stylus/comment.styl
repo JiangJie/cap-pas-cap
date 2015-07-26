@@ -1,66 +1,57 @@
 @import "_layout";
 
 .page {
-    padding: .75rem;
+    .comments {
+        padding: .75rem;
+    }
+    .comment {
+        padding: 1rem 0 .5rem 0;
+        border-bottom: 1px solid #dfdfdf;
 
-    article {
-        padding: .5rem;
-        border-radius: .5rem;
-        border: 1px solid #797979;
-        clearfix();
-        
-        header {
+        .info {
             display: flex;
         }
         .logo {
             width: 2.5rem;
             height: @width;
-            background-size: cover;
+            border-radius: @width;
             background-position: center;
-            margin-right: 1rem;
+            background-size: @width @height;
+            margin-right: .5rem;
         }
         .nickname {
-            font-size: 1.1rem;
+            font-size: .9rem;
             color: #333;
+            line-height: 2.5rem;
         }
-        .date {
-            font-size: .7rem;
+        .text {
+            font-size: .9rem;
             color: #666;
         }
-        .content {
-            padding-bottom: .5rem;
+        .date {
+            font-size: .8rem;
+            color: #666;
         }
-        .imgs {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            height: 23rem;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        background: #eaeaea;
+        width: 100%;
+        padding: .5rem .75rem;
+
+        input[type=text] {
+            height: 2.75rem;
+            color: #d7d7d7;
+            border-radius: .375rem;
+            text-indent: .5rem;
+            width: 80%;
         }
-        .img {
-            width: 30%;
-            height: 30%;
-            background-size: cover;
-            background-position: center;
-        }
-        footer {
-            .action {
-                float: right;
-            }
-            .icon {
-                display: inline-block;
-                width: 1.25rem;
-                height: @width;
-                background: url(icon/star.png);
-                background-size: @width @height;
-                background-position: center;
-            }
-            .icon-star {
-                background-image: url(icon/star.png);
-            }
-            .icon-comment {
-                background-image: url(icon/comment.png);
-            }
+        input[type=submit] {
+            font-size: 1.05rem;
+            color: #333;
+            background: transparent;
         }
     }
 }

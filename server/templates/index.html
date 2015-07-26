@@ -19,18 +19,18 @@
     </header>
     <section class="main">
         <section class="tabs">
-            <div id="merchantTab" class="tab active">
+            <div class="tab active" data-tab="merchant">
                 <span class="text">Merchant</span>
                 <div class="bar"></div>
             </div>
-            <div id="individualTab" class="tab">
+            <div class="tab" data-tab="individual">
                 <span class="text">Individual</span>
                 <div class="bar"></div>
             </div>
         </section>
         <section class="separation"></section>
         <section class="content">
-            <section id="merchantContent" class="merchant">
+            <section class="merchant" data-content="merchant">
                 <h1 class="title">Recommondation</h1>
                 <article class="list">
                     {% for chall in lists.M %}
@@ -52,7 +52,7 @@
                     {% endfor %}
                 </article>
             </section>
-            <section id="individualContent" class="individual hide">
+            <section class="individual hide" data-content="individual">
                 <h1 class="title">RecommondationIndividual</h1>
                 <article class="list">
                     {% for chall in lists.I %}

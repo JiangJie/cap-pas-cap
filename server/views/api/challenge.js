@@ -12,7 +12,7 @@ exports.publish = function*(next) {
     const params = this.request.body;
 
     const name = params.name;
-    const dealline = params.dealline && new Date(params.dealline);
+    const deadline = params.deadline && new Date(params.deadline);
     const start = new Date(params.start);
     const end = new Date(params.end);
     const location = params.location;
@@ -24,7 +24,7 @@ exports.publish = function*(next) {
 
     const chall = {uid, name, start, end, location, fee, max, desc};
 
-    dealline && (chall.dealline = dealline);
+    deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);
     launch && (chall.launch = launch);
 

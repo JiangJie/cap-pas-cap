@@ -1,0 +1,28 @@
+.hide {
+    display: none;
+}
+.tabs {
+    display: flex;
+    width: 100%;
+}
+.tab {
+    flex: 1;
+    text-align: center;
+    font-size: 1.1rem;
+
+    &.active {
+        color: #298CCF;
+
+        .bar {
+            display: block;
+            background: #298CCF;
+        }
+    }
+
+    .bar {
+        display: none;
+        width: 100%;
+        height: .2rem;
+        border-radius: @height;
+    }
+}

@@ -8,6 +8,7 @@ exports.detail = function*() {
     const chall = yield* Challenge.findByCid(cid);
 
     chall.difficulty = new Array(chall.difficulty || 1);
+    chall.isOver = chall.deadline <= new Date();
 
     this.state.challenge = chall;
 
@@ -18,6 +19,15 @@ exports.ranking = function*() {
     yield* this.render('ranking');
 };
 
+exports.review = function*() {
+    yield* this.render('review');
+};
+
 exports.comment = function*() {
     yield* this.render('comment');
+};
+
+exports.search = function*() {
+    this.state.type = 'sport';
+    yield* this.render('result');
 };

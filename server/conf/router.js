@@ -35,9 +35,11 @@ PAGE.get('show signin page', '/signin', Page.signin);
 PAGE.get('show publish challenge page', '/publish', Page.publish);
 PAGE.get('show search challenge page', '/search', Page.search);
 PAGE.get('show challenge detail page', '/challenge/:cid', challengePage.detail);
-PAGE.get('show challenge comment page', '/challenge/:cid/comment', challengePage.comment);
+PAGE.get('show publish challenge review page', '/challenge/:cid/review/publish', challengePage.review);
+PAGE.get('show challenge review\'s comments page', '/challenge/:cid/review/:rid', challengePage.comment);
 PAGE.get('show ranking list page', '/ranking', challengePage.ranking);
 PAGE.get('show presonal home page', '/u/:uid?', userPage.home);
+PAGE.get('show challenge search result page', '/search/result', challengePage.search);
 
 API.post('register a new user', '/signup', bodyParser(), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);

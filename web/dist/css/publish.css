@@ -80,6 +80,7 @@ body {
   width: 4.25rem;
   height: 4.25rem;
   border: 0.1rem solid #333;
+  display: none;
 }
 .page .form textarea {
   padding-top: 0.5rem;
@@ -121,12 +122,14 @@ body {
 }
 .page .form .btn-add {
   display: inline-block;
+  width: 4.45rem;
   height: 4.45rem;
 }
 .page .form .icon-add {
   display: inline-block;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 0.1rem solid #333;
   position: absolute;
   left: 50%;
   top: 50%;

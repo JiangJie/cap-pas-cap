@@ -10,38 +10,29 @@
 
 {% block page %}
 <section class="page">
-    <article>
-        <header>
-            <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
-            <div class="detail">
+    <section class="comments">
+        <section class="comment">
+            <div class="info">
+                <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
                 <p class="nickname">ca**p</p>
-                <p class="date">2015.06.29</p>
             </div>
-        </header>
-        <section class="content">
-            <section class="imgs">
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-            </section>
-            <section class="text">
-                <p>cap pas cap cap pas cap cap pas cap</p>
-            </section>
+            <p class="text">This activity is very interesting and exciting!</p>
+            <p class="date">2016-5-12   23:03:34</p>
         </section>
-        <footer>
-            <div class="action">
-                <span class="icon icon-star"></span>
-                <span>0</span>
-                <span class="icon icon-comment"></span>
-                <span>0</span>
+        <section class="comment">
+            <div class="info">
+                <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
+                <p class="nickname">ca**p</p>
             </div>
-        </footer>
-    </article>
+            <p class="text">This activity is very interesting and exciting!</p>
+            <p class="date">2016-5-12   23:03:34</p>
+        </section>
+    </section>
+    <footer>
+        <form action="/api/challenge/:cid/review/:rid/comment" method="POST">
+            <input type="text" placeholder="Send review">
+            <input type="submit" value="Send">
+        </form>
+    </footer>
 </section>
 {% endblock %}

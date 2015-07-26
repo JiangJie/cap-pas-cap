@@ -19,7 +19,7 @@ $('#publishForm').on('submit', function(e) {
     e.preventDefault();
 
     var name = $('#nameInput').val();
-    var dealline = $('#deadlineInput').val();
+    var deadline = $('#deadlineInput').val();
     var start = $('#startTimeInput').val();
     var end = $('#endTimeInput').val();
     var location = $('#locationInput').val();
@@ -45,7 +45,7 @@ $('#publishForm').on('submit', function(e) {
         launch: 'I'
     };
 
-    dealline && (data.dealline = dealline);
+    deadline && (data.deadline = deadline);
     difficulty && (data.difficulty = difficulty);
 
     console.log(data);

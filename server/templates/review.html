@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/review.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/review.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <form action="/api/challenge/:cid/review" method="POST">
+        <textarea placeholder="Say something..."></textarea>
+        <span class="btn-add">
+            <input id="file" type="file" require>
+            <label for="file" class="icon-add"></label>
+        </span>
+        <input class="btn" type="submit" value="Submit">
+    </form>
+</section>
+{% endblock %}

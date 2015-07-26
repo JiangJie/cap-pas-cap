@@ -1,4 +1,5 @@
 @import "_layout";
+@import "_tabs";
 @import "_footer";
 
 body {
@@ -7,10 +8,6 @@ body {
 
 ::-webkit-input-placeholder {
     color: #fff;
-}
-
-.hide {
-    display: none;
 }
 
 .page {
@@ -75,32 +72,6 @@ body {
     .main {
         position: relative;
         overflow-y: auto;
-
-        .tabs {
-            display: flex;
-            width: 100%;
-        }
-        .tab {
-            flex: 1;
-            text-align: center;
-            font-size: 1.1rem;
-
-            &.active {
-                color: #298CCF;
-
-                .bar {
-                    display: block;
-                    background: #298CCF;
-                }
-            }
-
-            .bar {
-                display: none;
-                width: 100%;
-                height: .2rem;
-                border-radius: @height;
-            }
-        }
 
         .separation {
             height: .75rem;

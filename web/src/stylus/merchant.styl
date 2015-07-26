@@ -1,0 +1,71 @@
+@import "_layout";
+
+.page {
+    header {
+        background: url('img/merchant.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 1rem 0;
+        position: relative;
+        &:before {
+            content: "";
+            background: rgba(255, 255, 255, .55);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .logo {
+            width: 6.25rem;
+            height: @width;
+            border-radius: @width @height;
+            margin: 0 auto;
+            background-size: @width @height;
+            background-position: center;
+            position: relative;
+        }
+        .nickname {
+            font-size: 1.2rem;
+            color: #fff;
+            position: relative;
+        }
+        .follow {
+            background: transparent;
+            border: 1px solid #fff;
+            font-size: 1rem;
+            color: #fff;
+            padding: .25rem .5rem;
+            position: relative;
+        }
+    }
+    .separation {
+        border-top: .75rem solid #f5f5f5;
+        font-size: .8rem;
+        color: #333;
+    }
+    .icon {
+        display: inline-block;
+        width: 2.25rem;
+        height: @width;
+        background-size: @width @height;
+        background-position: center;
+    }
+    .icon-addr {
+        background-image: url('icon/addr.png');
+    }
+    .icon-tel {
+        background-image: url('icon/tel.png');
+    }
+    .icon-intro {
+        &:before {
+            content: "Intro";
+            font-weight: bold;
+            font-family: fantasy;
+            font-size: 1.3rem;
+            color: #298CCF;
+        }
+    }
+}

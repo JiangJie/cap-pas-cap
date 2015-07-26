@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/result.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/result.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <section class="tabs">
+            <div id="merchantTab" class="tab active">
+                <span class="text">Merchant</span>
+                <div class="bar"></div>
+            </div>
+            <div id="individualTab" class="tab">
+                <span class="text">Individual</span>
+                <div class="bar"></div>
+            </div>
+        </section>
+    </header>
+    <section class="separation"></section>
+    <section class="result">
+        {% if type %}
+        <section class="type">{{ type|title }}</section>
+        {% endif %}
+        <section id="merchantContent" class="merchant">
+            <article class="list">
+                <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
+                    <div class="detail">
+                        <p class="name">{{ chall.name }}</p>
+                        <p class="line">
+                            <span class="icon-time"></span>
+                            <span class="time">20 June, 2015</span>
+                            <span class="price">${{ chall.fee }}</span>
+                            <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
+                        </p>
+                        <p class="line">
+                            <span class="icon-location"></span>
+                            <span class="location">{{ chall.location }}</span>
+                        </p>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </section>
+</section>
+{% endblock %}
