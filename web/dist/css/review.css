@@ -9,12 +9,29 @@ button,
 p,
 select,
 option,
-span {
+span,
+a {
   margin: 0;
   padding: 0;
   border: 0;
   outline: none;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
+  -webkit-appearance: none;
+}
+html,
+body,
+section,
+div,
+h1,
+input[type=submit],
+button,
+p,
+select,
+option,
+span,
+a {
+  -webkit-user-select: none;
 }
 html {
   font-size: 125%;
@@ -27,9 +44,12 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+textarea {
+  resize: none;
+}
 .btn {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 2.5rem;
   margin: 0.5rem auto;
   -webkit-border-radius: 0.5rem;
@@ -45,8 +65,14 @@ body {
   display: block;
   width: 100%;
   height: 6rem;
-  font-size: 1.05rem;
-  color: #ababab;
+  font-size: 0.8rem;
+  color: #333;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .page input[type=file] {
   display: none;
@@ -60,7 +86,7 @@ body {
   display: inline-block;
   width: 4.25rem;
   height: 4.25rem;
-  border: 0.1rem solid #333;
+  border: 0.1rem solid #d7d7d7;
   position: relative;
 /*        left: 50%;
         top: 50%;
@@ -70,7 +96,7 @@ body {
 .page .icon-add:after {
   content: "";
   display: inline-block;
-  background: #333;
+  background: #d7d7d7;
   position: absolute;
   left: 50%;
   top: 50%;

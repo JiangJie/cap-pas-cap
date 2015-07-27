@@ -9,12 +9,29 @@ button,
 p,
 select,
 option,
-span {
+span,
+a {
   margin: 0;
   padding: 0;
   border: 0;
   outline: none;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
+  -webkit-appearance: none;
+}
+html,
+body,
+section,
+div,
+h1,
+input[type=submit],
+button,
+p,
+select,
+option,
+span,
+a {
+  -webkit-user-select: none;
 }
 html {
   font-size: 125%;
@@ -26,6 +43,9 @@ body {
   height: 100%;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+textarea {
+  resize: none;
 }
 footer {
   display: -webkit-box;

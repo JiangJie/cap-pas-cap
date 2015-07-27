@@ -2,7 +2,7 @@
 
 .btn {
     display: block;
-    width: 80%;
+    width: 100%;
     height: 2.5rem;
     margin: .5rem auto;
     border-radius: .5rem;
@@ -17,8 +17,12 @@
         display: block;
         width: 100%;
         height: 6rem;
-        font-size: 1.05rem;
-        color: #ababab;
+        font-size: .8rem;
+        color: #333;
+        border: 1px solid #d7d7d7;
+        margin-bottom: 1rem;
+        padding: .5rem;
+        box-sizing: border-box;
     }
     input[type=file] {
         display: none;
@@ -32,7 +36,7 @@
         display: inline-block;
         width: 4.25rem;
         height: @width;
-        border: .1rem solid #333;
+        border: .1rem solid #d7d7d7;
         position: relative;
 /*        left: 50%;
         top: 50%;
@@ -41,7 +45,7 @@
         &:before, &:after {
             content: "";
             display: inline-block;
-            background: #333;
+            background: #d7d7d7;
             position: absolute;
             left: 50%;
             top: 50%;
