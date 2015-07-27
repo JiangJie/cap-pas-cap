@@ -15,65 +15,64 @@
             <span class="icon-search"></span>
             <input type="search" class="input" placeholder="search challenge">
         </section>
-        <a class="icon-create" href="/page/publish">+ create</a>
-    </header>
-    <section class="main">
-        <section class="tabs">
-            <div class="tab active" data-tab="merchant">
-                <span class="text">Merchant</span>
-                <div class="bar"></div>
-            </div>
-            <div class="tab" data-tab="individual">
-                <span class="text">Individual</span>
-                <div class="bar"></div>
-            </div>
+        <section class="create">
+            <a class="icon-create" href="/page/publish">+ create</a>
         </section>
-        <section class="separation"></section>
-        <section class="content">
-            <section class="merchant" data-content="merchant">
-                <h1 class="title">Recommondation</h1>
-                <article class="list">
-                    {% for chall in lists.M %}
-                    <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
-                        <div class="detail">
-                            <p class="name">{{ chall.name }}</p>
-                            <p class="line">
-                                <span class="icon-time"></span>
-                                <span class="time">20 June, 2015</span>
-                                <span class="price">${{ chall.fee }}</span>
-                                <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
-                            </p>
-                            <p class="line">
-                                <span class="icon-location"></span>
-                                <span class="location">{{ chall.location }}</span>
-                            </p>
-                        </div>
-                    </section>
-                    {% endfor %}
-                </article>
-            </section>
-            <section class="individual hide" data-content="individual">
-                <h1 class="title">RecommondationIndividual</h1>
-                <article class="list">
-                    {% for chall in lists.I %}
-                    <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
-                        <div class="detail">
-                            <p class="name">{{ chall.name }}</p>
-                            <p class="line">
-                                <span class="icon-time"></span>
-                                <span class="time">20 June, 2015</span>
-                                <span class="price">${{ chall.fee }}</span>
-                                <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
-                            </p>
-                            <p class="line">
-                                <span class="icon-location"></span>
-                                <span class="location">{{ chall.location }}</span>
-                            </p>
-                        </div>
-                    </section>
-                    {% endfor %}
-                </article>
-            </section>
+    </header>
+    <section class="tabs separation">
+        <div class="tab active" data-tab="merchant">
+            <span class="text">Merchant</span>
+            <div class="bar"></div>
+        </div>
+        <div class="tab" data-tab="individual">
+            <span class="text">Individual</span>
+            <div class="bar"></div>
+        </div>
+    </section>
+    <section class="main">
+        <section class="content merchant" data-content="merchant">
+            <h1 class="title">Recommondation</h1>
+            <article class="list">
+                {% for chall in lists.M %}
+                <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
+                    <div class="detail">
+                        <p class="name">{{ chall.name }}</p>
+                        <p class="line">
+                            <span class="icon-time"></span>
+                            <span class="time">20 June, 2015</span>
+                            <span class="price">${{ chall.fee }}</span>
+                            <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
+                        </p>
+                        <p class="line">
+                            <span class="icon-location"></span>
+                            <span class="location">{{ chall.location }}</span>
+                        </p>
+                    </div>
+                </section>
+                {% endfor %}
+            </article>
+        </section>
+        <section class="content individual hide" data-content="individual">
+            <h1 class="title">RecommondationIndividual</h1>
+            <article class="list">
+                {% for chall in lists.I %}
+                <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
+                    <div class="detail">
+                        <p class="name">{{ chall.name }}</p>
+                        <p class="line">
+                            <span class="icon-time"></span>
+                            <span class="time">20 June, 2015</span>
+                            <span class="price">${{ chall.fee }}</span>
+                            <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
+                        </p>
+                        <p class="line">
+                            <span class="icon-location"></span>
+                            <span class="location">{{ chall.location }}</span>
+                        </p>
+                    </div>
+                </section>
+                {% endfor %}
+            </article>
         </section>
     </section>
     <footer>

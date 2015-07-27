@@ -6,27 +6,24 @@ body {
     overflow: hidden;
 }
 
-::-webkit-input-placeholder {
+/*::-webkit-input-placeholder {
     color: #fff;
-}
+}*/
 
 .page {
     width: 100%;
 
     header {
-        width: 100%;
-        height: 8rem;
         position: relative;
-        padding: 1rem 1.25rem;
+        padding: .5rem 1rem;
         background: url(img/ballon-bg.jpg);
         background-size: cover;
         background-position: center;
-        box-sizing: border-box;
 
         .search {
             background: rgba(255,255,255,.4);
             width: 100%;
-            height: 2.5rem;
+            height: 2rem;
             border-radius: .5rem;
             position: relative;
 
@@ -48,90 +45,96 @@ body {
                 left: 3rem;
                 transform: translateY(-50%);
                 background: transparent;
-                font-size: 1.1rem;
-                color: #fff;
+                font-size: .8rem;
+                color: #333;
             }
         }
+        .create {
+            margin-top: .5rem;
+            clearfix();
 
-        .icon-create {
-            display: inline-block;
-            width: 5.75rem;
-            height: 1.75rem;
-            border-radius: 1.25rem;
-            background: rgba(255,255,255,.85);
-            position: absolute;
-            bottom: 1rem;
-            right: 1.25rem;
-            color: #298CCF;
-            text-align: center;
-            line-height: @height;
-            text-decoration: none;
+            .icon-create {
+                display: inline-block;
+                width: 5rem;
+                height: 1.5rem;
+                border-radius: 1.5rem;
+                font-size: .8rem;
+                background: rgba(255,255,255,.85);
+                color: #298CCF;
+                text-align: center;
+                line-height: @height;
+                text-decoration: none;
+                float: right;
+            }
         }
     }
 
+    .separation {
+        border-bottom: .5rem solid #f5f5f5;
+    }
+
     .main {
+        padding: 0 1rem;
         position: relative;
         overflow-y: auto;
 
-        .separation {
-            height: .75rem;
-            background: #F5F5F5;
-        }
-
         .content {
-            padding: .75rem;
-
-            .title {
-                border-left: .25rem solid black;
-                text-indent: 1rem;
-                font-size: 1.1rem;
-            }
-
-            .item {
-                height: 10rem;
-                background-size: cover;
-                background-position: center;
-                position: relative;
-                margin-top: .75rem;
-            }
-            .detail {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                background: rgba(255,255,255,.6);
-            }
-            .name {
-                font-size: 1.1rem;
-            }
-            .icon-time {
-                display: inline-block;
-                width: 1rem;
-                height: @width;
-                background: url(icon/time.png);
-                background-size: @width @height;
-            }
-            .icon-location {
-                display: inline-block;
-                width: .75rem;
-                height: @width;
-                background: url(icon/location.png);
-                background-size: @width @height;
-            }
-            .time {
-                color: #333;
-                font-size: .7rem;
-            }
-            .price {
-                color: #298CCF;
-                font-size: 1.2rem;
-            }
-            .coins {
-                color: #666;
-                font-size: .7rem;
-            }
-            .location {
-                font-size: .7rem;
-            }
+            padding: .5rem 0;
+        }
+        .title {
+            border-left: .25rem solid black;
+            text-indent: 1rem;
+            font-size: .8rem;
+        }
+        .item {
+            height: 10rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-top: .5rem;
+        }
+        .detail {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(255,255,255,.6);
+            text-indent: .5rem;
+        }
+        .name {
+            font-size: .8rem;
+        }
+        .icon-time {
+            display: inline-block;
+            width: 1rem;
+            height: @width;
+            background: url(icon/time.png);
+            background-size: @width @height;
+            position: relative;
+            top: .2rem;
+        }
+        .icon-location {
+            display: inline-block;
+            width: 1rem;
+            height: @width;
+            background: url(icon/location.png);
+            background-size: @width @height;
+            position: relative;
+            top: .2rem;
+        }
+        .time {
+            color: #333;
+            font-size: .7rem;
+        }
+        .price {
+            color: #298CCF;
+            font-size: 1.2rem;
+        }
+        .coins {
+            color: #666;
+            font-size: .7rem;
+        }
+        .location {
+            font-size: .7rem;
         }
     }
 }

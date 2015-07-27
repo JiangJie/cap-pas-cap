@@ -37,7 +37,7 @@ body {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  width: 100%;
+  padding: 0 1rem;
 }
 .tab {
   -webkit-box-flex: 1;
@@ -48,7 +48,7 @@ body {
   -ms-flex: 1;
   flex: 1;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 .tab.active {
   color: #298ccf;
