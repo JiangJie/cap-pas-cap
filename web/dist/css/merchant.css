@@ -73,17 +73,26 @@ body {
 }
 .page .separation {
   border-top: 0.75rem solid #f5f5f5;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #333;
+  padding: 0.5rem 1rem;
+  position: relative;
 }
 .page .icon {
   display: inline-block;
-  width: 2.25rem;
-  height: 2.25rem;
-  -webkit-background-size: 2.25rem 2.25rem;
-  -moz-background-size: 2.25rem 2.25rem;
-  background-size: 2.25rem 2.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-background-size: 1.5rem 1.5rem;
+  -moz-background-size: 1.5rem 1.5rem;
+  background-size: 1.5rem 1.5rem;
   background-position: center;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .page .icon-addr {
   background-image: url("icon/addr.png");
@@ -91,10 +100,17 @@ body {
 .page .icon-tel {
   background-image: url("icon/tel.png");
 }
+.page .icon-intro {
+  margin-left: -0.75rem;
+}
 .page .icon-intro:before {
   content: "Intro";
   font-weight: bold;
   font-family: fantasy;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #298ccf;
+}
+.page .text {
+  display: inline-block;
+  margin-left: 2rem;
 }

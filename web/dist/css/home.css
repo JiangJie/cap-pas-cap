@@ -34,24 +34,26 @@ body {
   background-size: cover;
   background-position: center;
   color: #fff;
-  font-size: 0.9rem;
-  padding: 0 1rem;
+  font-size: 0.7rem;
+  padding: 1rem;
+  position: relative;
 }
 .page header span {
   display: inline-block;
 }
 .page header .border-right {
   border-right: 1px solid #fff;
+  margin-right: 1rem;
 }
 .page header .logo {
   display: inline-block;
-  width: 6.25rem;
-  height: 6.25rem;
-  -webkit-border-radius: 6.25rem;
-  border-radius: 6.25rem;
-  -webkit-background-size: 6.25rem 6.25rem;
-  -moz-background-size: 6.25rem 6.25rem;
-  background-size: 6.25rem 6.25rem;
+  width: 5rem;
+  height: 5rem;
+  -webkit-border-radius: 5rem;
+  border-radius: 5rem;
+  -webkit-background-size: 5rem 5rem;
+  -moz-background-size: 5rem 5rem;
+  background-size: 5rem 5rem;
   background-position: center;
 }
 .page header .icon-crown {
@@ -62,18 +64,30 @@ body {
   -moz-background-size: 2.5rem 2.5rem;
   background-size: 2.5rem 2.5rem;
   background-position: center;
+  position: absolute;
+  left: 50%;
+  top: 2.5rem;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .page header .icon-male {
-  width: 1.75rem;
-  height: 2.15rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: url("icon/male.png");
-  -webkit-background-size: 1.75rem 2.15rem;
-  -moz-background-size: 1.75rem 2.15rem;
-  background-size: 1.75rem 2.15rem;
+  -webkit-background-size: 1.5rem 1.5rem;
+  -moz-background-size: 1.5rem 1.5rem;
+  background-size: 1.5rem 1.5rem;
   background-position: center;
 }
 .page header .info {
   padding: 0.5rem 0;
+}
+.page header .follower {
+  margin-left: 1rem;
+  padding-right: 1rem;
 }
 .page header .second {
   display: -webkit-box;
@@ -84,7 +98,7 @@ body {
   display: flex;
   border-top: 1px solid #fff;
 }
-.page header .favorite {
+.page header .item {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -92,43 +106,21 @@ body {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  height: 2.5rem;
-  background: url("icon/favorite.png") no-repeat;
-  -webkit-background-size: 2.5rem 2.5rem;
-  -moz-background-size: 2.5rem 2.5rem;
-  background-size: 2.5rem 2.5rem;
-  padding-left: 2.5rem;
+  height: 1.5rem;
+  -webkit-background-size: 1.5rem 1.5rem;
+  -moz-background-size: 1.5rem 1.5rem;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  padding-left: 1.5rem;
   text-align: center;
+  line-height: 0.8rem;
+}
+.page header .favorite {
+  background-image: url("icon/favorite.png");
 }
 .page header .ccoin {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  height: 2.5rem;
-  background: url("icon/ccoin.png") no-repeat;
-  -webkit-background-size: 2.5rem 2.5rem;
-  -moz-background-size: 2.5rem 2.5rem;
-  background-size: 2.5rem 2.5rem;
-  padding-left: 2.5rem;
-  text-align: center;
+  background-image: url("icon/ccoin.png");
 }
 .page header .challenge {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  height: 2.5rem;
-  background: url("icon/challenge.png") no-repeat;
-  -webkit-background-size: 2.5rem 2.5rem;
-  -moz-background-size: 2.5rem 2.5rem;
-  background-size: 2.5rem 2.5rem;
-  padding-left: 2.5rem;
-  text-align: center;
+  background-image: url("icon/challenge.png");
 }

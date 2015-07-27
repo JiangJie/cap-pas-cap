@@ -6,8 +6,9 @@
         background-size: cover;
         background-position: center;
         color: #fff;
-        font-size: .9rem;
-        padding: 0 1rem;
+        font-size: .7rem;
+        padding: 1rem;
+        position: relative;
 
         span {
             display: inline-block;
@@ -15,10 +16,11 @@
         
         .border-right {
             border-right: 1px solid #fff;
+            margin-right: 1rem;
         }
         .logo {
             display: inline-block;
-            width: 6.25rem;
+            width: 5rem;
             height: @width;
             border-radius: @width;
             background-size: @width @height;
@@ -30,10 +32,14 @@
             background: url(icon/crown.png);
             background-size: @width @height;
             background-position: center;
+            position: absolute;
+            left: 50%;
+            top: 2.5rem;
+            transform: translateX(-50%);
         }
         .icon-male {
-            width: 1.75rem;
-            height: 2.15rem;
+            width: 1.5rem;
+            height: @width;
             background: url(icon/male.png);
             background-size: @width @height;
             background-position: center;
@@ -41,33 +47,31 @@
         .info {
             padding: .5rem 0;
         }
+        .follower {
+            margin-left: 1rem;
+            padding-right: 1rem;
+        }
         .second {
             display: flex;
             border-top: 1px solid #fff;
         }
-        .favorite {
+        .item {
             flex: 1;
-            height: 2.5rem;
-            background: url(icon/favorite.png) no-repeat;
+            height: 1.5rem;
             background-size: @height @height;
+            background-repeat: no-repeat;
             padding-left: @height;
             text-align: center;
+            line-height: .8rem;
+        }
+        .favorite {
+            background-image: url(icon/favorite.png);
         }
         .ccoin {
-            flex: 1;
-            height: 2.5rem;
-            background: url(icon/ccoin.png) no-repeat;
-            background-size: @height @height;
-            padding-left: @height;
-            text-align: center;
+            background-image: url(icon/ccoin.png);
         }
         .challenge {
-            flex: 1;
-            height: 2.5rem;
-            background: url(icon/challenge.png) no-repeat;
-            background-size: @height @height;
-            padding-left: @height;
-            text-align: center;
+            background-image: url(icon/challenge.png);
         }
     }
 }

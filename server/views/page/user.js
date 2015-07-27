@@ -15,7 +15,7 @@ exports.home = function*() {
     const info = this.state.ta = yield* User.getInfo(uid);
 
     // 商家
-    if(true || info.type === 'M') return yield* this.render('merchant');
+    if(info.type === 'M') return yield* this.render('merchant');
 
     yield* this.render('home');
 };

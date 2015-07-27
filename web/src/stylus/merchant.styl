@@ -43,15 +43,20 @@
     }
     .separation {
         border-top: .75rem solid #f5f5f5;
-        font-size: .8rem;
+        font-size: .7rem;
         color: #333;
+        padding: .5rem 1rem;
+        position: relative;
     }
     .icon {
         display: inline-block;
-        width: 2.25rem;
+        width: 1.5rem;
         height: @width;
         background-size: @width @height;
         background-position: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .icon-addr {
         background-image: url('icon/addr.png');
@@ -60,12 +65,17 @@
         background-image: url('icon/tel.png');
     }
     .icon-intro {
+        margin-left: -0.75rem;
         &:before {
             content: "Intro";
             font-weight: bold;
             font-family: fantasy;
-            font-size: 1.3rem;
+            font-size: 1rem;
             color: #298CCF;
         }
+    }
+    .text {
+        display: inline-block;
+        margin-left: 2rem;
     }
 }
