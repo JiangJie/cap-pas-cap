@@ -28,82 +28,82 @@
             </div>
         </section>
     </header>
-    <section class="detail" data-content="detail">
-        <section class="cover" style="background-image: url(/css/img/cover.png);"></section>
-        <section class="name">
-            <p>{{ challenge.name }}</p>
-        </section>
-        <section class="like">
-            <button class="btn">Favorites</button>
-        </section>
-        <section class="separation"></section>
-        <section class="info">
-            <div class="item">
-                <span class="title">Time:</span>
-                <span>{{ challenge.start|date('Y.m.d') }}-{{ challenge.end|date('Y.m.d') }}</span>
-            </div>
-            <div class="item">
-                <span class="title">Location:</span>
-                <span>{{ challenge.location }}</span>
-            </div>
-            <div class="item">
-                <span class="title">Difficulty:</span>
-                <span class="difficulty">
-                    {% for item in challenge.difficulty %}
-                    <span class="icon-difficulty active"></span>
-                    {% endfor %}
-                </span>
-            </div>
-            <div class="item">
-                <span class="title">Reward:</span>
-                <span>Winners will get losers' c-coins.</span>
-            </div>
-        </section>
-        <section class="separation"></section>
-        <section class="desc">
-            <p class="title">Description</p>
-            <p class="text">{{ challenge.desc }}</p>
-            <div class="img" style="background-image: url(/css/img/cover.png);"></div>
-            <div class="img" style="background-image: url(/css/img/cover.png);"></div>
-        </section>
-    </section>
-    {% if challenge.isOver %}
-    <section class="moment" data-content="moment"></section>
-    {% endif %}
-    <section class="review" data-content="review">
-        <article>
-            <header>
-                <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
-                <div class="detail">
-                    <p class="nickname">ca**p</p>
-                    <p class="date">2015.06.29</p>
-                </div>
-            </header>
-            <section class="content">
-                <section class="imgs">
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                </section>
-                <section class="text">
-                    <p>cap pas cap cap pas cap cap pas cap</p>
-                </section>
+    <section class="content">
+        <section class="detail" data-content="detail">
+            <section class="cover" style="background-image: url(/css/img/cover.png);"></section>
+            <section class="name">
+                <p>{{ challenge.name }}</p>
             </section>
-            <footer>
-                <div class="action">
-                    <span class="icon icon-star"></span>
-                    <span>0</span>
-                    <span class="icon icon-comment"></span>
-                    <span>0</span>
+            <section class="like">
+                <button class="btn">Favorites</button>
+            </section>
+            <section class="info">
+                <div class="item">
+                    <span class="title">Time:</span>
+                    <span>{{ challenge.start|date('Y.m.d') }}-{{ challenge.end|date('Y.m.d') }}</span>
                 </div>
-            </footer>
-        </article>
+                <div class="item">
+                    <span class="title">Location:</span>
+                    <span>{{ challenge.location }}</span>
+                </div>
+                <div class="item">
+                    <span class="title">Difficulty:</span>
+                    <span class="difficulty">
+                        {% for item in challenge.difficulty %}
+                        <span class="icon-difficulty active"></span>
+                        {% endfor %}
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="title">Reward:</span>
+                    <span>Winners will get losers' c-coins.</span>
+                </div>
+            </section>
+            <section class="desc">
+                <p class="title">Description</p>
+                <p class="text">{{ challenge.desc }}</p>
+                <div class="img" style="background-image: url(/css/img/cover.png);"></div>
+                <div class="img" style="background-image: url(/css/img/cover.png);"></div>
+            </section>
+        </section>
+        {% if challenge.isOver %}
+        <section class="moment hide" data-content="moment"></section>
+        {% endif %}
+        <section class="review hide" data-content="review">
+            <article>
+                <header>
+                    <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
+                    <div class="detail">
+                        <p class="nickname">ca**p</p>
+                        <p class="date">2015.06.29</p>
+                    </div>
+                </header>
+                <section class="content">
+                    <section class="imgs">
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                    </section>
+                    <section class="text">
+                        <p>cap pas cap cap pas cap cap pas cap</p>
+                    </section>
+                </section>
+                <footer>
+                    <div class="action">
+                        <span class="icon icon-star"></span>
+                        <span class="num">0</span>
+                        <span class="icon icon-comment"></span>
+                        <span class="num">0</span>
+                    </div>
+                </footer>
+            </article>
+        </section>
     </section>
 </section>
 {% endblock %}
