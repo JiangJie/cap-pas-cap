@@ -18,6 +18,7 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 html,
 body,
@@ -60,25 +61,28 @@ body {
   top: 1rem;
   bottom: 1rem;
   background: rgba(255,255,255,0.6);
-  padding: 0 1.75rem;
+  padding: 0 1rem;
 }
 .page .logo {
+  color: #298ccf;
   text-align: center;
-  padding: 2.5rem;
+  padding: 2rem 0;
+  font-size: 2rem;
 }
 .page .account .input {
   display: block;
   width: 100%;
-  height: 3.5rem;
-  -webkit-border-radius: 0.5rem;
-  border-radius: 0.5rem;
+  height: 2rem;
+  -webkit-border-radius: 0.25rem;
+  border-radius: 0.25rem;
   background: rgba(137,195,235,0.6);
-  text-indent: 0.75rem;
-  font-size: 0.9rem;
+  text-indent: 0.5rem;
+  font-size: 0.8rem;
   color: #fff;
+  margin-bottom: 0.5rem;
 }
-.page .account .input:first-child {
-  margin-bottom: 1px;
+.page .account input[type=file] {
+  display: none;
 }
 .page .account select {
   width: 100%;
@@ -86,23 +90,33 @@ body {
   font-size: 0.95rem;
   text-indent: 0.75rem;
 }
+.page .account .icon-camera {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background: url("icon/camera.png");
+  -webkit-background-size: 3rem 3rem;
+  -moz-background-size: 3rem 3rem;
+  background-size: 3rem 3rem;
+  margin: 0 auto 1rem auto;
+}
 .page .account .btn {
   display: block;
-  width: 5rem;
+  width: 50%;
   height: 2.5rem;
-  margin: 2.5rem auto 0 auto;
-  -webkit-border-radius: 0.5rem;
-  border-radius: 0.5rem;
+  margin: 1rem auto 0 auto;
+  -webkit-border-radius: 0.25rem;
+  border-radius: 0.25rem;
   background: #89c3eb;
   font-size: 0.9rem;
   color: #fff;
 }
 .page .other {
-  margin-top: 2.25rem;
+  margin-top: 2rem;
 }
 .page .other .text {
   color: #999;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .page .other .social {
   margin-top: 1rem;

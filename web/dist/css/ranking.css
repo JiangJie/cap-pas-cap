@@ -18,6 +18,7 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 html,
 body,
@@ -47,6 +48,52 @@ body {
 textarea {
   resize: none;
 }
+.hide {
+  display: none;
+}
+.tabs {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  padding: 0.75rem 1rem 0 1rem;
+  border-bottom: 0.75rem solid #f5f5f5;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.tabs:not(.justify) .tab {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.tab {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.tab.active {
+  color: #298ccf;
+}
+.tab.active .bar {
+  display: block;
+  background: #298ccf;
+}
+.tab .bar {
+  display: none;
+  width: 100%;
+  height: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  border-radius: 0.2rem;
+}
 footer {
   display: -webkit-box;
   display: -moz-box;
@@ -60,6 +107,7 @@ footer {
   bottom: 0;
   padding-top: 0.5rem;
   border-top: 1px solid #ccc;
+  background: #fff;
 }
 footer .icon-menu {
   position: relative;
@@ -134,39 +182,6 @@ footer .icon-menu:active.profile,
 footer .icon-menu.active.profile {
   background-image: url("icon/profile-active.png");
 }
-.page header .tabs {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  width: 100%;
-}
-.page header .tab {
-  text-align: center;
-  font-size: 0.9rem;
-}
-.page header .tab.active {
-  color: #298ccf;
-}
-.page header .tab.active .bar {
-  display: block;
-  background: #298ccf;
-}
-.page header .tab .bar {
-  display: none;
-  width: 100%;
-  height: 0.2rem;
-  -webkit-border-radius: 0.2rem;
-  border-radius: 0.2rem;
-}
 .page .ranking .top3 {
   background: url("img/ballon-bg.jpg") no-repeat;
   background-position: center;
@@ -178,7 +193,7 @@ footer .icon-menu.active.profile {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  padding-bottom: 2rem;
+  padding: 0.75rem 1rem 2.75rem 1rem;
 }
 .page .ranking .top3:before {
   content: "";
@@ -227,11 +242,11 @@ footer .icon-menu.active.profile {
 }
 .page .ranking .top3 .logo {
   display: inline-block;
-  width: 5rem;
-  height: 5rem;
-  -webkit-background-size: 5rem 5rem;
-  -moz-background-size: 5rem 5rem;
-  background-size: 5rem 5rem;
+  width: 4rem;
+  height: 4rem;
+  -webkit-background-size: 4rem 4rem;
+  -moz-background-size: 4rem 4rem;
+  background-size: 4rem 4rem;
   background-position: center;
   background-image: url("img/kfc.png");
 }
@@ -253,11 +268,11 @@ footer .icon-menu.active.profile {
   order: -2;
 }
 .page .ranking .top3 .name {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #333;
 }
 .page .ranking .top3 .participator {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #666;
 }
 .page .ranking .me {
@@ -273,11 +288,46 @@ footer .icon-menu.active.profile {
   font-size: 0.7rem;
 }
 .page .ranking .others .item {
+  padding: 0 0.75rem;
   border-bottom: 1px solid #ccc;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 3.5rem;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.page .ranking .others .left {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 .page .ranking .others .index {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #298ccf;
+  margin-right: 1rem;
 }
 .page .ranking .others .logo {
   display: inline-block;
@@ -288,12 +338,14 @@ footer .icon-menu.active.profile {
   background-size: 2.5rem 2.5rem;
   background-position: center;
   background-image: url("img/kfc.png");
+  margin-right: 1rem;
 }
 .page .ranking .others .name {
   color: #333;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 .page .ranking .others .participator {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #666;
 }

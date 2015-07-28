@@ -18,6 +18,7 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 html,
 body,
@@ -57,9 +58,16 @@ textarea {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  padding: 0 1rem;
+  padding: 0.75rem 1rem 0 1rem;
+  border-bottom: 0.75rem solid #f5f5f5;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
-.tab {
+.tabs:not(.justify) .tab {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -67,6 +75,8 @@ textarea {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+.tab {
   text-align: center;
   font-size: 0.9rem;
 }
@@ -89,7 +99,6 @@ textarea {
   top: 0;
   z-index: 2;
   width: 100%;
-  padding-top: 0.5rem;
   height: 2rem;
   background: #fff;
 }
@@ -222,6 +231,7 @@ textarea {
 }
 .page .review article {
   padding: 0.5rem;
+  margin-bottom: 0.75rem;
   -webkit-border-radius: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #797979;

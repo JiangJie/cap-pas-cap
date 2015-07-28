@@ -18,6 +18,7 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 html,
 body,
@@ -57,9 +58,16 @@ textarea {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  padding: 0 1rem;
+  padding: 0.75rem 1rem 0 1rem;
+  border-bottom: 0.75rem solid #f5f5f5;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
-.tab {
+.tabs:not(.justify) .tab {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -67,6 +75,8 @@ textarea {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+.tab {
   text-align: center;
   font-size: 0.9rem;
 }
@@ -84,6 +94,75 @@ textarea {
   -webkit-border-radius: 0.2rem;
   border-radius: 0.2rem;
 }
+.main {
+  padding: 0 1rem;
+  position: relative;
+  overflow-y: auto;
+}
+.main .content {
+  padding: 0.5rem 0;
+}
+.main .title {
+  border-left: 0.25rem solid #000;
+  text-indent: 1rem;
+  font-size: 0.8rem;
+}
+.main .item {
+  height: 10rem;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: 0.5rem;
+}
+.main .detail {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.6);
+  text-indent: 0.5rem;
+}
+.main .name {
+  font-size: 0.8rem;
+}
+.main .icon-time {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: url("icon/time.png");
+  -webkit-background-size: 1rem 1rem;
+  -moz-background-size: 1rem 1rem;
+  background-size: 1rem 1rem;
+  position: relative;
+  top: 0.2rem;
+}
+.main .icon-location {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: url("icon/location.png");
+  -webkit-background-size: 1rem 1rem;
+  -moz-background-size: 1rem 1rem;
+  background-size: 1rem 1rem;
+  position: relative;
+  top: 0.2rem;
+}
+.main .time {
+  color: #333;
+  font-size: 0.7rem;
+}
+.main .price {
+  color: #298ccf;
+  font-size: 1.2rem;
+}
+.main .coins {
+  color: #666;
+  font-size: 0.7rem;
+}
+.main .location {
+  font-size: 0.7rem;
+}
 footer {
   display: -webkit-box;
   display: -moz-box;
@@ -97,6 +176,7 @@ footer {
   bottom: 0;
   padding-top: 0.5rem;
   border-top: 1px solid #ccc;
+  background: #fff;
 }
 footer .icon-menu {
   position: relative;
@@ -253,76 +333,4 @@ body {
   line-height: 1.5rem;
   text-decoration: none;
   float: right;
-}
-.page .separation {
-  border-bottom: 0.5rem solid #f5f5f5;
-}
-.page .main {
-  padding: 0 1rem;
-  position: relative;
-  overflow-y: auto;
-}
-.page .main .content {
-  padding: 0.5rem 0;
-}
-.page .main .title {
-  border-left: 0.25rem solid #000;
-  text-indent: 1rem;
-  font-size: 0.8rem;
-}
-.page .main .item {
-  height: 10rem;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-top: 0.5rem;
-}
-.page .main .detail {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.6);
-  text-indent: 0.5rem;
-}
-.page .main .name {
-  font-size: 0.8rem;
-}
-.page .main .icon-time {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background: url("icon/time.png");
-  -webkit-background-size: 1rem 1rem;
-  -moz-background-size: 1rem 1rem;
-  background-size: 1rem 1rem;
-  position: relative;
-  top: 0.2rem;
-}
-.page .main .icon-location {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background: url("icon/location.png");
-  -webkit-background-size: 1rem 1rem;
-  -moz-background-size: 1rem 1rem;
-  background-size: 1rem 1rem;
-  position: relative;
-  top: 0.2rem;
-}
-.page .main .time {
-  color: #333;
-  font-size: 0.7rem;
-}
-.page .main .price {
-  color: #298ccf;
-  font-size: 1.2rem;
-}
-.page .main .coins {
-  color: #666;
-  font-size: 0.7rem;
-}
-.page .main .location {
-  font-size: 0.7rem;
 }

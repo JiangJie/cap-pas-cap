@@ -12,22 +12,21 @@
 <section class="page">
     <header>
         <section class="tabs">
-            <div id="merchantTab" class="tab active">
+            <div class="tab active" data-tab="merchant">
                 <span class="text">Merchant</span>
                 <div class="bar"></div>
             </div>
-            <div id="individualTab" class="tab">
+            <div class="tab" data-tab="individual">
                 <span class="text">Individual</span>
                 <div class="bar"></div>
             </div>
         </section>
     </header>
-    <section class="separation"></section>
-    <section class="result">
+    <section class="main">
         {% if type %}
         <section class="type">{{ type|title }}</section>
         {% endif %}
-        <section id="merchantContent" class="merchant">
+        <section class="content merchant" data-content="merchant">
             <article class="list">
                 <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
                     <div class="detail">
@@ -46,6 +45,7 @@
                 </section>
             </article>
         </section>
+        <section class="content individual hide" data-content="individual"></section>
     </section>
 </section>
 {% endblock %}

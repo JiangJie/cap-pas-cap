@@ -13,22 +13,116 @@
 {% block page %}
 <section class="page">
     <header>
-        <section class="tabs">
-            <div class="tab{% if type !== 'participation' && type !== 'winning' %} active{% endif %}">
+        <section class="tabs justify">
+            <div class="tab{% if type !== 'participation' && type !== 'winning' %} active{% endif %}" data-tab="popularity">
                 <span class="text">Popularity</span>
                 <div class="bar"></div>
             </div>
-            <div class="tab{% if type === 'participation' %} active{% endif %}">
+            <div class="tab{% if type === 'participation' %} active{% endif %}" data-tab="participation">
                 <span class="text">Participation Times</span>
                 <div class="bar"></div>
             </div>
-            <div class="tab{% if type === 'winning' %} active{% endif %}">
+            <div class="tab{% if type === 'winning' %} active{% endif %}" data-tab="winning">
                 <span class="text">Winning Times</span>
                 <div class="bar"></div>
             </div>
         </section>
     </header>
-    <section class="ranking">
+    <section class="ranking" data-content="popularity">
+        <section class="top3">
+            <div class="item first">
+                <span class="crown icon-first"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item second">
+                <span class="crown icon-second"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item third">
+                <span class="crown icon-third"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+        </section>
+        {% if type === 'participation' %}
+        <section class="me">
+            <p>You have participated {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% elseif type === 'winning' %}
+        <section class="me">
+            <p>You have won {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% endif %}
+        <section class="others">
+            <section class="item">
+                <span class="left">
+                    <span class="index">4</span>
+                    <span class="logo"></span>
+                    <span class="name">KFC</span>
+                </span>
+                <span class="participator">3182 participators</span>
+            </section>
+            <section class="item">
+                <span class="left">
+                    <span class="index">5</span>
+                    <span class="logo"></span>
+                    <span class="name">KFC</span>
+                </span>
+                <span class="participator">3182 participators</span>
+            </section>
+        </section>
+    </section>
+    <section class="ranking hide" data-content="participation">
+        <section class="top3">
+            <div class="item first">
+                <span class="crown icon-first"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item second">
+                <span class="crown icon-second"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+            <div class="item third">
+                <span class="crown icon-third"></span>
+                <div class="logo"></div>
+                <p class="name">BURGER KING</p>
+                <p class="participator">3182 participators</p>
+            </div>
+        </section>
+        {% if type === 'participation' %}
+        <section class="me">
+            <p>You have participated {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% elseif type === 'winning' %}
+        <section class="me">
+            <p>You have won {{ myNum }} challenges, cheer up!</p>
+        </section>
+        {% endif %}
+        <section class="others">
+            <section class="item">
+                <span class="index">4</span>
+                <span class="logo"></span>
+                <span class="name">KFC</span>
+                <span class="participator">3182 participators</span>
+            </section>
+            <section class="item">
+                <span class="index">5</span>
+                <span class="logo"></span>
+                <span class="name">KFC</span>
+                <span class="participator">3182 participators</span>
+            </section>
+        </section>
+    </section>
+    <section class="ranking hide" data-content="winning">
         <section class="top3">
             <div class="item first">
                 <span class="crown icon-first"></span>

@@ -1,0 +1,64 @@
+.main {
+    padding: 0 1rem;
+    position: relative;
+    overflow-y: auto;
+
+    .content {
+        padding: .5rem 0;
+    }
+    .title {
+        border-left: .25rem solid black;
+        text-indent: 1rem;
+        font-size: .8rem;
+    }
+    .item {
+        height: 10rem;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        margin-top: .5rem;
+    }
+    .detail {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(255,255,255,.6);
+        text-indent: .5rem;
+    }
+    .name {
+        font-size: .8rem;
+    }
+    .icon-time {
+        display: inline-block;
+        width: 1rem;
+        height: @width;
+        background: url(icon/time.png);
+        background-size: @width @height;
+        position: relative;
+        top: .2rem;
+    }
+    .icon-location {
+        display: inline-block;
+        width: 1rem;
+        height: @width;
+        background: url(icon/location.png);
+        background-size: @width @height;
+        position: relative;
+        top: .2rem;
+    }
+    .time {
+        color: #333;
+        font-size: .7rem;
+    }
+    .price {
+        color: #298CCF;
+        font-size: 1.2rem;
+    }
+    .coins {
+        color: #666;
+        font-size: .7rem;
+    }
+    .location {
+        font-size: .7rem;
+    }
+}

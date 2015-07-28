@@ -18,6 +18,7 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 html,
 body,
@@ -77,23 +78,29 @@ textarea {
 .page input[type=file] {
   display: none;
 }
+.page .img {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  -webkit-background-size: 4rem 4rem;
+  -moz-background-size: 4rem 4rem;
+  background-size: 4rem 4rem;
+  background-position: center;
+  float: left;
+  margin-right: 0.5rem;
+}
 .page .btn-add {
   display: inline-block;
-  width: 4.45rem;
-  height: 4.45rem;
-}
-.page .icon-add {
-  display: inline-block;
-  width: 4.25rem;
-  height: 4.25rem;
+  width: 3.8rem;
+  height: 3.8rem;
   border: 0.1rem solid #d7d7d7;
   position: relative;
 /*        left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);*/
 }
-.page .icon-add:before,
-.page .icon-add:after {
+.page .btn-add:before,
+.page .btn-add:after {
   content: "";
   display: inline-block;
   background: #d7d7d7;
@@ -106,11 +113,11 @@ textarea {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.page .icon-add:before {
+.page .btn-add:before {
   width: 2.75rem;
   height: 0.1rem;
 }
-.page .icon-add:after {
+.page .btn-add:after {
   width: 0.1rem;
   height: 2.75rem;
 }

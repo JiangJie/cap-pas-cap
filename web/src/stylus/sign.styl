@@ -12,27 +12,29 @@ body {
     top: 1rem;
     bottom: 1rem;
     background: rgba(255, 255, 255, .6);
-    padding: 0 1.75rem;
+    padding: 0 1rem;
 
     .logo {
+        color: #298CCF;
         text-align: center;
-        padding: 2.5rem;
+        padding: 2rem 0;
+        font-size: 2rem;
     }
 
     .account {
         .input {
             display: block;
             width: 100%;
-            height: 3.5rem;
-            border-radius: .5rem;
+            height: 2rem;
+            border-radius: .25rem;
             background: rgba(137, 195, 235, .6);
-            text-indent: .75rem;
-            font-size: .9rem;
+            text-indent: .5rem;
+            font-size: .8rem;
             color: #fff;
-
-            &:first-child {
-                margin-bottom: 1px;
-            }
+            margin-bottom: .5rem;
+        }
+        input[type=file] {
+            display: none;
         }
         select {
             width: 100%;
@@ -40,22 +42,30 @@ body {
             font-size: 0.95rem;
             text-indent: 0.75rem;
         }
+        .icon-camera {
+            display: block;
+            width: 3rem;
+            height: @width;
+            background: url(icon/camera.png);
+            background-size: @width @height;
+            margin: 0 auto 1rem auto;
+        }
         .btn {
             display: block;
-            width: 5rem;
+            width: 50%;
             height: 2.5rem;
-            margin: 2.5rem auto 0 auto;
-            border-radius: .5rem;
+            margin: 1rem auto 0 auto;
+            border-radius: .25rem;
             background: rgb(137, 195, 235);
             font-size: .9rem;
             color: #fff;
         }
     }
     .other {
-        margin-top: 2.25rem;
+        margin-top: 2rem;
         .text {
             color: #999;
-            font-size: .9rem;
+            font-size: .8rem;
         }
         .social {
             margin-top: 1rem;

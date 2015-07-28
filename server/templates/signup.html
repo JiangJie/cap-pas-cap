@@ -10,8 +10,11 @@
 
 {% block page %}
 <section class="page">
+    <h1 class="logo">Cap Pas Cap</h1>
     <section class="account">
         <form id="signupForm" action="/api/signup" method="POST">
+            <input id="file" type="file">
+            <label for="file" class="icon-camera"></label>
             <input id="uidInput" class="input" type="email" name="uid" placeholder="Email Address" required maxlength="100">
             <input id="pwdInput" class="input" type="password" name="pwd" placeholder="Password" required maxlength="20">
             <input id="repwdInput" class="input" type="password" name="repwd" placeholder="Confirm Password" required maxlength="20">
