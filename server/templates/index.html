@@ -13,7 +13,9 @@
     <header>
         <section class="search">
             <span class="icon-search"></span>
-            <input type="search" class="input" placeholder="search challenge">
+            <form action="/page/search/result" method="GET">
+                <input type="search" class="input" name="q" placeholder="search challenge">
+            </form>
         </section>
         <section class="create">
             <a class="icon-create" href="/page/publish">+ create</a>

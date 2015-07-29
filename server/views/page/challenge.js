@@ -28,6 +28,10 @@ exports.comment = function*() {
 };
 
 exports.search = function*() {
+    const q = (this.query.q || '').trim();
+
+    q && (this.state.challenges = yield* Challenge.queryByName(q));
+
     this.state.type = 'sport';
     yield* this.render('result');
 };

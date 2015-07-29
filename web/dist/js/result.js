@@ -3,6 +3,15 @@
 
 var $ = window.$ || window.Zepto;
 
+$('[data-cid]').on('tap', function() {
+    var cid = this.dataset.cid;
+    window.location.href = '/page/challenge/' + cid;
+});
+},{}],2:[function(require,module,exports){
+'use strict';
+
+var $ = window.$ || window.Zepto;
+
 var $tabs = $('[data-tab]');
 var $contents = $('[data-content]');
 
@@ -18,8 +27,9 @@ $tabs.on('tap', function() {
     $contents.addClass('hide');
     $contents.filter('[data-content=' + name + ']').removeClass('hide');
 });
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 require('./mylib/tabs');
-},{"./mylib/tabs":1}]},{},[2]);
+require('./mylib/cid');
+},{"./mylib/cid":1,"./mylib/tabs":2}]},{},[3]);

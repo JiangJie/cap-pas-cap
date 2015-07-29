@@ -57,3 +57,8 @@ exports.groupByLaunch = function*() {
         return ret;
     }, {});
 };
+
+exports.queryByName = function*(q) {
+    q = new RegExp(q, 'ig');
+    return yield Challenge.find({name: q});
+};
