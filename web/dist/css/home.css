@@ -185,11 +185,16 @@ footer .icon-menu.active.profile {
 .page header .icon-male {
   width: 1.5rem;
   height: 1.5rem;
-  background: url("icon/male.png");
   -webkit-background-size: 1.5rem 1.5rem;
   -moz-background-size: 1.5rem 1.5rem;
   background-size: 1.5rem 1.5rem;
   background-position: center;
+}
+.page header .icon-male.M {
+  background-image: url("icon/male.png");
+}
+.page header .icon-male.F {
+  background-image: url("icon/female.png");
 }
 .page header .info {
   padding: 0.5rem 0;

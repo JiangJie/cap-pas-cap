@@ -41,9 +41,15 @@
         .icon-male {
             width: 1.5rem;
             height: @width;
-            background: url(icon/male.png);
             background-size: @width @height;
             background-position: center;
+
+            &.M {
+                background-image: url(icon/male.png);
+            }
+            &.F {
+                background-image: url(icon/female.png);
+            }
         }
         .info {
             padding: .5rem 0;

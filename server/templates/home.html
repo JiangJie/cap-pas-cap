@@ -17,7 +17,7 @@
         {% endif %}
         <span class="icon-crown"></span>
         <section class="info">
-            <span class="icon-male"></span>
+            <span class="icon-male {{ ta.gender|default('') }}"></span>
             <span class="nickname">{{ ta.nickname }}</span>
             <span class="follower border-right">15 Followers</span>
             <span class="following">20 Followings</span>
