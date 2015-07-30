@@ -15,3 +15,7 @@ exports.publish = function*(next) {
 exports.search = function*(next) {
     yield * this.render('search');
 };
+
+exports.moment = function*() {
+    yield * this.render('moment');
+};

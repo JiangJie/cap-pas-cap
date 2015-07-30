@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = window.$ || window.Zepto;
+var $ = window.Zepto || window.$;
 
 var $tabs = $('[data-tab]');
 var $contents = $('[data-content]');

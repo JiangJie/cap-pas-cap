@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = window.$ || window.Zepto;
+var $ = window.Zepto || window.$;
 
 $('[data-cid]').on('tap', function() {
     var cid = this.dataset.cid;

@@ -34,6 +34,7 @@ PAGE.get('show signup page', '/signup', Page.signup);
 PAGE.get('show signin page', '/signin', Page.signin);
 PAGE.get('show publish challenge page', '/publish', Page.publish);
 PAGE.get('show search challenge page', '/search', Page.search);
+PAGE.get('show moment page', '/moment', Page.moment);
 PAGE.get('show challenge detail page', '/challenge/:cid', challengePage.detail);
 PAGE.get('show publish challenge review page', '/challenge/:cid/review/publish', challengePage.review);
 PAGE.get('show challenge review\'s comments page', '/challenge/:cid/review/:rid', challengePage.comment);
@@ -41,11 +42,15 @@ PAGE.get('show ranking list page', '/ranking', challengePage.ranking);
 PAGE.get('show presonal home page', '/u/:uid?', userPage.home);
 PAGE.get('show challenge search result page', '/search/result', challengePage.search);
 
-API.post('register a new user', '/signup', bodyParser(), validate(), Validator.checkSignUser, Api.signup, Common.success);
+API.post('register a new user', '/signup', bodyParser({
+    formLimit: '10mb',
+    jsonLimit: '10mb'
+}), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);
 API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, bodyParser(), challengeApi.publish, Common.success);
 
 exports.register = function(app) {
+    app.use(Validator.checkLogin);
     app.use(mount('/', ROOT.middleware()));
     app.use(mount('/admin', ADMIN.middleware()));
     app.use(mount('/page', PAGE.middleware()));

@@ -56,9 +56,10 @@ function* respond(err) {
             message: err && err.message || 'Not Found'
         };
         if(html) {
-            if(this.status === 403) return this.body = {
-                message: err && err.message || 'Forbidden'
-            };
+            // if(this.status === 403) return this.body = {
+            //     message: err && err.message || 'Forbidden'
+            // };
+            if(this.status === 403) return this.redirect('/page/signin');
             if(this.status === 404) return yield* this.render('404');
             if(this.status === 406) return yield* this.render('406', {msg: err && err.message || 'Not Acceptable'});
         }

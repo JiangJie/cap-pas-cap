@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/moment.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/moment.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <header>
+        <section class="tabs">
+            <div class="tab active" data-tab="merchant">
+                <span class="text">Merchant</span>
+                <div class="bar"></div>
+            </div>
+            <div class="tab" data-tab="individual">
+                <span class="text">Individual</span>
+                <div class="bar"></div>
+            </div>
+        </section>
+    </header>
+    <section class="content merchant" data-content="merchant">
+    </section>
+    <section class="content individual hide" data-content="individual"></section>
+</section>
+{% endblock %}

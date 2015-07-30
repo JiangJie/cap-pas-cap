@@ -12,10 +12,12 @@ exports.signup = function*(next) {
     const pwd = params.pwd;
     const nickname = params.nickname;
     const gender = params.gender;
+    const logo = params.logo;
 
     const user = {uid, pwd};
     nickname && (user.nickname = nickname);
     gender && (user.gender = gender);
+    logo && (user.logo = logo);
 
     yield* User.create(user);
 

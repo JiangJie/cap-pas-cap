@@ -28,7 +28,10 @@ exports.checkSignUser = function*(next) {
 };
 
 exports.checkLogin = function*(next) {
-    if(this.state.user) return yield* next;
+    const whiteList = ['/page/signup', '/page/signin'];
+
+    const path = this.path;
+    if(~whiteList.indexOf(path) || this.state.user) return yield* next;
 
     this.throw(new ERROR.ForbiddenError('no login'));
 };

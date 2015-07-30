@@ -28,6 +28,11 @@ exports.getLastDay = function() {
     t -= 3600 * 24 * 1000;
     return new Date(t);
 };
+exports.getNextYear = function() {
+    let t = Date.now();
+    t += 365 * 3600 * 24 * 1000;
+    return new Date(t);
+};
 
 // uid直接保存到user表
 // pwd经过md5保存到user表

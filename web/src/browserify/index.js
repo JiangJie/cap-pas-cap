@@ -1,12 +1,11 @@
 'use strict';
 
-var $ = window.$ || window.Zepto;
+var $ = window.Zepto || window.$;
 
 require('./mylib/tabs');
 require('./mylib/cid');
+require('./mylib/footer');
 
-$('.page > .main').height($(document.body).height() - $('.page > header').height() - $('.page > footer').height() - $('.page > .tabs').height());
-
-$('#profileMenu').on('tap', function() {
-    window.location.href = '/page/u';
-});
+(function init() {
+    $('.page > .main').height($(document.body).height() - $('.page > header').height() - $('.page > footer').height() - $('.page > .tabs').height());
+})();
