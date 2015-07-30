@@ -2,7 +2,25 @@
 'use strict';
 
 require('./mylib/tabs');
-},{"./mylib/tabs":2}],2:[function(require,module,exports){
+require('./mylib/footer');
+},{"./mylib/footer":2,"./mylib/tabs":3}],2:[function(require,module,exports){
+'use strict';
+
+var $ = window.Zepto || window.$;
+
+$('#challengeMenu').on('tap', function() {
+    window.location.href = '/';
+});
+$('#rankingMenu').on('tap', function() {
+    window.location.href = '/page/ranking';
+});
+$('#momentMenu').on('tap', function() {
+    window.location.href = '/page/moment';
+});
+$('#profileMenu').on('tap', function() {
+    window.location.href = '/page/u';
+});
+},{}],3:[function(require,module,exports){
 'use strict';
 
 var $ = window.Zepto || window.$;

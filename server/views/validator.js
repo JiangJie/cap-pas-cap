@@ -28,7 +28,7 @@ exports.checkSignUser = function*(next) {
 };
 
 exports.checkLogin = function*(next) {
-    const whiteList = ['/page/signup', '/page/signin'];
+    const whiteList = ['/page/signup', '/page/signin', '/api/signup', '/api/signin'];
 
     const path = this.path;
     if(~whiteList.indexOf(path) || this.state.user) return yield* next;
