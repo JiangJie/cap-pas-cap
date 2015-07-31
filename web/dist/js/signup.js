@@ -59,8 +59,8 @@ function bindEvent() {
         var reader = new FileReader();
         reader.onload = function(e) {
             console.log('file reader onload', e);
-            $logo.css('background-image', 'url(' + e.target.result + ');');
             logoBase64 = e.target.result;
+            $logo.css('background-image', 'url(' + logoBase64 + ');');
         };
         reader.readAsDataURL(file);
     });

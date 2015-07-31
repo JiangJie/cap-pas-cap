@@ -1,5 +1,8 @@
 'use strong';
 
+const gm = require('gm');
+const Promise = require('bluebird');
+
 const Challenge = require('../../models/challenge');
 const Util = require('../../lib/util');
 
@@ -21,12 +24,29 @@ exports.publish = function*(next) {
     const desc = params.desc;
     const difficulty = Number(params.difficulty);
     const launch = params.launch;
+    const imgs = params.imgs;
 
     const chall = {uid, name, start, end, location, fee, max, desc};
 
     deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);
     launch && (chall.launch = launch);
+
+    if(imgs) {
+        chall.imgs = yield imgs.map(function(img) {
+            return (function*() {
+                let prefix = 'data:image/jpeg;base64,';
+                img = img.replace(/^data:image\/[^;]+;base64,/, function(pre) {
+                    prefix = pre;
+                    return '';
+                });
+                img = new Buffer(img, 'base64');
+                const gmer = gm(img).resize(500);
+                const buffer = yield Promise.promisify(gmer.toBuffer).call(gmer);
+                return prefix + buffer.toString('base64');
+            })();
+        });
+    }
 
     chall.create = new Date();
 

@@ -47,7 +47,10 @@ API.post('register a new user', '/signup', bodyParser({
     jsonLimit: '10mb'
 }), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);
-API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, bodyParser(), challengeApi.publish, Common.success);
+API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, bodyParser({
+    formLimit: '15mb',
+    jsonLimit: '15mb'
+}), challengeApi.publish, Common.success);
 
 exports.register = function(app) {
     app.use(Validator.checkLogin);

@@ -4,6 +4,9 @@ var $ = window.$ || window.Zepto;
 
 function bindEvent() {
     var $difficultys = $('.icon-difficulty');
+    var $file = $('#file');
+    var imgsBase64 = [];
+
     $difficultys.on('tap', function() {
         var i = Number(this.dataset.i);
 
@@ -47,6 +50,7 @@ function bindEvent() {
 
         deadline && (data.deadline = deadline);
         difficulty && (data.difficulty = difficulty);
+        imgsBase64.length && (data.imgs = imgsBase64);
 
         console.log(data);
 
@@ -56,6 +60,7 @@ function bindEvent() {
             data: data
         }).done(function(res) {
             console.log(res);
+            window.location.href = '/page/challenge/' + res.result.cid;
         }).fail(function(xhr) {
             if(xhr.status === 403) {
                 var flag = confirm('还未登录，先去登录吗？');
@@ -67,7 +72,6 @@ function bindEvent() {
     // 缓存已选文件的文件名，避免重复选择
     var max = 5;
     var cache = [];
-    var $file = $('#file');
     $file.on('change', function(e) {
         console.log('file change', e);
 
@@ -92,7 +96,10 @@ function bindEvent() {
             var reader = new FileReader();
             reader.onload = function(e) {
                 console.log('file reader onload', e);
-                $('<div class="img" style="background-image: url(' + e.target.result + ');"></div>').insertBefore($file);
+                var img = e.target.result;
+                $('<div class="img" style="background-image: url(' + img + ');"></div>').insertBefore($file);
+
+                imgsBase64.push(img);
             };
             reader.readAsDataURL(file);
         });

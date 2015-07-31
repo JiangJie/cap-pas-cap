@@ -47,7 +47,8 @@ exports.groupByLaunch = function*() {
                     cid: '$cid',
                     name: '$name',
                     fee: '$fee',
-                    location: '$location'
+                    location: '$location',
+                    imgs: '$imgs'
                 }
             }
         });
