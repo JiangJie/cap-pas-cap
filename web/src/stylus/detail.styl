@@ -10,10 +10,41 @@
         height: 2rem;
         background: #fff;
     }
+    > footer {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, .75);
+        z-index: 2;
+        width: 100%;
+        height: 3rem;
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .fee {
+            font-size: .8rem;
+        }
+        .join {
+            font-size: .7rem;
+        }
+        .btn {
+            font-size: .8rem;
+            color: #fff;
+            width: 35%;
+            height: 2rem;
+            line-height: @height;
+            border-radius: @height;
+            background: #298CCF;
+            text-decoration: none;
+            text-align: center;
+        }
+    }
     > .content {
         position: relative;
         top: 2.5rem;
         z-index: 1;
+        margin-bottom: 3.5rem;
     }
     .cover {
         height: 10rem;
@@ -48,12 +79,16 @@
                 display: inline-block;
                 width: 1.2rem;
                 height: @width;
-                background: url(icon/like.png);
+                background-image: url(icon/like.png);
                 background-size: @width @height;
                 position: absolute;
                 top: 50%;
                 left: .75rem;
                 transform: translateY(-50%);
+            }
+
+            &.done:before {
+                background-image: url(icon/like-done.png);
             }
         }
     }

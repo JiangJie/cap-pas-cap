@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/order.css">
+{% endblock %}
+
+{% block js %}
+<script src="/js/order.js"></script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <section class="info">
+        <div class="img" style="background-image: url(/css/img/item.jpg);"></div>
+        <div class="text">
+            <p class="name">Color Color I Love You</p>
+            <p class="time">Time: 2015.6.8-2015.8.7</p>
+            <p class="location">Location: No.80 Tachee Avenue, Kowloon</p>
+        </div>
+    </section>
+    <section class="detail">
+        <p class="title">Order Details</p>
+        <p class="item fee">
+            <span>Price</span>
+            <span>c-coin <span id="price">50</span></span>
+        </p>
+        <p class="item amount">
+            <span>Amount</span>
+            <span class="num">
+                <span id="div" class="icon-div">-</span>
+                <span id="num">1</span>
+                <span id="add" class="icon-add">+</span>
+            </span>
+        </p>
+        <p class="item price">
+            <span>Total Price</span>
+            <span class="total">c-coin <span id="total">50</span></span>
+        </p>
+    </section>
+    <footer>
+        <button id="join" class="btn">Join</button>
+    </footer>
+</section>
+{% endblock %}

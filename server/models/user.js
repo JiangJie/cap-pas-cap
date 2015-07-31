@@ -23,3 +23,19 @@ exports.getInfo = function*(uid) {
         logo: 1
     });
 };
+
+exports.addFavorite = function*(uid, cid) {
+    return yield User.findOne({uid: uid}).addToSet({favorites: cid});
+};
+
+exports.hasFavorited = function*(uid, cid) {
+    return !!(yield User.findOne({uid: uid, favorites: cid}));
+};
+
+exports.addJoin = function*(uid, cid) {
+    return yield User.findOne({uid: uid}).addToSet({joins: cid});
+};
+
+exports.getJoinedCount = function*(cid) {
+    return yield User.count({joins: cid});
+};

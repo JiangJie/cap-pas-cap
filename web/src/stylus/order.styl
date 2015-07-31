@@ -1,0 +1,85 @@
+@import "_layout";
+
+.info {
+    border-top: .75rem solid #f5f5f5;
+    border-bottom: .75rem solid #f5f5f5;
+    padding: .5rem 1rem;
+    display: flex;
+
+    .img {
+        width: 6.75rem;
+        height: 8.25rem;
+        background-size: cover;
+        background-position: center;
+    }
+    .text {
+        margin-left: 1rem;
+    }
+    .name {
+        font-size: .9rem;
+        color: #333;
+    }
+    .time, .location {
+        font-size: .8rem;
+        color: #666;
+        margin-top: .5rem;
+    }
+}
+
+.detail {
+    border-bottom: .75rem solid #f5f5f5;
+    padding: 0 1rem;
+    
+    .item {
+        border-top: 1px solid #f5f5f5;
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .title {
+        font-size: .9rem;
+        color: #333;
+        border-left: .1rem solid #298CCF;
+        text-indent: .5rem;
+        margin: .5rem 0;
+    }
+    .fee, .amount, .price {
+        font-size: .8rem;
+        color: #666;
+    }
+    .num {
+        display: flex;
+        align-items: center;
+    }
+    .icon-div, .icon-add {
+        display: inline-block;
+        width: 1rem;
+        height: @width;
+        background: #ccc;
+        text-align: center;
+        margin: 0 .5rem;
+    }
+    .total {
+        color: #fd575d;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, .75);
+    width: 100%;
+    padding: .5rem 0;
+
+    .btn {
+        display: block;
+        font-size: .8rem;
+        color: #fff;
+        width: 80%;
+        height: 2rem;
+        margin: 0 auto;
+        border-radius: @height;
+        background: #298CCF;
+    }
+}

@@ -35,7 +35,11 @@
                 <p>{{ challenge.name }}</p>
             </section>
             <section class="like">
-                <button class="btn">Favorites</button>
+                {% if challenge.hasFavorited %}
+                <button id="favorite" class="btn done" data-cid="{{ challenge.cid }}">Favorited</button>
+                {% else %}
+                <button id="favorite" class="btn" data-cid="{{ challenge.cid }}">Favorite</button>
+                {% endif %}
             </section>
             <section class="info">
                 <div class="item">
@@ -139,5 +143,10 @@
             </article>
         </section>
     </section>
+    <footer>
+        <span class="fee">${{ challenge.fee }} (c-coin {{ challenge.fee * 0.95 }})</span>
+        <span class="join">{{ challenge.joinedCount|default(0) }} Joined</span>
+        <a class="btn" href="/page/challenge/{{ challenge.cid }}/order">Join</a>
+    </footer>
 </section>
 {% endblock %}

@@ -1,14 +1,19 @@
 'use strong';
 
+const User = require('../../models/user');
 const Challenge = require('../../models/challenge');
 
 exports.detail = function*() {
+    const uid = this.state.user.uid;
     const cid = this.params.cid;
 
     const chall = yield* Challenge.findByCid(cid);
 
     chall.difficulty = new Array(chall.difficulty || 1);
     chall.isOver = chall.deadline <= new Date();
+
+    chall.hasFavorited = yield* User.hasFavorited(uid, cid);
+    chall.joinedCount = yield* User.getJoinedCount(cid);
 
     this.state.challenge = chall;
 
@@ -34,4 +39,8 @@ exports.search = function*() {
 
     this.state.type = 'sport';
     yield* this.render('result');
+};
+
+exports.order = function*() {
+    yield * this.render('order');
 };
