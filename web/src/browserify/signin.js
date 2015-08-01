@@ -27,7 +27,10 @@ $signinForm.on('submit', function(e) {
     }).done(function(res) {
         console.log('success', res);
         window.location.href = '/';
-    }).fail(function() {
+    }).fail(function(err) {
         console.log('fail', arguments);
+        if(err.status === 403) return alert('E-mail and password not match.');
+
+        alert('Signin fail.');
     });
 });
