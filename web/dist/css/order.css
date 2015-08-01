@@ -163,3 +163,6 @@ footer .btn {
   border-radius: 2rem;
   background: #298ccf;
 }
+footer .btn.disabled {
+  background: #666;
+}

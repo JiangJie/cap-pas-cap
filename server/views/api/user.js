@@ -10,3 +10,12 @@ exports.favorite = function*(next) {
 
     yield* next;
 };
+
+exports.join = function*(next) {
+    const uid = this.state.user.uid;
+    const cid = this.params.cid;
+
+    yield* User.addJoin(uid, cid);
+
+    yield* next;
+};

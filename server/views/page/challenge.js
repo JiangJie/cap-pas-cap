@@ -13,6 +13,7 @@ exports.detail = function*() {
     chall.isOver = chall.deadline <= new Date();
 
     chall.hasFavorited = yield* User.hasFavorited(uid, cid);
+    chall.hasJoined = yield* User.hasJoined(uid, cid);
     chall.joinedCount = yield* User.getJoinedCount(cid);
 
     this.state.challenge = chall;
@@ -42,5 +43,14 @@ exports.search = function*() {
 };
 
 exports.order = function*() {
+    const uid = this.state.user.uid;
+    const cid = this.params.cid;
+
+    const chall = yield* Challenge.findByCid(cid);
+
+    chall.hasJoined = yield* User.hasJoined(uid, cid);
+
+    this.state.challenge = chall;
+
     yield * this.render('order');
 };

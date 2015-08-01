@@ -146,7 +146,11 @@
     <footer>
         <span class="fee">${{ challenge.fee }} (c-coin {{ challenge.fee * 0.95 }})</span>
         <span class="join">{{ challenge.joinedCount|default(0) }} Joined</span>
+        {% if challenge.hasJoined %}
+        <button class="btn disabled">Joined</button>
+        {% else %}
         <a class="btn" href="/page/challenge/{{ challenge.cid }}/order">Join</a>
+        {% endif %}
     </footer>
 </section>
 {% endblock %}

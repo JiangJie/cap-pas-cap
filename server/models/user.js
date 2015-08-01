@@ -36,6 +36,10 @@ exports.addJoin = function*(uid, cid) {
     return yield User.findOne({uid: uid}).addToSet({joins: cid});
 };
 
+exports.hasJoined = function*(uid, cid) {
+    return yield User.findOne({uid: uid, joins: cid});
+};
+
 exports.getJoinedCount = function*(cid) {
     return yield User.count({joins: cid});
 };

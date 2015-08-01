@@ -147,6 +147,9 @@ textarea {
   text-decoration: none;
   text-align: center;
 }
+.page > footer .btn.disabled {
+  background: #666;
+}
 .page > .content {
   position: relative;
   top: 2.5rem;
