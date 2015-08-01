@@ -70,6 +70,15 @@
                 <div class="img" style="background-image: url({{ img }});"></div>
                 {% endfor %}
             </section>
+            <footer>
+                <span class="fee">${{ challenge.fee }} (c-coin {{ challenge.fee * 0.95 }})</span>
+                <span class="join">{{ challenge.joinedCount|default(0) }} Joined</span>
+                {% if challenge.hasJoined %}
+                <button class="btn disabled">Joined</button>
+                {% else %}
+                <a class="btn" href="/page/challenge/{{ challenge.cid }}/order">Join</a>
+                {% endif %}
+            </footer>
         </section>
         {% if challenge.isOver %}
         <section class="moment hide" data-content="moment"></section>
@@ -141,16 +150,10 @@
                     </div>
                 </footer>
             </article>
+            <footer>
+                <a class="btn" href="/page/challenge/{{ challenge.cid }}/review/publish"></a>
+            </footer>
         </section>
     </section>
-    <footer>
-        <span class="fee">${{ challenge.fee }} (c-coin {{ challenge.fee * 0.95 }})</span>
-        <span class="join">{{ challenge.joinedCount|default(0) }} Joined</span>
-        {% if challenge.hasJoined %}
-        <button class="btn disabled">Joined</button>
-        {% else %}
-        <a class="btn" href="/page/challenge/{{ challenge.cid }}/order">Join</a>
-        {% endif %}
-    </footer>
 </section>
 {% endblock %}
