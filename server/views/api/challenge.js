@@ -23,14 +23,14 @@ exports.publish = function*(next) {
     const max = Number(params.max);
     const desc = params.desc;
     const difficulty = Number(params.difficulty);
-    const launch = params.launch;
+    // const launch = params.launch;
     const imgs = params.imgs;
 
     const chall = {creator, name, start, end, location, fee, max, desc};
 
     deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);
-    launch && (chall.launch = launch);
+    // launch && (chall.launch = launch);
 
     if(imgs) {
         chall.imgs = yield imgs.map(function(img) {

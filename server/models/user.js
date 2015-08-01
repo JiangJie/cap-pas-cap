@@ -33,9 +33,17 @@ exports.addJoin = function*(uid, cid) {
 };
 
 exports.hasJoined = function*(uid, cid) {
-    return yield User.findOne({uid: uid, joins: cid});
+    return !!(yield User.findOne({uid: uid, joins: cid}));
 };
 
 exports.getJoinedCount = function*(cid) {
     return yield User.count({joins: cid});
+};
+
+exports.isMerchant = function*(uid) {
+    return !!(yield User.findOne({uid: uid, type: 'M'}));
+};
+
+exports.getAll = function*() {
+    return yield User.find().fields({logo: 0});
 };

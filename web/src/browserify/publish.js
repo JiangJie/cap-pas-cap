@@ -46,9 +46,9 @@ function bindEvent() {
             location: location,
             fee: fee,
             max: max,
-            desc: desc,
+            desc: desc
             // Individual
-            launch: 'I'
+            // launch: 'I'
         };
 
         deadline && (data.deadline = deadline);

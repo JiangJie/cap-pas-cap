@@ -21,6 +21,10 @@ function* genCid() {
     return cid;
 }
 
+exports.getAll = function*() {
+    return yield Challenge.find().sort({create: -1});
+};
+
 exports.findByCid = function*(cid) {
     return yield Challenge.findOne({cid: cid});
 };
