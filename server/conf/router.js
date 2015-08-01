@@ -59,6 +59,10 @@ API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, b
 }), challengeApi.publish, Common.success);
 API.post('favorite', '/favorite/:cid', userApi.favorite, Common.success);
 API.post('favorite', '/join/:cid', userApi.join, Common.success);
+API.post('publish review', '/challenge/:cid/review', bodyParser({
+    formLimit: '15mb',
+    jsonLimit: '15mb'
+}), challengeApi.review, Common.success);
 
 exports.register = function(app) {
     app.use(mount('/admin', ADMIN.middleware()));

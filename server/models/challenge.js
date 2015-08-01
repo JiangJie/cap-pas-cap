@@ -67,3 +67,7 @@ exports.queryByName = function*(q) {
     q = new RegExp(q, 'ig');
     return yield Challenge.find({name: q});
 };
+
+exports.addReview = function*(cid, review) {
+    yield Challenge.findOne({cid: cid}).addToSet({reviews: review});
+};

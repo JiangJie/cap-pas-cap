@@ -10,13 +10,13 @@
 
 {% block page %}
 <section class="page">
-    <form action="/api/challenge/:cid/review" method="POST">
-        <textarea placeholder="Say something..."></textarea>
-        <input id="file" type="file">
-        <div class="img" style="background-image: url(/css/img/publish.jpg);"></div>
-        <div class="img" style="background-image: url(/css/img/publish.jpg);"></div>
+    <form id="reviewForm" action="/api/challenge/{{ challenge.cid }}/review" method="POST">
+        <textarea id="desc" placeholder="Say something..." required></textarea>
+        <input id="file" type="file" accept="image/*" multiple>
+        <!-- <div class="img" style="background-image: url(/css/img/publish.jpg);"></div>
+        <div class="img" style="background-image: url(/css/img/publish.jpg);"></div> -->
         <label for="file" class="btn-add"></label>
-        <input class="btn" type="submit" value="Submit">
+        <input id="submit" class="btn" type="submit" value="Submit">
     </form>
 </section>
 {% endblock %}

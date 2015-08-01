@@ -26,6 +26,11 @@ exports.ranking = function*() {
 };
 
 exports.review = function*() {
+    const cid = this.params.cid;
+
+    const chall = yield* Challenge.findByCid(cid);
+    this.state.challenge = chall;
+    
     yield* this.render('review');
 };
 

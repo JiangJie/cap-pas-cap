@@ -84,28 +84,23 @@
         <section class="moment hide" data-content="moment"></section>
         {% endif %}
         <section class="review hide" data-content="review">
+            {% for review in challenge.reviews %}
             <article>
                 <header>
                     <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
                     <div class="detail">
                         <p class="nickname">ca**p</p>
-                        <p class="date">2015.06.29</p>
+                        <p class="date">{{ review.create|date('Y.m.d')}}</p>
                     </div>
                 </header>
                 <section class="content">
                     <section class="imgs">
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
+                        {% for img in review.imgs %}
+                        <div class="img" style="background-image: url({{ img }});"></div>
+                        {% endfor %}
                     </section>
                     <section class="text">
-                        <p>cap pas cap cap pas cap cap pas cap</p>
+                        <p>{{ review.desc }}</p>
                     </section>
                 </section>
                 <footer>
@@ -117,39 +112,7 @@
                     </div>
                 </footer>
             </article>
-            <article>
-                <header>
-                    <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
-                    <div class="detail">
-                        <p class="nickname">ca**p</p>
-                        <p class="date">2015.06.29</p>
-                    </div>
-                </header>
-                <section class="content">
-                    <section class="imgs">
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                        <div class="img" style="background-image: url(/css/img/comment.png);"></div>
-                    </section>
-                    <section class="text">
-                        <p>cap pas cap cap pas cap cap pas cap</p>
-                    </section>
-                </section>
-                <footer>
-                    <div class="action">
-                        <span class="icon icon-star"></span>
-                        <span class="num">0</span>
-                        <span class="icon icon-comment"></span>
-                        <span class="num">0</span>
-                    </div>
-                </footer>
-            </article>
+            {% endfor %}
             <footer>
                 <a class="btn" href="/page/challenge/{{ challenge.cid }}/review/publish"></a>
             </footer>
