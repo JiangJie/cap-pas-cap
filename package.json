@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "local": "set NODE_DEBUG=* && set DEBUG=app:* && set DEBUG_FD=1 && set NODE_ENV=dev&& node-dev --harmony --harmony_arrow_functions --harmony-rest-parameters --harmony-computed-property-names --harmony_unicode --harmony_unicode_regexps --harmony_modules --strong_mode server/app.js",
-    "debug": "set NODE_DEBUG=* && set DEBUG=app:* && set DEBUG_FD=1 && set NODE_ENV=dev&& node-dev --harmony --harmony_arrow_functions --harmony-rest-parameters --harmony-computed-property-names --harmony_unicode --harmony_unicode_regexps --harmony_modules --strong_mode --debug server/app.js"
+    "debug": "set NODE_DEBUG=* && set DEBUG=app:* && set DEBUG_FD=1 && set NODE_ENV=dev&& node-dev --harmony --harmony_arrow_functions --harmony-rest-parameters --harmony-computed-property-names --harmony_unicode --harmony_unicode_regexps --harmony_modules --strong_mode --debug server/app.js",
+    "production": "pm2 startOrRestart config/pm2.json"
   },
   "repository": {
     "type": "git",
