@@ -11,7 +11,7 @@
 {% block page %}
 <section class="page">
     <header>
-        <div class="logo" style="background-image: url({{ ta.logo }});"></div>
+        <div class="logo" style="background-image: url({{ ta.logo|default('/css/img/logo.png') }});"></div>
         {% if mine %}
         <span class="icon-edit"></span>
         {% endif %}
