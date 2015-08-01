@@ -10,7 +10,7 @@ const ERROR = require('../../conf/error');
 
 exports.publish = function*(next) {
     const user = this.state.user;
-    const uid = user.uid;
+    const creator = user.uid;
 
     const params = this.request.body;
 
@@ -26,7 +26,7 @@ exports.publish = function*(next) {
     const launch = params.launch;
     const imgs = params.imgs;
 
-    const chall = {uid, name, start, end, location, fee, max, desc};
+    const chall = {creator, name, start, end, location, fee, max, desc};
 
     deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);

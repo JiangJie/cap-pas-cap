@@ -10,3 +10,7 @@ exports.createUser = function*(next) {
 
     this.body = yield* User.create(user);
 };
+
+exports.merchant = function*() {
+    yield* this.render('create');
+};

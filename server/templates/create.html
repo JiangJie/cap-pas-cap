@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block js %}
+<script>
+    var $ = window.Zepto || window.$;
+
+    var logoBase64;
+    var cache;
+    $('#file').on('change', function(e) {
+        console.log('file change', e);
+
+        var file = e.target.files[0];
+        var name = file.name + file.lastModified + file.size;
+        if(cache === name) return;
+
+        cache = name;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            console.log('file reader onload', e);
+            logoBase64 = e.target.result;
+            $('#logo').val(logoBase64);
+            $('#logoShow').css('background-image', 'url(' + logoBase64 + ');');
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
+{% endblock %}
+
+{% block page %}
+<section class="page">
+    <div id="logoShow" style="display: block;width: 5rem;height: 5rem;border-radius: 5rem;background-size: 5rem 5rem;margin: 1rem auto;"></div>
+    <form action="/admin/api/merchant" method="POST">
+        <input type="email" name="uid" value="kik@merchant.com">
+        <input type="password" name="pwd" value="123@cpc">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="address" placeholder="address">
+        <input type="text" name="tel" placeholder="tel">
+        <input type="text" name="desc" placeholder="desc">
+        <input id="file" type="file">
+        <input id="logo" type="hidden" name="logo">
+        <input type="hidden" name="type" value="M">
+        <input type="submit" value="Submit">
+    </form>
+</section>
+{% endblock %}

@@ -11,21 +11,25 @@
 {% block page %}
 <section class="page">
     <header>
-        <div class="logo" style="background-image: url(/css/img/kfc.png);"></div>
-        <p class="nickname">BURGER KING</p>
-        <button class="follow">+&nbsp;Follow</button>
+        <div class="logo" style="background-image: url({{ ta.logo|default('/css/img/kfc.png') }});"></div>
+        <p class="nickname">{{ ta.name }}</p>
+        {% if me %}
+        <button class="btn">+&nbsp;Follow</button>
+        {% else %}
+        <a class="btn" href="/page/publish">Lauch&nbsp;Challenge</a>
+        {% endif %}
     </header>
     <section class="location separation">
         <span class="icon icon-addr"></span>
-        <span class="text">Shop F46 & 47, 1/F, Wong Tai Sin Shopping Centre</span>
+        <span class="text">{{ ta.address }}</span>
     </section>
     <section class="tel separation">
         <span class="icon icon-tel"></span>
-        <span class="text">+852 2388 1912</span>
+        <span class="text">{{ ta.tel }}</span>
     </section>
     <section class="intro separation">
         <span class="icon icon-intro"></span>
-        <span class="text">Every day, more than 11 million guests visit BURGER KING® restaurants around the world. And they do so because our restaurants are known for serving high-quality, great-tasting ...</span>
+        <span class="text">{{ ta.desc }}</span>
     </section>
     <section class="challenges separation"></section>
 </section>

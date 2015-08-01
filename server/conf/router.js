@@ -27,7 +27,11 @@ const PAGE = new Router();
 const API = new Router();
 const ADMIN = new Router();
 
-ADMIN.get('/create_user', validate(), Validator.checkUser, Admin.createUser);
+ADMIN.get('/page/merchant', Admin.merchant);
+ADMIN.post('/api/merchant', bodyParser({
+    formLimit: '10mb',
+    jsonLimit: '10mb'
+}), Api.signup, Common.success);
 
 ROOT.get('show index page', '/', Views.index);
 
@@ -57,9 +61,9 @@ API.post('favorite', '/favorite/:cid', userApi.favorite, Common.success);
 API.post('favorite', '/join/:cid', userApi.join, Common.success);
 
 exports.register = function(app) {
+    app.use(mount('/admin', ADMIN.middleware()));
     app.use(Validator.checkLogin);
     app.use(mount('/', ROOT.middleware()));
-    app.use(mount('/admin', ADMIN.middleware()));
     app.use(mount('/page', PAGE.middleware()));
     app.use(mount('/api', API.middleware()));
 };
