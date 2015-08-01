@@ -17,11 +17,7 @@ exports.check = function*(uid, pwd) {
 };
 
 exports.getInfo = function*(uid) {
-    return yield User.findOne({uid: uid}).fields({
-        nickname: 1,
-        gender: 1,
-        logo: 1
-    });
+    return yield User.findOne({uid: uid});
 };
 
 exports.addFavorite = function*(uid, cid) {

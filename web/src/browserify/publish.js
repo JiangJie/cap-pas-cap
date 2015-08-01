@@ -5,6 +5,7 @@ var $ = window.$ || window.Zepto;
 function bindEvent() {
     var $difficultys = $('.icon-difficulty');
     var $file = $('#file');
+    var $submit = $('#submit');
     var imgsBase64 = [];
 
     $difficultys.on('tap', function() {
@@ -19,6 +20,8 @@ function bindEvent() {
     });
 
     $('#publishForm').on('submit', function(e) {
+        if($submit.hasClass('disabled')) return;
+
         e.preventDefault();
 
         var name = $('#nameInput').val();
@@ -31,7 +34,7 @@ function bindEvent() {
         var desc = $('#description').val();
         var difficulty = $('.icon-difficulty.active').length;
 
-        if(!name || !start || !end || !location || !fee || !max || !desc) return alert('请输入完整信息');
+        if(!name || !start || !end || !location || !fee || !max || !desc) return alert('Please fill up all the informations.');
 
         var url = this.action;
         var method = this.method.toUpperCase();
@@ -54,6 +57,8 @@ function bindEvent() {
 
         console.log(data);
 
+        $submit.addClass('disabled');
+
         $.ajax({
             url: url,
             type: method,
@@ -66,6 +71,8 @@ function bindEvent() {
                 var flag = confirm('还未登录，先去登录吗？');
                 if(flag) window.location.href = '/page/signin';
             }
+            alert('Publish failed. Try again!');
+            $submit.removeClass('disabled');
         });
     });
     

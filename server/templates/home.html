@@ -23,9 +23,9 @@
             <span class="following">20 Followings</span>
         </section>
         <section class="info second">
-            <span class="item favorite border-right">16<br>Favorites</span>
+            <span class="item favorite border-right">{{ ta.favorites.length|default(0) }}<br>Favorites</span>
             <span class="item ccoin border-right">98<br>C-Coin</span>
-            <span class="item challenge">43<br>Challenges</span>
+            <span class="item challenge">{{ ta.joins.length|default(0) }}<br>Challenges</span>
         </section>
     </header>
     <section class="timeline"></section>

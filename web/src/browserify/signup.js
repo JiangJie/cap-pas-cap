@@ -6,11 +6,14 @@ function bindEvent() {
     var $logo = $('#logo');
     var $file = $('#file');
     var $signupForm = $('#signupForm');
+    var $submit = $('#submit');
 
     var cache;
     var logoBase64;
 
     $signupForm.on('submit', function(e) {
+        if($submit.hasClass('disabled')) return;
+
         e.preventDefault();
 
         var uid = $('#uidInput').val().trim();
@@ -35,6 +38,9 @@ function bindEvent() {
 
         var url = this.action;
         var method = this.method.toUpperCase();
+
+        $submit.addClass('disabled');
+
         $.ajax({
             url: url,
             type: method,
@@ -44,6 +50,8 @@ function bindEvent() {
             window.location.href = '/page/signin';
         }).fail(function() {
             console.log('fail', arguments);
+            alert('Register failed. Try again!');
+            $submit.removeClass('disabled');
         });
     });
 

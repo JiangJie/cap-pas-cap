@@ -15,9 +15,9 @@ exports.publish = function*(next) {
     const params = this.request.body;
 
     const name = params.name;
-    const deadline = params.deadline && new Date(params.deadline);
     const start = new Date(params.start);
     const end = new Date(params.end);
+    const deadline = params.deadline && new Date(params.deadline) || end;
     const location = params.location;
     const fee = Number(params.fee);
     const max = Number(params.max);
