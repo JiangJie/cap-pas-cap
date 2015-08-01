@@ -10,6 +10,13 @@ const nib = require('nib');
 const del = require('del');
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
+const minifyCss = require('gulp-minify-css');
+const uglify = require('gulp-uglify');
+const strip = require('gulp-strip-debug');
+const buffer = require('vinyl-buffer');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const jpegtran = require('imagemin-jpegtran');
 
 // 源文件存放路径
 const src = './src/';
@@ -56,6 +63,9 @@ function js(done) {
         return browserify(file)
             .bundle()
             .pipe(source(path.basename(file)))
+            .pipe(buffer())
+            .pipe(strip())
+            .pipe(uglify())
             .pipe(gulp.dest(paths.browserify.dist));
     });
 
@@ -64,6 +74,8 @@ function js(done) {
 
 function lib() {
     return gulp.src(paths.lib.src)
+        .pipe(strip())
+        .pipe(uglify())
         .pipe(gulp.dest(paths.lib.dist));
 }
 
@@ -72,15 +84,24 @@ function css() {
         .pipe(stylus({
             use: nib()
         }))
+        .pipe(minifyCss())
         .pipe(gulp.dest(paths.stylus.dist));
 }
 
 function img() {
     return gulp.src(paths.img.src)
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant(), jpegtran()]
+        }))
         .pipe(gulp.dest(paths.img.dist));
 }
 function icon() {
     return gulp.src(paths.icon.src)
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant(), jpegtran()]
+        }))
         .pipe(gulp.dest(paths.icon.dist));
 }
 
