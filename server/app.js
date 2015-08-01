@@ -29,7 +29,9 @@ app.on('error', function* onGlobalError(err, ctx) {
 });
 
 // 静态文件处理
-app.use(staticServer(path.resolve(__dirname, '../web/dist')));
+app.use(staticServer(path.resolve(__dirname, '../web/dist'), {
+    maxage: 1000 * 3600 * 24 * 30
+}));
 
 // 注册模板渲染方法
 app.context.render = render({
