@@ -7,10 +7,11 @@ var $signinForm = $('#signinForm');
 $signinForm.on('submit', function(e) {
     e.preventDefault();
 
-    var uid = $('#uidInput').val();
-    if(!~uid.indexOf('@')) return alert('请输入正确的邮箱地址');
+    var uid = $('#uidInput').val().trim();
+    if(!uid || !~uid.indexOf('@')) return alert('Invalide E-mail');
 
-    var pwd = $('#pwdInput').val();
+    var pwd = $('#pwdInput').val().trim();
+    if(!pwd) return alert('Password should be required');
 
     var data = {
         uid: uid,

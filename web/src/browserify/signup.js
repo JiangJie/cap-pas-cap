@@ -13,15 +13,16 @@ function bindEvent() {
     $signupForm.on('submit', function(e) {
         e.preventDefault();
 
-        var uid = $('#uidInput').val();
-        if(!~uid.indexOf('@')) return alert('请输入正确的邮箱地址');
+        var uid = $('#uidInput').val().trim();
+        if(!uid || !~uid.indexOf('@')) return alert('Invalide E-mail');
 
-        var pwd = $('#pwdInput').val();
-        var repwd = $('#repwdInput').val();
-        if(pwd !== repwd) return alert('密码和重复密码不一致');
-        if(pwd.length < 6) return alert('密码长度不能小于6位');
+        var pwd = $('#pwdInput').val().trim();
+        if(!pwd) return alert('Password should be required');
+        if(pwd.length < 6) return alert('Password should be more than 6 characters');
+        var repwd = $('#repwdInput').val().trim();
+        if(pwd !== repwd) return alert('Inconsistent password');
 
-        var nickname = $('#nicknameInput').val();
+        var nickname = $('#nicknameInput').val().trim();
         var gender = $('#genderSelect').val();
 
         var data = {
