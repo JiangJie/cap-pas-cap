@@ -20,7 +20,7 @@ function bindEvent() {
         }).done(function() {
             this.classList.add('done');
             $follow.text('Followed');
-            $followers.html((parseInt($followers.html()) + 1);
+            $followers.html(parseInt($followers.html()) + 1);
         }.bind(this));
     });
 }
