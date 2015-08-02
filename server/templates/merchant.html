@@ -12,6 +12,9 @@
 <section class="page">
     <header>
         <div class="logo" style="background-image: url({{ ta.logo|default('/css/img/kfc.png') }});"></div>
+        {% if mine %}
+        <a class="icon-setting" href="/page/setting"></a>
+        {% endif %}
         <p class="nickname">{{ ta.name }}</p>
         {% if me %}
         <button class="btn">+&nbsp;Follow</button>

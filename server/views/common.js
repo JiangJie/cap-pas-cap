@@ -46,7 +46,7 @@ exports.logined = function*(next) {
 
     // 写cookie
     const token = Util.encodeToken(uid, key);
-    this.cookies.set(CONFIG.TOKEN, token, {signed: false, domain: CONFIG.DOMAIN, expires: Util.getNextYear()});
+    this.cookies.set(CONFIG.TOKEN, token, {signed: false, domain: CONFIG.DOMAIN, expires: Util.getNextYear(), path: '/', httpOnly: false});
 
     yield* next;
 };

@@ -27,6 +27,20 @@
             background-size: @width @height;
             background-position: center;
         }
+        .icon-setting {
+            width: 2rem;
+            height: @width;
+            background: url(icon/setting.png);
+            background-size: @width @height;
+            background-position: center;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+
+            &:active {
+                background-image: url(icon/setting-active.png);
+            }
+        }
         .icon-crown {
             width: 2.5rem;
             height: @width;
@@ -52,6 +66,8 @@
             }
         }
         .info {
+            display: flex;
+            align-items: center;
             padding: .5rem 0;
         }
         .follower {

@@ -47,6 +47,7 @@ PAGE.get('show challenge order page', '/challenge/:cid/order', challengePage.ord
 PAGE.get('show ranking list page', '/ranking', challengePage.ranking);
 PAGE.get('show presonal home page', '/u/:uid?', userPage.home);
 PAGE.get('show challenge search result page', '/search/result', challengePage.search);
+PAGE.get('show setting page', '/setting', userPage.setting);
 
 API.post('register a new user', '/signup', bodyParser({
     formLimit: '10mb',

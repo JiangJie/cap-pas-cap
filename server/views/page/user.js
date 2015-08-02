@@ -19,3 +19,7 @@ exports.home = function*() {
 
     yield* this.render('home');
 };
+
+exports.setting = function*() {
+    yield* this.render('setting');
+};
