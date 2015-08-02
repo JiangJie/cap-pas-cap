@@ -9,7 +9,7 @@ exports.detail = function*() {
 
     const chall = yield* Challenge.findByCid(cid);
 
-    if(!chall) return this.body = 'No such challenge.';
+    if(!chall) return this.redirect('/');
 
     chall.difficulty = new Array(chall.difficulty || 1);
     chall.isOver = chall.deadline <= new Date();

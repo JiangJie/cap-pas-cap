@@ -45,5 +45,5 @@ exports.isMerchant = function*(uid) {
 };
 
 exports.getAll = function*() {
-    return yield User.find().fields({logo: 0});
+    return yield User.find();
 };
