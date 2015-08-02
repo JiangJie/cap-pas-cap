@@ -11,6 +11,7 @@ npm第三方模块
 const co = require('co');
 const koa = require('koa');
 const staticServer = require('koa-static');
+const gzip = require('koa-gzip');
 const render = require('koa-swig');
 const logger = require('koa-logger');
 
@@ -91,6 +92,8 @@ app.use(function* firstHandler(next) {
 
 // logger
 app.use(logger());
+
+app.use(gzip());
 
 function* init() {
     debug.log('trying to connect database');
