@@ -48,9 +48,9 @@ function bindEvent() {
 
         e.preventDefault();
 
-        var desc = $('#desc').val();
+        var desc = $('#desc').val().trim();
 
-        if(!desc) return alert('Please fill up all the informations.');
+        if(!desc) return alert('Please fill up all the description.');
 
         var url = this.action;
         var method = this.method.toUpperCase();

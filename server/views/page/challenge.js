@@ -9,6 +9,8 @@ exports.detail = function*() {
 
     const chall = yield* Challenge.findByCid(cid);
 
+    if(!chall) return this.body = 'No such challenge.';
+
     chall.difficulty = new Array(chall.difficulty || 1);
     chall.isOver = chall.deadline <= new Date();
 
@@ -47,6 +49,28 @@ exports.review = function*() {
 };
 
 exports.comment = function*() {
+    const cid = this.params.cid;
+    const rid = this.params.rid;
+
+    const chall = yield* Challenge.findByCid(cid);
+
+    this.state.cid = cid;
+    this.state.rid = rid;
+    const comments = chall.reviews && chall.reviews[rid] && chall.reviews[rid].comments || [];
+
+    let users = yield* User.getAll();
+
+    users = users.reduce(function(ret, item) {
+        ret[item.uid] = item;
+        return ret;
+    }, {});
+
+    comments.forEach(function(item) {
+        item.creator = users[item.creator];
+    });
+
+    this.state.comments = comments;
+
     yield* this.render('comment');
 };
 

@@ -63,6 +63,11 @@ API.post('publish review', '/challenge/:cid/review', bodyParser({
     formLimit: '15mb',
     jsonLimit: '15mb'
 }), challengeApi.review, Common.success);
+API.post('publish comment', '/challenge/:cid/review/:rid/comment', bodyParser({
+    formLimit: '1mb',
+    jsonLimit: '1mb'
+}), challengeApi.comment, Common.success);
+API.post('star', '/star/:cid/:rid', challengeApi.star, Common.success);
 
 exports.register = function(app) {
     app.use(mount('/admin', ADMIN.middleware()));

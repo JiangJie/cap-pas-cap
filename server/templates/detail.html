@@ -85,7 +85,7 @@
         {% endif %}
         <section class="review hide" data-content="review">
             {% for review in challenge.reviews %}
-            <article data-i="{{ loop.index0 }}">
+            <article>
                 <header>
                     <div class="logo" style="background-image: url({{ review.creator.logo|default('/css/img/logo.png') }});"></div>
                     <div class="detail">
@@ -105,10 +105,12 @@
                 </section>
                 <footer>
                     <div class="action">
-                        <span class="icon icon-star"></span>
+                        <span class="icon icon-star{% for star in review.stars %}{% if user.uid === star %} done{% endif %}{% endfor %}" data-cid="{{ challenge.cid }}" data-rid="{{ loop.index0 }}"></span>
                         <span class="num">{{ review.stars.length|default(0) }}</span>
-                        <span class="icon icon-comment"></span>
-                        <span class="num">{{ review.comments.length|default(0) }}</span>
+                        <a class="comment" href="/page/challenge/{{ challenge.cid }}/review/{{ loop.index0 }}">
+                            <span class="icon icon-comment"></span>
+                            <span class="num">{{ review.comments.length|default(0) }}</span>
+                        </a>
                     </div>
                 </footer>
             </article>

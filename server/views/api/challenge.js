@@ -95,3 +95,29 @@ exports.review = function*(next) {
 
     yield* next;
 };
+
+exports.comment = function*(next) {
+    const uid = this.state.user.uid;
+    const cid = this.params.cid;
+    const rid = this.params.rid;
+
+    const desc = this.request.body.desc;
+
+    const comment = {desc};
+    comment.creator = uid;
+    comment.create = new Date();
+
+    yield* Challenge.addComment(cid, rid, comment);
+
+    yield* next;
+};
+
+exports.star = function*(next) {
+    const uid = this.state.user.uid;
+    const cid = this.params.cid;
+    const rid = this.params.rid;
+
+    yield* Challenge.addStar(uid, cid, rid);
+
+    yield* next;
+};

@@ -71,3 +71,35 @@ exports.queryByName = function*(q) {
 exports.addReview = function*(cid, review) {
     yield Challenge.findOne({cid: cid}).addToSet({reviews: review});
 };
+
+exports.addComment = function*(cid, rid, comment) {
+    const cursor = Challenge.findOne({cid: cid});
+
+    const chall = yield cursor;
+
+    const reviews = chall.reviews;
+    let comments = reviews[rid].comments;
+
+    comments = comments || [];
+    comments.push(comment);
+
+    reviews[rid].comments = comments;
+
+    yield cursor.set({reviews: reviews});
+};
+
+exports.addStar = function*(uid, cid, rid) {
+    const cursor = Challenge.findOne({cid: cid});
+
+    const chall = yield cursor;
+
+    const reviews = chall.reviews;
+    let stars = reviews[rid].stars;
+
+    stars = stars || [];
+    stars.push(uid);
+
+    reviews[rid].stars = stars;
+
+    yield cursor.set({reviews: reviews});
+};

@@ -11,27 +11,21 @@
 {% block page %}
 <section class="page">
     <section class="comments">
+        {% for comment in comments %}
         <section class="comment">
             <div class="info">
-                <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
-                <p class="nickname">ca**p</p>
+                <div class="logo" style="background-image: url({{ comment.creator.logo|default('/css/img/logo.png') }});"></div>
+                <p class="nickname">{{ comment.creator.nickname }}</p>
             </div>
-            <p class="text">This activity is very interesting and exciting!</p>
-            <p class="date">2016-5-12   23:03:34</p>
+            <p class="text">{{ comment.desc }}</p>
+            <p class="date">{{ comment.create|date('Y-m-d g:i:s') }}</p>
         </section>
-        <section class="comment">
-            <div class="info">
-                <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
-                <p class="nickname">ca**p</p>
-            </div>
-            <p class="text">This activity is very interesting and exciting!</p>
-            <p class="date">2016-5-12   23:03:34</p>
-        </section>
+        {% endfor %}
     </section>
     <footer>
-        <form action="/api/challenge/:cid/review/:rid/comment" method="POST">
-            <input type="text" placeholder="Send review">
-            <input type="submit" value="Send">
+        <form id="commentForm" action="/api/challenge/{{ cid }}/review/{{ rid }}/comment" method="POST">
+            <input id="desc" type="text" placeholder="Send review" required>
+            <input id="submit" type="submit" value="Send">
         </form>
     </footer>
 </section>
