@@ -24,17 +24,17 @@ function bindEvent() {
 
         e.preventDefault();
 
-        var name = $('#nameInput').val();
+        var name = $('#nameInput').val().trim();
         var deadline = $('#deadlineInput').val();
         var start = $('#startTimeInput').val();
         var end = $('#endTimeInput').val();
-        var location = $('#locationInput').val();
-        var fee = $('#feeInput').val();
-        var max = $('#participatorsInput').val();
-        var desc = $('#description').val();
+        var location = $('#locationInput').val().trim();
+        var fee = $('#feeInput').val().trim();
+        var max = $('#participatorsInput').val().trim();
+        var desc = $('#description').val().trim();
         var difficulty = $('.icon-difficulty.active').length;
 
-        if(!name || !start || !end || !location || !fee || !max || !desc) return alert('Please fill up all the informations.');
+        if(!name || !start || !end || !location || !fee || !max || !desc) return alert('Please fill up all the information.');
 
         var url = this.action;
         var method = this.method.toUpperCase();

@@ -85,11 +85,11 @@
         {% endif %}
         <section class="review hide" data-content="review">
             {% for review in challenge.reviews %}
-            <article>
+            <article data-i="{{ loop.index0 }}">
                 <header>
-                    <div class="logo" style="background-image: url(/css/img/logo.png);"></div>
+                    <div class="logo" style="background-image: url({{ review.creator.logo|default('/css/img/logo.png') }});"></div>
                     <div class="detail">
-                        <p class="nickname">ca**p</p>
+                        <p class="nickname">{{ review.creator.nickname }}</p>
                         <p class="date">{{ review.create|date('Y.m.d')}}</p>
                     </div>
                 </header>
@@ -106,9 +106,9 @@
                 <footer>
                     <div class="action">
                         <span class="icon icon-star"></span>
-                        <span class="num">0</span>
+                        <span class="num">{{ review.stars.length|default(0) }}</span>
                         <span class="icon icon-comment"></span>
-                        <span class="num">0</span>
+                        <span class="num">{{ review.comments.length|default(0) }}</span>
                     </div>
                 </footer>
             </article>

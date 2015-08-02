@@ -16,6 +16,18 @@ exports.detail = function*() {
     chall.hasJoined = yield* User.hasJoined(uid, cid);
     chall.joinedCount = yield* User.getJoinedCount(cid);
 
+    let users = yield* User.getAll();
+
+    users = users.reduce(function(ret, item) {
+        ret[item.uid] = item;
+        return ret;
+    }, {});
+
+    chall.reviews = chall.reviews || [];
+    chall.reviews.forEach(function(item) {
+        item.creator = users[item.creator];
+    });
+
     this.state.challenge = chall;
 
     yield* this.render('detail');
