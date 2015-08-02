@@ -64,7 +64,6 @@ function js(done) {
             .bundle()
             .pipe(source(path.basename(file)))
             .pipe(buffer())
-            .pipe(strip())
             .pipe(uglify())
             .pipe(gulp.dest(paths.browserify.dist));
     });

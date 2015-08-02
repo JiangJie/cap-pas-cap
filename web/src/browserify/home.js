@@ -5,7 +5,10 @@ var $ = window.Zepto || window.$;
 require('./mylib/footer');
 
 function bindEvent() {
-    $('#follow').on('tap', function() {
+    var $follow = $('#follow');
+    var $followers = $('#followers');
+
+    $follow.on('tap', function() {
         if(this.classList.contains('done')) return;
 
         var uid = this.dataset.uid;
@@ -16,7 +19,8 @@ function bindEvent() {
             type: 'POST'
         }).done(function() {
             this.classList.add('done');
-            $(this).text('Followed');
+            $follow.text('Followed');
+            $followers.html((parseInt($followers.html()) + 1);
         }.bind(this));
     });
 }

@@ -25,7 +25,7 @@
         <section class="info">
             <span class="icon-male {{ ta.gender|default('') }}"></span>
             <span class="nickname">{{ ta.nickname }}</span>
-            <span class="follower border-right">{{ ta.followers.length|default(0) }} Followers</span>
+            <span class="follower border-right"><span id="followers">{{ ta.followers.length|default(0) }}</span> Followers</span>
             <span class="following">{{ ta.followings.length|default(0) }} Followings</span>
         </section>
         <section class="info second">
