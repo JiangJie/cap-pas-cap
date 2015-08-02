@@ -24,7 +24,7 @@ db.connect = function*() {
     db._db = _db;
     db.collections = {};
 
-    ['user', 'session', 'challenge'].forEach(function(item) {
+    ['user', 'session', 'challenge', 'feed'].forEach(function(item) {
         let _item = _db.collection(item);
         _item = collection(_item);
         db.collections[item] = _item;

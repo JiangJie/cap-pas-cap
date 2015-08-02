@@ -54,10 +54,10 @@ API.post('register a new user', '/signup', bodyParser({
     jsonLimit: '10mb'
 }), validate(), Validator.checkSignUser, Api.signup, Common.success);
 API.post('login', '/signin', bodyParser(), validate(), Validator.checkSignUser, Api.signin, Common.logined, Common.success);
-API.post('create a new challenge', '/challenge/publish', Validator.checkLogin, bodyParser({
+API.post('create a new challenge', '/challenge/publish', bodyParser({
     formLimit: '15mb',
     jsonLimit: '15mb'
-}), challengeApi.publish, Common.success);
+}), validate(), Validator.checkChallenge, challengeApi.publish, Common.success);
 API.post('favorite', '/favorite/:cid', userApi.favorite, Common.success);
 API.post('favorite', '/join/:cid', userApi.join, Common.success);
 API.post('publish review', '/challenge/:cid/review', bodyParser({

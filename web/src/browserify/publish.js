@@ -34,7 +34,7 @@ function bindEvent() {
         var desc = $('#description').val().trim();
         var difficulty = $('.icon-difficulty.active').length;
 
-        if(!name || !start || !end || !location || !fee || !max || !desc) return alert('Please fill up all the information.');
+        if(!name || !start || !end || !location || !fee || !max || !desc || !difficulty) return alert('Please fill up all the information.');
 
         var url = this.action;
         var method = this.method.toUpperCase();
@@ -46,13 +46,13 @@ function bindEvent() {
             location: location,
             fee: fee,
             max: max,
-            desc: desc
+            desc: desc,
+            difficulty: difficulty
             // Individual
             // launch: 'I'
         };
 
         deadline && (data.deadline = deadline);
-        difficulty && (data.difficulty = difficulty);
         imgsBase64.length && (data.imgs = imgsBase64);
 
         console.log(data);
@@ -67,11 +67,17 @@ function bindEvent() {
             console.log(res);
             window.location.href = '/page/challenge/' + res.result.cid;
         }).fail(function(xhr) {
+            console.log(arguments);
             if(xhr.status === 403) {
                 var flag = confirm('还未登录，先去登录吗？');
                 if(flag) window.location.href = '/page/signin';
+            } else if(xhr.status === 406) {
+                var res = JSON.parse(xhr.responseText);
+                alert(res.message);
+            } else {
+                alert('Publish failed. Try again!');
             }
-            alert('Publish failed. Try again!');
+            
             $submit.removeClass('disabled');
         });
     });
