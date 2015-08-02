@@ -74,6 +74,8 @@ function bindEvent() {
             } else if(xhr.status === 406) {
                 var res = JSON.parse(xhr.responseText);
                 alert(res.message);
+            } else if(xhr.status === 413) {
+                alert('Images Too Large.');
             } else {
                 alert('Publish failed. Try again!');
             }
