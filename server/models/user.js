@@ -47,3 +47,11 @@ exports.isMerchant = function*(uid) {
 exports.getAll = function*() {
     return yield User.find();
 };
+
+exports.addFollower = function*(me, uid) {
+    yield User.findOne({uid: uid}).addToSet({followers: me});
+};
+
+exports.addFollowing = function*(me, uid) {
+    yield User.findOne({uid: me}).addToSet({followings: uid});
+};

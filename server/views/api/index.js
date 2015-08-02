@@ -41,6 +41,8 @@ exports.signup = function*(next) {
     gender && (user.gender = gender);
     logo && (user.logo = params.logo);
 
+    user.coins = 2000;
+
     yield* User.create(user);
 
     yield* next;

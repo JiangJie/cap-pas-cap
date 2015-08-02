@@ -22,3 +22,16 @@ exports.join = function*(next) {
 
     yield* next;
 };
+
+exports.follow = function*(next) {
+    const uid = this.state.user.uid;
+    const ta = this.params.uid;
+
+    if(uid === ta) return yield* next;
+
+    yield* User.addFollower(uid, ta);
+    yield* User.addFollowing(uid, ta);
+    yield* Feed.followIndividual(uid, ta);
+
+    yield* next;
+};

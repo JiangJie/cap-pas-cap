@@ -14,17 +14,23 @@
         <div class="logo" style="background-image: url({{ ta.logo|default('/css/img/logo.png') }});"></div>
         {% if mine %}
         <a class="icon-setting" href="/page/setting"></a>
+        {% else %}
+        {% if followed %}
+        <button id="follow" class="btn done" data-uid="{{ ta.uid }}">Followed</button>
+        {% else %}
+        <button id="follow" class="btn" data-uid="{{ ta.uid }}">Follow</button>
+        {% endif %}
         {% endif %}
         <span class="icon-crown"></span>
         <section class="info">
             <span class="icon-male {{ ta.gender|default('') }}"></span>
             <span class="nickname">{{ ta.nickname }}</span>
-            <span class="follower border-right">15 Followers</span>
-            <span class="following">20 Followings</span>
+            <span class="follower border-right">{{ ta.followers.length|default(0) }} Followers</span>
+            <span class="following">{{ ta.followings.length|default(0) }} Followings</span>
         </section>
         <section class="info second">
             <span class="item favorite border-right">{{ ta.favorites.length|default(0) }}<br>Favorites</span>
-            <span class="item ccoin border-right">98<br>C-Coin</span>
+            <span class="item ccoin border-right">{{ ta.coins|default(0) }}<br>C-Coin</span>
             <span class="item challenge">{{ ta.joins.length|default(0) }}<br>Challenges</span>
         </section>
     </header>

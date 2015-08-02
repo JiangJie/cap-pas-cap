@@ -5,14 +5,19 @@ const User = require('../../models/user');
 const ERROR = require('../../conf/error');
 
 exports.home = function*() {
-    const me = this.state.user && this.state.user.uid;
-    let uid = this.params.uid;
+    const uid = this.state.user && this.state.user.uid;
+    let ta = this.params.uid;
 
-    uid = uid || me;
-    if(!uid) this.throw(new ERROR.NotAcceptableError('need user'));
+    ta = ta || uid;
+    if(!ta) this.throw(new ERROR.NotAcceptableError('invalide user'));
 
-    this.state.mine = me === uid;
-    const info = this.state.ta = yield* User.getInfo(uid);
+    this.state.mine = uid === ta;
+    const info = yield* User.getInfo(ta);
+    if(!info) this.throw(new ERROR.NotAcceptableError('invalide user'));
+
+    this.state.ta = info;
+
+    this.state.followed = info.followers && ~info.followers.indexOf(uid);
 
     // 商家
     if(info.type === 'M') return yield* this.render('merchant');

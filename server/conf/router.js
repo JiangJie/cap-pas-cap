@@ -69,6 +69,7 @@ API.post('publish comment', '/challenge/:cid/review/:rid/comment', bodyParser({
     jsonLimit: '1mb'
 }), challengeApi.comment, Common.success);
 API.post('star', '/star/:cid/:rid', challengeApi.star, Common.success);
+API.post('follow', '/follow/:uid', userApi.follow, Common.success);
 
 exports.register = function(app) {
     app.use(mount('/admin', ADMIN.middleware()));
