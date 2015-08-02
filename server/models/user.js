@@ -48,10 +48,10 @@ exports.getAll = function*() {
     return yield User.find();
 };
 
-exports.addFollower = function*(me, uid) {
-    yield User.findOne({uid: uid}).addToSet({followers: me});
+exports.addFollower = function*(uid, follower) {
+    yield User.findOne({uid: uid}).addToSet({followers: follower});
 };
 
-exports.addFollowing = function*(me, uid) {
-    yield User.findOne({uid: me}).addToSet({followings: uid});
+exports.addFollowing = function*(uid, following) {
+    yield User.findOne({uid: uid}).addToSet({followings: following});
 };

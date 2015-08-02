@@ -29,7 +29,7 @@ exports.follow = function*(next) {
 
     if(uid === ta) return yield* next;
 
-    yield* User.addFollower(uid, ta);
+    yield* User.addFollower(ta, uid);
     yield* User.addFollowing(uid, ta);
     yield* Feed.followIndividual(uid, ta);
 
