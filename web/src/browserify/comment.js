@@ -27,6 +27,7 @@ function bindEvent() {
         }).done(function(res) {
             console.log('success', res);
             // window.location.href = '/';
+            window.location.reload();
         }).fail(function(err) {
             console.log('fail', arguments);
 
