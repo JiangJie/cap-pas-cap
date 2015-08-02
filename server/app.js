@@ -29,6 +29,8 @@ app.on('error', function* onGlobalError(err, ctx) {
     debug.log(ctx);
 });
 
+app.use(gzip());
+
 // 静态文件处理
 app.use(staticServer(path.resolve(__dirname, '../web/dist'), {
     maxage: 1000 * 3600 * 24 * 30
@@ -92,8 +94,6 @@ app.use(function* firstHandler(next) {
 
 // logger
 app.use(logger());
-
-app.use(gzip());
 
 function* init() {
     debug.log('trying to connect database');
