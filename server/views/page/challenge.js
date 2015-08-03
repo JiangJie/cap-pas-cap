@@ -3,13 +3,16 @@
 const User = require('../../models/user');
 const Challenge = require('../../models/challenge');
 
+const ERROR = require('../../conf/error');
+
 exports.detail = function*() {
+    console.log(this.headers);
     const uid = this.state.user.uid;
     const cid = this.params.cid;
 
     const chall = yield* Challenge.findByCid(cid);
 
-    if(!chall) return this.redirect('/');
+    if(!chall) this.throw(new ERROR.NotFoundError());
 
     chall.difficulty = new Array(chall.difficulty || 1);
     chall.isOver = chall.end <= new Date();
