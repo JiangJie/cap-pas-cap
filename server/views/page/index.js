@@ -17,5 +17,5 @@ exports.search = function*(next) {
 };
 
 exports.moment = function*() {
-    yield * this.render('moment');
+    yield * this.render('moments');
 };

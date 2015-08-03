@@ -98,6 +98,49 @@ exports.review = function*(next) {
     yield* next;
 };
 
+exports.moment = function*(next) {
+    const uid = this.state.user.uid;
+    const cid = this.params.cid;
+    const params = this.request.body;
+
+    const moment = {
+        creator: uid,
+        create: new Date(),
+        winner: params.winner,
+        desc: params.desc
+    };
+    if(!moment.winner || !moment.desc) this.throw(ERROR.NotAcceptableError('missing params.'));
+
+    const imgs = params.imgs; 
+
+    if(imgs) {
+        moment.imgs = yield imgs.map(function(img) {
+            return (function*() {
+                let prefix = 'data:image/jpeg;base64,';
+                img = img.replace(/^data:image\/[^;]+;base64,/, function(pre) {
+                    prefix = pre;
+                    return '';
+                });
+                img = new Buffer(img, 'base64');
+                const gmer = gm(img).resize(500);
+                const buffer = yield Promise.promisify(gmer.toBuffer).call(gmer);
+                return prefix + buffer.toString('base64');
+            })();
+        });
+    }
+
+    yield* Challenge.addMoment(cid, moment);
+    // yield* Feed.addMoment(uid, cid);
+
+    this.state.extra = {
+        result: {
+            cid: cid
+        }
+    };
+
+    yield* next;
+};
+
 exports.comment = function*(next) {
     const uid = this.state.user.uid;
     const cid = this.params.cid;

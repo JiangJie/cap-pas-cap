@@ -72,6 +72,10 @@ exports.addReview = function*(cid, review) {
     yield Challenge.findOne({cid: cid}).addToSet({reviews: review});
 };
 
+exports.addMoment = function*(cid, moment) {
+    yield Challenge.findOne({cid: cid}).addToSet({moments: moment});
+};
+
 exports.addComment = function*(cid, rid, comment) {
     const cursor = Challenge.findOne({cid: cid});
 

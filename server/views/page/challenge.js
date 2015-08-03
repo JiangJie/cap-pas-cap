@@ -6,13 +6,14 @@ const Challenge = require('../../models/challenge');
 const ERROR = require('../../conf/error');
 
 exports.detail = function*() {
-    console.log(this.headers);
     const uid = this.state.user.uid;
     const cid = this.params.cid;
 
     const chall = yield* Challenge.findByCid(cid);
 
     if(!chall) this.throw(new ERROR.NotFoundError());
+
+    this.state.mine = uid === chall.creator;
 
     chall.difficulty = new Array(chall.difficulty || 1);
     chall.isOver = chall.end <= new Date();
@@ -34,6 +35,8 @@ exports.detail = function*() {
         item.creator = users[item.creator];
     });
 
+    chall.moments && (chall.moments[0].winner = users[chall.moments[0].winner].nickname || chall.moments[0].winner);
+
     this.state.challenge = chall;
 
     yield* this.render('detail');
@@ -50,6 +53,15 @@ exports.review = function*() {
     this.state.challenge = chall;
     
     yield* this.render('review');
+};
+
+exports.moment = function*() {
+    const cid = this.params.cid;
+
+    const chall = yield* Challenge.findByCid(cid);
+    this.state.challenge = chall;
+    
+    yield* this.render('moment');
 };
 
 exports.comment = function*() {

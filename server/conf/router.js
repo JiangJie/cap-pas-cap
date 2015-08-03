@@ -42,6 +42,7 @@ PAGE.get('show search challenge page', '/search', Page.search);
 PAGE.get('show moment page', '/moment', Page.moment);
 PAGE.get('show challenge detail page', '/challenge/:cid', challengePage.detail);
 PAGE.get('show publish challenge review page', '/challenge/:cid/review/publish', challengePage.review);
+PAGE.get('show publish challenge moment page', '/challenge/:cid/moment/publish', challengePage.moment);
 PAGE.get('show challenge review\'s comments page', '/challenge/:cid/review/:rid', challengePage.comment);
 PAGE.get('show challenge order page', '/challenge/:cid/order', challengePage.order);
 PAGE.get('show ranking list page', '/ranking', challengePage.ranking);
@@ -64,6 +65,10 @@ API.post('publish review', '/challenge/:cid/review', bodyParser({
     formLimit: '15mb',
     jsonLimit: '15mb'
 }), challengeApi.review, Common.success);
+API.post('publish moment', '/challenge/:cid/moment', bodyParser({
+    formLimit: '15mb',
+    jsonLimit: '15mb'
+}), challengeApi.moment, Common.success);
 API.post('publish comment', '/challenge/:cid/review/:rid/comment', bodyParser({
     formLimit: '1mb',
     jsonLimit: '1mb'

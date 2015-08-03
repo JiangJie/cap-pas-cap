@@ -159,6 +159,55 @@
         }
     }
 
+    .moment, .review {
+        > footer {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            .btn {
+                display: block;
+                width: 5rem;
+                height: @width;
+                border-radius: @width;
+                background: #298CCF;
+                position: relative;
+
+                &:before, &:after {
+                    content: "";
+                    display: inline-block;
+                    width: 2.5rem;
+                    height: .4rem;
+                    border-radius: @height;
+                    background: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                }
+                &:before {
+                    transform: translate(-50%, -50%);
+                }
+                &:after {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                }
+            }
+        }
+    }
+    .moment {
+        .winner {
+            display: flex;
+            align-items: center;
+        }
+        .icon-winner {
+            display: inline-block;
+            width: 2.5rem;
+            height: @width;
+            background: url(icon/winner.png);
+            background-size: @width @height;
+            margin-right: 1rem;
+        }
+    }
+
     .review {
         padding: 1rem;
         margin-bottom: 5rem;
@@ -246,38 +295,6 @@
                 }
                 .comment {
                     color: #999;
-                }
-            }
-        }
-        > footer {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            .btn {
-                display: block;
-                width: 5rem;
-                height: @width;
-                border-radius: @width;
-                background: #298CCF;
-                position: relative;
-
-                &:before, &:after {
-                    content: "";
-                    display: inline-block;
-                    width: 2.5rem;
-                    height: .4rem;
-                    border-radius: @height;
-                    background: #fff;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                }
-                &:before {
-                    transform: translate(-50%, -50%);
-                }
-                &:after {
-                    transform: translate(-50%, -50%) rotate(90deg);
                 }
             }
         }

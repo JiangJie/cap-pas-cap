@@ -48,14 +48,20 @@ function bindEvent() {
 
         e.preventDefault();
 
-        var desc = $('#desc').val().trim();
-
-        if(!desc) return alert('Please fill up all the description.');
-
         var url = this.action;
         var method = this.method.toUpperCase();
 
+        var winner = $('#uidInput').val().trim();
+        var desc = $('#desc').val().trim();
+
+        if(url.split('/').pop() === 'moment') {
+            if(!winner) return alert('Please fill up all the description.');
+        }
+
+        if(!desc) return alert('Please fill up all the description.');
+
         var data = {
+            winner: winner,
             desc: desc
         };
         imgsBase64.length && (data.imgs = imgsBase64);
