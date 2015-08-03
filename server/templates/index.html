@@ -41,7 +41,7 @@
                         <p class="name">{{ chall.name }}</p>
                         <p class="line">
                             <span class="icon-time"></span>
-                            <span class="time">20 June, 2015</span>
+                            <span class="time">{{ chall.create|date('d M, Y') }}</span>
                             <span class="price">${{ chall.fee }}</span>
                             <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
                         </p>
@@ -63,7 +63,7 @@
                         <p class="name">{{ chall.name }}</p>
                         <p class="line">
                             <span class="icon-time"></span>
-                            <span class="time">20 June, 2015</span>
+                            <span class="time">{{ chall.create|date('d M, Y') }}</span>
                             <span class="price">${{ chall.fee }}</span>
                             <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
                         </p>

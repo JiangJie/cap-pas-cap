@@ -103,3 +103,9 @@ exports.addStar = function*(uid, cid, rid) {
 
     yield cursor.set({reviews: reviews});
 };
+
+exports.getNameByCid = function*(cid) {
+    const chall = yield Challenge.findOne({cid: cid}).fields({name: 1});
+
+    return chall ? chall.name : '';
+};

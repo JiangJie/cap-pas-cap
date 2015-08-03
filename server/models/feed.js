@@ -1,6 +1,7 @@
 'use strong';
 
 const Feed = require('../conf/mongo').collections.feed;
+const Challenge = require('./challenge');
 
 /*
 type
@@ -15,6 +16,16 @@ type
 8: add comment for challenge's review
     rid: 0
 */
+const map = {
+    1: 'edit',
+    2: 'follow',
+    3: 'follow',
+    4: 'publish',
+    5: 'favorite',
+    6: 'join',
+    7: 'review',
+    8: 'comment'
+};
 
 exports.create = function*(feed) {
     yield Feed.insert(feed);
@@ -42,4 +53,31 @@ exports.followIndividual = function*(uid, ta) {
     feed.type = 2;
 
     yield Feed.insert(feed);
+};
+
+exports.addReview = function*(uid, cid) {
+    const feed = {uid, cid};
+    feed.create = new Date();
+    feed.type = 7;
+
+    yield Feed.insert(feed);
+};
+
+exports.addComment = function*(uid, cid) {
+    const feed = {uid, cid};
+    feed.create = new Date();
+    feed.type = 8;
+
+    yield Feed.insert(feed);
+};
+
+exports.getMyAllFeeds = function*(uid) {
+    const feeds = yield Feed.find({uid: uid}).sort({create: -1});
+    return yield feeds.map(function(item) {
+        return (function*() {
+            item.type = map[item.type];
+            item.cid && (item.name = yield* Challenge.getNameByCid(item.cid));
+            return item;
+        })();
+    });
 };

@@ -34,7 +34,27 @@
             <span class="item challenge">{{ ta.joins.length|default(0) }}<br>Challenges</span>
         </section>
     </header>
-    <section class="timeline"></section>
+    <section class="timeline">
+        {% set map = {'edit': 'Edit', 'publish': 'Launch a challenge activity', 'favorite': 'Like a challenge activity', 'join': 'Accept a challenge activity', 'review': 'Post a review to', 'comment': 'Post a comment to'} %}
+        {% for feed in feeds %}
+        <article>
+            <div class="date">
+                <p class="month">{{ feed.create|date('M') }}</p>
+                <p class="day">{{ feed.create|date('d') }}</p>
+            </div>
+            <section class="feed">
+                <div class="icon icon-{{ feed.type }}"></div>
+                <div class="detail">
+                    <p class="text">
+                        {{ map[feed.type] }}
+                        <span class="name">{{ feed.name }}</span>
+                    </p>
+                    <p class="time">{{ feed.create|date('i:s') }}</p>
+                </div>
+            </section>
+        </article>
+        {% endfor %}
+    </section>
     {% include 'footer.html' %}
 </section>
 {% endblock %}

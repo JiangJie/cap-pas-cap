@@ -1,112 +1,177 @@
 @import "_layout";
 @import "_footer";
 
-.page {
-    header {
-        background: url(img/ballon-bg.jpg);
-        background-size: cover;
+header {
+    background: url(img/ballon-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    font-size: .7rem;
+    padding: 1rem;
+    position: relative;
+
+    span {
+        display: inline-block;
+    }
+    
+    .border-right {
+        border-right: 1px solid #fff;
+        margin-right: 1rem;
+    }
+    .logo {
+        display: inline-block;
+        width: 5rem;
+        height: @width;
+        border-radius: @width;
+        background-size: @width @height;
         background-position: center;
+    }
+    .icon-setting {
+        width: 2rem;
+        height: @width;
+        background: url(icon/setting.png);
+        background-size: @width @height;
+        background-position: center;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+
+        &:active {
+            background-image: url(icon/setting-active.png);
+        }
+    }
+    .btn {
+        background: transparent;
+        border: 1px solid #fff;
+        font-size: 1rem;
         color: #fff;
-        font-size: .7rem;
-        padding: 1rem;
-        position: relative;
+        padding: .25rem .5rem;
+        position: absolute;
+        top: 2.5rem;
+        right: 1rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .icon-crown {
+        width: 2.5rem;
+        height: @width;
+        background: url(icon/crown.png);
+        background-size: @width @height;
+        background-position: center;
+        position: absolute;
+        left: 50%;
+        top: 2.5rem;
+        transform: translateX(-50%);
+    }
+    .icon-male {
+        width: 1.5rem;
+        height: @width;
+        background-size: @width @height;
+        background-position: center;
 
-        span {
-            display: inline-block;
+        &.M {
+            background-image: url(icon/male.png);
         }
-        
-        .border-right {
-            border-right: 1px solid #fff;
-            margin-right: 1rem;
+        &.F {
+            background-image: url(icon/female.png);
         }
-        .logo {
-            display: inline-block;
-            width: 5rem;
-            height: @width;
-            border-radius: @width;
-            background-size: @width @height;
-            background-position: center;
-        }
-        .icon-setting {
-            width: 2rem;
-            height: @width;
-            background: url(icon/setting.png);
-            background-size: @width @height;
-            background-position: center;
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        padding: .5rem 0;
+    }
+    .follower {
+        margin-left: 1rem;
+        padding-right: 1rem;
+    }
+    .second {
+        display: flex;
+        border-top: 1px solid #fff;
+    }
+    .item {
+        flex: 1;
+        height: 1.5rem;
+        background-size: @height @height;
+        background-repeat: no-repeat;
+        padding-left: @height;
+        text-align: center;
+        line-height: .8rem;
+    }
+    .favorite {
+        background-image: url(icon/favorite.png);
+    }
+    .ccoin {
+        background-image: url(icon/ccoin.png);
+    }
+    .challenge {
+        background-image: url(icon/challenge.png);
+    }
+}
 
-            &:active {
-                background-image: url(icon/setting-active.png);
-            }
-        }
-        .btn {
-            background: transparent;
-            border: 1px solid #fff;
-            font-size: 1rem;
-            color: #fff;
-            padding: .25rem .5rem;
-            position: absolute;
-            top: 2.5rem;
-            right: 1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .icon-crown {
-            width: 2.5rem;
-            height: @width;
-            background: url(icon/crown.png);
-            background-size: @width @height;
-            background-position: center;
-            position: absolute;
-            left: 50%;
-            top: 2.5rem;
-            transform: translateX(-50%);
-        }
-        .icon-male {
-            width: 1.5rem;
-            height: @width;
-            background-size: @width @height;
-            background-position: center;
+.timeline {
+    padding: .5rem;
+    margin-bottom: 3.5rem;
 
-            &.M {
-                background-image: url(icon/male.png);
-            }
-            &.F {
-                background-image: url(icon/female.png);
-            }
+    .date {
+        width: 2.5rem;
+        height: @width;
+        border-radius: @width;
+        border: 2px solid #298CCF;
+        text-align: center;
+        font-size: .8rem;
+        color: #333;
+        line-height: 1.2rem;
+        margin-bottom: 1rem;
+
+        .month {
+            border-bottom: 2px solid #298CCF;
         }
-        .info {
-            display: flex;
-            align-items: center;
-            padding: .5rem 0;
+    }
+
+    article {
+        &:before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 100%;
+            background: #DFDFDF;
         }
-        .follower {
+    }
+    
+    .icon {
+        display: inline-table;
+        width: 1.5rem;
+        height: @width;
+        background-size: @width @height;
+        background-position: center;
+        margin-right: .5rem;
+    }
+    .icon-favorite {
+        background-image: url(icon/favorite-red.png);
+    }
+    .icon-edit {
+        background-image: url(icon/setting-active.png);
+    }
+    .icon-join {
+        background-image: url(icon/difficulty-active.png);
+    }
+    .icon-review, .icon-comment {
+        background-image: url(icon/post.png);
+    }
+    .feed {
+        font-size: .8rem;
+        color: #333;
+        display: flex;
+        line-height: 1.2rem;
+        margin-bottom: .5rem;
+
+        .name {
+            font-weight: bold;
             margin-left: 1rem;
-            padding-right: 1rem;
         }
-        .second {
-            display: flex;
-            border-top: 1px solid #fff;
-        }
-        .item {
-            flex: 1;
-            height: 1.5rem;
-            background-size: @height @height;
-            background-repeat: no-repeat;
-            padding-left: @height;
-            text-align: center;
-            line-height: .8rem;
-        }
-        .favorite {
-            background-image: url(icon/favorite.png);
-        }
-        .ccoin {
-            background-image: url(icon/ccoin.png);
-        }
-        .challenge {
-            background-image: url(icon/challenge.png);
+        .time {
+            font-size: .7rem;
         }
     }
 }

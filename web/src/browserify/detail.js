@@ -3,6 +3,7 @@
 var $ = window.$ || window.Zepto;
 
 require('./mylib/tabs');
+require('./mylib/footer');
 
 function bindEvent() {
     $('#favorite').on('tap', function() {

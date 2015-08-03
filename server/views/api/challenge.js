@@ -4,6 +4,7 @@ const gm = require('gm');
 const Promise = require('bluebird');
 
 const Challenge = require('../../models/challenge');
+const Feed = require('../../models/feed');
 const Util = require('../../lib/util');
 
 const ERROR = require('../../conf/error');
@@ -86,6 +87,7 @@ exports.review = function*(next) {
     }
 
     yield* Challenge.addReview(cid, review);
+    yield* Feed.addReview(uid, cid);
 
     this.state.extra = {
         result: {
@@ -108,6 +110,7 @@ exports.comment = function*(next) {
     comment.create = new Date();
 
     yield* Challenge.addComment(cid, rid, comment);
+    yield* Feed.addComment(uid, cid);
 
     yield* next;
 };

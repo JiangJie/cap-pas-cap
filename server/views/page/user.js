@@ -1,6 +1,7 @@
 'use strong';
 
 const User = require('../../models/user');
+const Feed = require('../../models/feed');
 
 const ERROR = require('../../conf/error');
 
@@ -21,6 +22,8 @@ exports.home = function*() {
 
     // 商家
     if(info.type === 'M') return yield* this.render('merchant');
+
+    this.state.feeds = yield* Feed.getMyAllFeeds(uid);
 
     yield* this.render('home');
 };
