@@ -12,7 +12,7 @@ exports.detail = function*() {
     if(!chall) return this.redirect('/');
 
     chall.difficulty = new Array(chall.difficulty || 1);
-    chall.isOver = chall.deadline <= new Date();
+    chall.isOver = chall.end <= new Date();
 
     chall.hasFavorited = yield* User.hasFavorited(uid, cid);
     chall.hasJoined = yield* User.hasJoined(uid, cid);
