@@ -21,9 +21,10 @@ exports.detail = function*() {
     let users = yield* User.getAll();
 
     users = users.reduce(function(ret, item) {
+        uid === item.uid && (this.state.user.type = item.type);
         ret[item.uid] = item;
         return ret;
-    }, {});
+    }.bind(this), {});
 
     chall.reviews = chall.reviews || [];
     chall.reviews.forEach(function(item) {

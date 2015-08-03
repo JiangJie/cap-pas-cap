@@ -59,7 +59,7 @@ API.post('create a new challenge', '/challenge/publish', bodyParser({
     jsonLimit: '15mb'
 }), validate(), Validator.checkChallenge, challengeApi.publish, Common.success);
 API.post('favorite', '/favorite/:cid', userApi.favorite, Common.success);
-API.post('favorite', '/join/:cid', userApi.join, Common.success);
+API.post('favorite', '/join/:cid', bodyParser(), userApi.join, Common.success);
 API.post('publish review', '/challenge/:cid/review', bodyParser({
     formLimit: '15mb',
     jsonLimit: '15mb'

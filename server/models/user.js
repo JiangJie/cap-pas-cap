@@ -28,8 +28,14 @@ exports.hasFavorited = function*(uid, cid) {
     return !!(yield User.findOne({uid: uid, favorites: cid}));
 };
 
-exports.addJoin = function*(uid, cid) {
-    return yield User.findOne({uid: uid}).addToSet({joins: cid});
+exports.addJoin = function*(uid, cid, coins) {
+    const cursor = User.findOne({uid: uid});
+
+    const user = yield cursor;
+    coins = Math.abs(coins);
+    if(user.coins < coins) throw new Error('not enough c-coins');
+
+    return yield cursor.addToSet({joins: cid}).inc({coins: -coins});
 };
 
 exports.hasJoined = function*(uid, cid) {
