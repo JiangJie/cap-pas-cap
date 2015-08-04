@@ -51,8 +51,8 @@ function bindEvent() {
         var url = this.action;
         var method = this.method.toUpperCase();
 
-        var $uid = $('#uidInput');
-        var winner = $uid && $uid.val().trim();
+        var $uid = $('#uidInput').val()
+        var winner = $uid && $uid.trim();
         var desc = $('#desc').val().trim();
 
         if (url.split('/').pop() === 'moment') {
