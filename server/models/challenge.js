@@ -23,12 +23,12 @@ function* genCid() {
 
 exports.getAllActive = function*() {
     const d = new Date();
-    return yield Challenge.find({end: {$lt: d}}).sort({create: -1});
+    return yield Challenge.find({end: {$gt: d}}).sort({create: -1});
 };
 
 exports.getAllExpired = function*() {
     const d = new Date();
-    return yield Challenge.find({end: {$gte: d}}).sort({end: -1});
+    return yield Challenge.find({end: {$lte: d}}).sort({end: -1});
 };
 
 exports.findByCid = function*(cid) {
