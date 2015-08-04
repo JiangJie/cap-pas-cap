@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block js %}
-<script src="/js/merchant.js"></script>
+<script src="/js/home.js"></script>
 {% endblock %}
 
 {% block page %}
@@ -19,7 +19,11 @@
         {% if me %}
         <a class="btn" href="/page/publish">Lauch&nbsp;Challenge</a>
         {% else %}
-        <button class="btn">+&nbsp;Follow</button>
+        {% if followed %}
+        <button class="btn">Followed</button>
+        {% else %}
+        <button id="follow" class="btn" data-uid="{{ ta.uid }}">+&nbsp;Follow</button>
+        {% endif %}
         {% endif %}
     </header>
     <section class="location separation">

@@ -12,6 +12,7 @@ function bindEvent() {
         if(this.classList.contains('done')) return;
 
         var uid = this.dataset.uid;
+        if(!uid) return;
         var url = '/api/follow/' + uid;
 
         $.ajax({
@@ -20,7 +21,7 @@ function bindEvent() {
         }).done(function() {
             this.classList.add('done');
             $follow.text('Followed');
-            $followers.html(parseInt($followers.html()) + 1);
+            $followers && $followers.html(parseInt($followers.html()) + 1);
         }.bind(this));
     });
 }
