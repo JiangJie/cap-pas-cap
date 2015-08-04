@@ -39,6 +39,11 @@ function bindEvent() {
         }.bind(this));
 
     });
+
+    var $moment = $('[data-tab=moment]');
+    $('#back').on('tap', function() {
+        window.location.href = $moment.hasClass('active') ? '/page/moments' : '/';
+    });
 }
 
 (function init() {
