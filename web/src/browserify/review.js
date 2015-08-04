@@ -14,7 +14,7 @@ function bindEvent() {
         console.log('file change', e);
 
         // 最多5张图片
-        if(cache.length >= max) return;
+        if (cache.length >= max) return;
 
         var files = e.target.files;
 
@@ -22,12 +22,12 @@ function bindEvent() {
         Array.prototype.some.call(files, function(file) {
             // 坑爹。。。iphone上文件名全是image.jpg
             var name = file.name + file.lastModified + file.size;
-            if(!~cache.indexOf(name)) {
+            if (!~cache.indexOf(name)) {
                 _files.push(file);
                 cache.push(name);
             }
 
-            if(cache.length >= max) return true;
+            if (cache.length >= max) return true;
         });
 
         _files.forEach(function(file) {
@@ -44,21 +44,22 @@ function bindEvent() {
     });
 
     $('#reviewForm').on('submit', function(e) {
-        if($submit.hasClass('disabled')) return;
+        if ($submit.hasClass('disabled')) return;
 
         e.preventDefault();
 
         var url = this.action;
         var method = this.method.toUpperCase();
 
-        var winner = $('#uidInput').val().trim();
+        var $uid = $('#uidInput');
+        var winner = $uid && $uid.val().trim();
         var desc = $('#desc').val().trim();
 
-        if(url.split('/').pop() === 'moment') {
-            if(!winner) return alert('Please fill up all the description.');
+        if (url.split('/').pop() === 'moment') {
+            if (!winner) return alert('Please fill up all the description.');
         }
 
-        if(!desc) return alert('Please fill up all the description.');
+        if (!desc) return alert('Please fill up all the description.');
 
         var data = {
             winner: winner,
