@@ -39,7 +39,7 @@ PAGE.get('show signup page', '/signup', Page.signup);
 PAGE.get('show signin page', '/signin', Page.signin);
 PAGE.get('show publish challenge page', '/publish', Page.publish);
 PAGE.get('show search challenge page', '/search', Page.search);
-PAGE.get('show moment page', '/moment', Page.moment);
+PAGE.get('show moment page', '/moments', Page.moments);
 PAGE.get('show challenge detail page', '/challenge/:cid', challengePage.detail);
 PAGE.get('show publish challenge review page', '/challenge/:cid/review/publish', challengePage.review);
 PAGE.get('show publish challenge moment page', '/challenge/:cid/moment/publish', challengePage.moment);

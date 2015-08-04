@@ -1,0 +1,117 @@
+@import "_layout";
+@import "_tabs";
+@import "_footer";
+
+.content {
+    padding: .75rem 1rem;
+    margin-bottom: 3.5rem;
+}
+article {
+    margin-bottom: 1rem;
+    .date {
+        background: #ff9900;
+        display: flex;
+        align-items: center;
+        height: 2.5rem;
+        border-radius: @height;
+        padding-left: .2rem;
+        width: 7rem;
+
+        .circle {
+            width: 2rem;
+            height: @width;
+            border-radius: @width;
+            border: 2px solid #fff;
+            text-align: center;
+            font-size: .6rem;
+            color: #fff;
+            line-height: .9rem;
+            margin-right: .5rem;
+        }
+        .month {
+            border-bottom: 2px solid #fff;
+        }
+        .text {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+    }
+
+    .item {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+
+        .icon {
+            width: 2rem;
+            height: @width;
+            background-size: @width @height;
+            display: inline-table;
+            margin-top: -1rem;
+        }
+        .icon-food {
+            background-image: url(icon/food.png);
+        }
+        .icon-sport {
+            background-image: url(icon/sport.png);
+        }
+        .icon-entertainment {
+            background-image: url(icon/entertainment.png);
+        }
+        .icon-shopping {
+            background-image: url(icon/shopping.png);
+        }
+        .icon-technical {
+            background-image: url(icon/technical.png);
+        }
+        .icon-study {
+            background-image: url(icon/study.png);
+        }
+        .icon-creative {
+            background-image: url(icon/creative.png);
+        }
+        .icon-others {
+            background-image: url(icon/others.png);
+        }
+        .info {
+            display: flex;
+            padding-bottom: 1rem;
+            margin-left: .5rem;
+            border-bottom: 1px solid #777;
+            width: 100%;
+        }
+        .cover {
+            width: 5.5rem;
+            height: 7.35rem;
+            background-size: @width @height;
+            background-position: center;
+            margin-right: .5rem;
+        }
+        .detail {
+            color: #666;
+            font-size: .8rem;
+        }
+        .name {
+            font-size: .9rem;
+        }
+        .difficulty {
+            display: flex;
+            align-items: center;
+            margin-top: .5rem;
+        }
+        .icon-difficulty {
+            display: inline-block;
+            width: 1.25rem;
+            height: @width;
+            background-image: url(icon/difficulty.png);
+            background-size: @width @height;
+
+            &.active {
+                background-image: url(icon/difficulty-active.png);
+            }
+        }
+        .text {
+            margin-top: .25rem;
+        }
+    }
+}

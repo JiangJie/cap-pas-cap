@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block css %}
-<link rel="stylesheet" href="/css/moment.css">
+<link rel="stylesheet" href="/css/moments.css">
 {% endblock %}
 
 {% block js %}
-<script src="/js/moment.js"></script>
+<script src="/js/moments.js"></script>
 {% endblock %}
 
 {% block page %}
@@ -23,8 +23,71 @@
         </section>
     </header>
     <section class="content merchant" data-content="merchant">
+        {% for list in lists.M %}
+        <article>
+            <div class="date">
+                <div class="circle">
+                    <p class="month">{{ loop.key.split(' ')[1] }}</p>
+                    <p class="day">{{ loop.key.split(' ')[2] }}</p>
+                </div>
+                <span class="text">{{ loop.key.split(' ')[2] }} {{ loop.key.split(' ')[1] }}</span>
+            </div>
+            {% for chall in list %}
+            <section class="item">
+                <div class="icon icon-{{ chall.type|default('others') }}"></div>
+                <div class="info">
+                    <div class="cover" style="background-image: url({{ chall.imgs[0]|default('/css/img/item.jpg')}});"></div>
+                    <div class="detail">
+                        <p class="name">{{ chall.name }}</p>
+                        <p class="difficulty">
+                            <span class="title">Difficulty:</span>
+                            {% for item in chall.difficulty %}
+                            <span class="icon-difficulty active"></span>
+                            {% endfor %}
+                        </p>
+                        <p class="text winner">Winner: {% if chall.moments %}{{ chall.moments[0].winner|default('') }}{% endif %}</p>
+                        <p class="text participants">Participants: {{ chall.participants }}</p>
+                        <p class="text address">Address: {{ chall.location }}</p>
+                    </div>
+                </div>
+            </section>
+            {% endfor %}
+        </article>
+        {% endfor %}
     </section>
-    <section class="content individual hide" data-content="individual"></section>
+    <section class="content individual hide" data-content="individual">
+        {% for list in lists.I %}
+        <article>
+            <div class="date">
+                <div class="circle">
+                    <p class="month">{{ loop.key.split(' ')[1] }}</p>
+                    <p class="day">{{ loop.key.split(' ')[2] }}</p>
+                </div>
+                <span class="text">{{ loop.key.split(' ')[2] }} {{ loop.key.split(' ')[1] }}</span>
+            </div>
+            {% for chall in list %}
+            <section class="item">
+                <div class="icon icon-{{ chall.type|default('others') }}"></div>
+                <div class="info">
+                    <div class="cover" style="background-image: url({{ chall.imgs[0]|default('/css/img/item.jpg')}});"></div>
+                    <div class="detail">
+                        <p class="name">{{ chall.name }}</p>
+                        <p class="difficulty">
+                            <span class="title">Difficulty:</span>
+                            {% for item in chall.difficulty %}
+                            <span class="icon-difficulty active"></span>
+                            {% endfor %}
+                        </p>
+                        <p class="text winner">Winner: {% if chall.moments %}{{ chall.moments[0].winner|default('') }}{% endif %}</p>
+                        <p class="text participants">Participants: {{ chall.participants }}</p>
+                        <p class="text address">Address: {{ chall.location }}</p>
+                    </div>
+                </div>
+            </section>
+            {% endfor %}
+        </article>
+        {% endfor %}
+    </section>
     {% include 'footer.html' %}
 </section>
 {% endblock %}

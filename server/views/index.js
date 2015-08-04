@@ -4,7 +4,7 @@ const User = require('../models/user');
 const Challenge = require('../models/challenge');
 
 exports.index = function*(next) {
-    let challenges = yield* Challenge.getAll();
+    let challenges = yield* Challenge.getAllActive();
     let users = yield* User.getAll();
 
     users = users.reduce(function(ret, item) {

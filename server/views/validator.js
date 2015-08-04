@@ -43,6 +43,7 @@ exports.checkAuth = function*(next) {
 
 exports.checkChallenge = function*(next) {
     this.checkBody('name').notEmpty('name is required');
+    this.checkBody('type').notEmpty('type is required');
     this.checkBody('start').notEmpty('start time is required').isDate('start time mush be a date');
     this.checkBody('end').notEmpty('end time is required').isDate('end time mush be a date');
     this.checkBody('location').notEmpty('location is required');

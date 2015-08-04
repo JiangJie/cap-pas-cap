@@ -21,8 +21,14 @@ function* genCid() {
     return cid;
 }
 
-exports.getAll = function*() {
-    return yield Challenge.find().sort({create: -1});
+exports.getAllActive = function*() {
+    const d = new Date();
+    return yield Challenge.find({end: {$lt: d}}).sort({create: -1});
+};
+
+exports.getAllExpired = function*() {
+    const d = new Date();
+    return yield Challenge.find({end: {$gte: d}}).sort({end: -1});
 };
 
 exports.findByCid = function*(cid) {

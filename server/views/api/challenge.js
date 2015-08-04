@@ -16,6 +16,7 @@ exports.publish = function*(next) {
     const params = this.request.body;
 
     const name = params.name;
+    const type = params.type;
     const start = new Date(params.start);
     const end = new Date(params.end);
     const deadline = params.deadline && new Date(params.deadline) || end;
@@ -27,7 +28,7 @@ exports.publish = function*(next) {
     // const launch = params.launch;
     const imgs = params.imgs;
 
-    const chall = {creator, name, start, end, location, fee, max, desc};
+    const chall = {creator, name, type, start, end, location, fee, max, desc};
 
     deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);

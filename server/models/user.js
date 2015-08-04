@@ -61,3 +61,7 @@ exports.addFollower = function*(uid, follower) {
 exports.addFollowing = function*(uid, following) {
     yield User.findOne({uid: uid}).addToSet({followings: following});
 };
+
+exports.getParticipantsCount = function*(cid) {
+    return yield User.count({joins: cid});
+};

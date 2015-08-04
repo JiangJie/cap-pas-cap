@@ -25,6 +25,7 @@ function bindEvent() {
         e.preventDefault();
 
         var name = $('#nameInput').val().trim();
+        var type = $('#typeSelect').val();
         var deadline = $('#deadlineInput').val();
         var start = $('#startTimeInput').val();
         var end = $('#endTimeInput').val();
@@ -34,13 +35,14 @@ function bindEvent() {
         var desc = $('#description').val().trim();
         var difficulty = $('.icon-difficulty.active').length;
 
-        if(!name || !start || !end || !location || !fee || !max || !desc || !difficulty) return alert('Please fill up all the information.');
+        if(!name || !type || !start || !end || !location || !fee || !max || !desc || !difficulty) return alert('Please fill up all the information.');
 
         var url = this.action;
         var method = this.method.toUpperCase();
 
         var data = {
             name: name,
+            type: type,
             start: start,
             end: end,
             location: location,
