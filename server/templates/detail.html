@@ -61,7 +61,7 @@
                 </div>
                 <div class="item">
                     <span class="title">Initiator:</span>
-                    <a href="/page/u/{{ challenge.creator.uid }}">{{ challenge.creator.nickname || challenge.creator.uid }}</a>
+                    <a href="/page/u/{{ challenge.creator.uid }}">{{ challenge.creator.nickname || challenge.creator.name || challenge.creator.uid }}</a>
                 </div>
             </section>
             <section class="desc">
