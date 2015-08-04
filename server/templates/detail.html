@@ -13,12 +13,12 @@
     <header>
         <div id="back" class="back"></div>
         <section class="tabs">
-            <div class="tab active" data-tab="detail">
+            <div class="tab{% if tab === 'detail' %} active{% endif %}" data-tab="detail">
                 <span class="text">Details</span>
                 <div class="bar"></div>
             </div>
             {% if challenge.isOver %}
-            <div class="tab" data-tab="moment">
+            <div class="tab{% if tab === 'moment' %} active{% endif %}" data-tab="moment">
                 <span class="text">Moments</span>
                 <div class="bar"></div>
             </div>
@@ -30,7 +30,7 @@
         </section>
     </header>
     <section class="content">
-        <section class="detail" data-content="detail">
+        <section class="detail{% if tab !== 'detail' %} hide{% endif %}" data-content="detail">
             <section class="cover" style="background-image: url({{ challenge.imgs[0]|default('/css/img/cover.png')}});"></section>
             <section class="name">
                 <p>{{ challenge.name }}</p>
@@ -84,7 +84,7 @@
             </footer>
         </section>
         {% if challenge.isOver %}
-        <section class="moment hide" data-content="moment">
+        <section class="moment{% if tab !== 'moment' %} hide{% endif %}" data-content="moment">
             {% if !challenge.moments && mine %}
             <footer>
                 <a class="btn" href="/page/challenge/{{ challenge.cid }}/moment/publish"></a>
@@ -105,7 +105,7 @@
             {% endif %}
         </section>
         {% endif %}
-        <section class="review hide" data-content="review">
+        <section class="review{% if tab !== 'review' %} hide{% endif %}" data-content="review">
             {% for review in challenge.reviews %}
             <article>
                 <header>
