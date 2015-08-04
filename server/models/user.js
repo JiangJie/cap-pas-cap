@@ -65,3 +65,8 @@ exports.addFollowing = function*(uid, following) {
 exports.getParticipantsCount = function*(cid) {
     return yield User.count({joins: cid});
 };
+
+exports.getNickname = function*(uid) {
+    const user = yield User.findOne({uid: uid});
+    return user && user.nickname || uid;
+};

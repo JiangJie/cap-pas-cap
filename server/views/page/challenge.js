@@ -30,6 +30,8 @@ exports.detail = function*() {
         return ret;
     }.bind(this), {});
 
+    chall.creator = users[chall.creator];
+
     chall.reviews = chall.reviews || [];
     chall.reviews.forEach(function(item) {
         item.creator = users[item.creator];

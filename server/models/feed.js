@@ -1,6 +1,7 @@
 'use strong';
 
 const Feed = require('../conf/mongo').collections.feed;
+const User = require('./user');
 const Challenge = require('./challenge');
 
 /*
@@ -76,7 +77,10 @@ exports.getMyAllFeeds = function*(uid) {
     return yield feeds.map(function(item) {
         return (function*() {
             item.type = map[item.type];
-            item.cid && (item.name = yield* Challenge.getNameByCid(item.cid));
+            
+            if(item.cid) item.name = yield* Challenge.getNameByCid(item.cid);
+            else if(item.ta) item.name = yield* User.getNickname(item.ta);
+
             return item;
         })();
     });
