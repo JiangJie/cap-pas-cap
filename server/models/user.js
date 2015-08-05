@@ -1,6 +1,7 @@
 'use strong';
 
 const User = require('../conf/mongo').collections.user;
+const Challenge = require('./challenge');
 const Util = require('../lib/util');
 
 exports.create = function*(user) {
@@ -62,11 +63,56 @@ exports.addFollowing = function*(uid, following) {
     yield User.findOne({uid: uid}).addToSet({followings: following});
 };
 
-exports.getParticipantsCount = function*(cid) {
+exports.countParticipatorsByCid = countParticipatorsByCid;
+function* countParticipatorsByCid(cid) {
     return yield User.count({joins: cid});
+}
+
+exports.countParticipatorsByMerchant = function*(uid) {
+    const challenges = yield* Challenge.getAllByCreator(uid);
+
+    if(!challenges || !challenges.length) return 0;
+
+    const count = yield challenges.map(function(item) {
+        return (function*() {
+            return yield* countParticipatorsByCid(item.cid);
+        })();
+    });
+
+    return count.reduce(function(ret, item) {
+        return ret + item;
+    }, 0);
 };
 
 exports.getNickname = function*(uid) {
     const user = yield User.findOne({uid: uid});
     return user && user.nickname || uid;
+};
+
+exports.getAllMerchants = function*() {
+    return yield User.find({type: 'M'});
+};
+
+exports.rankByJoined = function*() {
+    return yield User.aggregate()
+        .match({
+            type: {$not: /^M$/},
+            joins: {$exists: true}
+        })
+        .project({
+            uid: 1,
+            nickname: 1,
+            logo: 1,
+            joinCount: {
+                $size: '$joins'
+            }
+        })
+        .sort({
+            joinCount: -1
+        })
+        .limit(10);
+};
+
+exports.getAllIndividual = function*() {
+    return yield User.find({type: {$not: /^M$/}});
 };

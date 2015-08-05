@@ -31,7 +31,7 @@ exports.moments = function*() {
     challenges = yield challenges.map(function(item) {
         return (function*() {
             item.difficulty = new Array(item.difficulty || 1);
-            item.participants = yield* User.getParticipantsCount(item.cid);
+            item.participators = yield* User.countParticipantsByCid(item.cid);
             return item;
         })();
     });
@@ -58,4 +58,38 @@ exports.moments = function*() {
     this.state.menu = 'moments';
 
     yield * this.render('moments');
+};
+
+exports.ranking = function*() {
+    let merchants = yield* User.getAllMerchants();
+
+    merchants = yield merchants.map(function(item) {
+        return (function*() {
+            item.participators = yield* User.countParticipatorsByMerchant(item.uid);
+            return item;
+        })();
+    });
+    merchants.sort(function(a, b) {
+        return b.participators - a.participators;
+    });
+
+    const joins = yield* User.rankByJoined();
+
+    let winners = yield* User.getAllIndividual();
+    winners = yield winners.map(function(item) {
+        return (function*() {
+            item.victories = yield* Challenge.countVictories(item.uid);
+            return item;
+        })();
+    });
+    winners.sort(function(a, b) {
+        return b.victories - a.victories;
+    });
+
+    this.state.merchants = merchants.slice(0, 10);
+    this.state.winners = winners.slice(0, 10);
+    this.state.joins = joins.slice(0, 10);
+    this.state.menu = 'ranking';
+    
+    yield* this.render('ranking');
 };

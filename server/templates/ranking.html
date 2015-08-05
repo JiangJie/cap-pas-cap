@@ -32,21 +32,21 @@
         <section class="top3">
             <div class="item first">
                 <span class="crown icon-first"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ merchants[0].logo|default('/css/img/kfc.png') }});"></div>
+                <p class="name">{{ merchants[0].name }}</p>
+                <p class="participator">{{ merchants[0].participators }} participators</p>
             </div>
             <div class="item second">
                 <span class="crown icon-second"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ merchants[1].logo|default('/css/img/kfc.png') }});"></div>
+                <p class="name">{{ merchants[1].name }}</p>
+                <p class="participator">{{ merchants[1].participators }} participators</p>
             </div>
             <div class="item third">
                 <span class="crown icon-third"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ merchants[2].logo|default('/css/img/kfc.png') }});"></div>
+                <p class="name">{{ merchants[2].name }}</p>
+                <p class="participator">{{ merchants[2].participators }} participators</p>
             </div>
         </section>
         {% if type === 'participation' %}
@@ -59,43 +59,39 @@
         </section>
         {% endif %}
         <section class="others">
+            {% for merchant in merchants %}
+            {% if loop.index > 3 %}
             <section class="item">
                 <span class="left">
-                    <span class="index">4</span>
-                    <span class="logo"></span>
-                    <span class="name">KFC</span>
+                    <span class="index">{{ loop.index }}</span>
+                    <span class="logo" style="background-image: url({{ merchant.logo|default('/css/img/kfc.png') }});"></span>
+                    <span class="name">{{ merchant.name }}</span>
                 </span>
-                <span class="participator">3182 participators</span>
+                <span class="participator">{{ merchant.participators }} participators</span>
             </section>
-            <section class="item">
-                <span class="left">
-                    <span class="index">5</span>
-                    <span class="logo"></span>
-                    <span class="name">KFC</span>
-                </span>
-                <span class="participator">3182 participators</span>
-            </section>
+            {% endif %}
+            {% endfor %}
         </section>
     </section>
     <section class="ranking hide" data-content="participation">
         <section class="top3">
             <div class="item first">
                 <span class="crown icon-first"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ joins[0].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ joins[0].nickname }}</p>
+                <p class="participator">{{ joins[0].joinCount || 0 }} participations</p>
             </div>
             <div class="item second">
                 <span class="crown icon-second"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ joins[1].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ joins[1].nickname }}</p>
+                <p class="participator">{{ joins[1].joinCount || 0 }} participations</p>
             </div>
             <div class="item third">
                 <span class="crown icon-third"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ joins[2].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ joins[2].nickname }}</p>
+                <p class="participator">{{ joins[2].joinCount || 0 }} participations</p>
             </div>
         </section>
         {% if type === 'participation' %}
@@ -108,39 +104,39 @@
         </section>
         {% endif %}
         <section class="others">
+            {% for join in joins %}
+            {% if loop.index > 3 %}
             <section class="item">
-                <span class="index">4</span>
-                <span class="logo"></span>
-                <span class="name">KFC</span>
-                <span class="participator">3182 participators</span>
+                <span class="left">
+                    <span class="index">{{ loop.index }}</span>
+                    <span class="logo" style="background-image: url({{ join.logo|default('/css/img/logo.png') }});"></span>
+                    <span class="name">{{ join.nickname }}</span>
+                </span>
+                <span class="participator">{{ join.joinCount || 0 }} participations</span>
             </section>
-            <section class="item">
-                <span class="index">5</span>
-                <span class="logo"></span>
-                <span class="name">KFC</span>
-                <span class="participator">3182 participators</span>
-            </section>
+            {% endif %}
+            {% endfor %}
         </section>
     </section>
     <section class="ranking hide" data-content="winning">
         <section class="top3">
             <div class="item first">
                 <span class="crown icon-first"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ winners[0].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ winners[0].nickname }}</p>
+                <p class="participator">{{ winners[0].victories || 0 }} victories</p>
             </div>
             <div class="item second">
                 <span class="crown icon-second"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ winners[0].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ winners[1].nickname }}</p>
+                <p class="participator">{{ winners[1].victories || 0 }} victories</p>
             </div>
             <div class="item third">
                 <span class="crown icon-third"></span>
-                <div class="logo"></div>
-                <p class="name">BURGER KING</p>
-                <p class="participator">3182 participators</p>
+                <div class="logo" style="background-image: url({{ winners[0].logo|default('/css/img/logo.png') }});"></div>
+                <p class="name">{{ winners[2].nickname }}</p>
+                <p class="participator">{{ winners[2].victories || 0 }} victories</p>
             </div>
         </section>
         {% if type === 'participation' %}
@@ -153,18 +149,18 @@
         </section>
         {% endif %}
         <section class="others">
+            {% for winner in winners %}
+            {% if loop.index > 3 %}
             <section class="item">
-                <span class="index">4</span>
-                <span class="logo"></span>
-                <span class="name">KFC</span>
-                <span class="participator">3182 participators</span>
+                <span class="left">
+                    <span class="index">{{ loop.index }}</span>
+                    <span class="logo" style="background-image: url({{ winner.logo|default('/css/img/logo.png') }});"></span>
+                    <span class="name">{{ winner.nickname }}</span>
+                </span>
+                <span class="participator">{{ winner.victories || 0 }} participations</span>
             </section>
-            <section class="item">
-                <span class="index">5</span>
-                <span class="logo"></span>
-                <span class="name">KFC</span>
-                <span class="participator">3182 participators</span>
-            </section>
+            {% endif %}
+            {% endfor %}
         </section>
     </section>
     {% include 'footer.html' %}

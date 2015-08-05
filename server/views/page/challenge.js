@@ -45,12 +45,6 @@ exports.detail = function*() {
     yield* this.render('detail');
 };
 
-exports.ranking = function*() {
-    this.state.menu = 'ranking';
-    
-    yield* this.render('ranking');
-};
-
 exports.review = function*() {
     const cid = this.params.cid;
 

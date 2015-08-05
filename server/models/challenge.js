@@ -119,3 +119,11 @@ exports.getNameByCid = function*(cid) {
 
     return chall ? chall.name : '';
 };
+
+exports.getAllByCreator = function*(uid) {
+    return yield Challenge.find({creator: uid});
+};
+
+exports.countVictories = function*(uid) {
+    return yield Challenge.count({'moments.winner': uid});
+};
