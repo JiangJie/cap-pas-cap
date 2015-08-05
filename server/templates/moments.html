@@ -66,7 +66,7 @@
                 <span class="text">{{ loop.key.split(' ')[2] }} {{ loop.key.split(' ')[1] }}</span>
             </div>
             {% for chall in list %}
-            <section class="item">
+            <a class="item" href="/page/challenge/{{ chall.cid }}?tab=moment">
                 <div class="icon icon-{{ chall.type|default('others') }}"></div>
                 <div class="info">
                     <div class="cover" style="background-image: url({{ chall.imgs[0]|default('/css/img/item.jpg')}});"></div>
@@ -83,7 +83,7 @@
                         <p class="text address">Address: {{ chall.location }}</p>
                     </div>
                 </div>
-            </section>
+            </a>
             {% endfor %}
         </article>
         {% endfor %}
