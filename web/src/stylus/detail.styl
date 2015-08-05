@@ -9,7 +9,25 @@
         z-index: 2;
         width: 100%;
         background: #fff;
-        clearfix();
+        display: block;
+        clear: both;
+
+        &:before {
+            clear: both;
+            content: " ";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+        &:after {
+            clear: both;
+            content: " ";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
 
         .back {
             width: .75rem;
