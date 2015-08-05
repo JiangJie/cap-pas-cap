@@ -9,6 +9,7 @@ html, body, section, div, h1, input, textarea, button, p, select, option, span, 
     font-weight: normal;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
+    /*-webkit-transform: translateZ(0);*/
 }
 
 html, body, section, div, h1, input[type=submit], button, p, select, option, span, a {
@@ -26,6 +27,8 @@ body {
     height: 100%;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    -webkit-backface-visibility: hidden;
+    /*background: #fff;*/
 }
 
 textarea {
