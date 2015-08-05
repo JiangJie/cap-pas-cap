@@ -4,23 +4,30 @@
 <link rel="stylesheet" href="/css/search.css">
 {% endblock %}
 
+{% block js %}
+<script src="/js/search.js"></script>
+{% endblock %}
+
 {% block page %}
 <section class="page">
     <header>
         <section class="search">
             <span class="icon-search"></span>
-            <input type="search" class="input" placeholder="search challenge">
+            <form action="/page/search/result" method="GET">
+                <input type="search" class="input" name="q" placeholder="search challenge">
+            </form>
+            <!-- <input type="search" class="input" placeholder="search challenge"> -->
         </section>
     </header>
     <article class="types">
-        <section class="type food"></section>
-        <section class="type sport"></section>
-        <section class="type shopping"></section>
-        <section class="type entertainment"></section>
-        <section class="type technical"></section>
-        <section class="type study"></section>
-        <section class="type creative"></section>
-        <section class="type others"></section>
+        <section class="type food" data-type="food"></section>
+        <section class="type sport" data-type="sport"></section>
+        <section class="type shopping" data-type="shopping"></section>
+        <section class="type entertainment" data-type="entertainment"></section>
+        <section class="type technical" data-type="technical"></section>
+        <section class="type study" data-type="study"></section>
+        <section class="type creative" data-type="creative"></section>
+        <section class="type others" data-type="others"></section>
     </article>
 </section>
 {% endblock %}

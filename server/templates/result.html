@@ -28,13 +28,13 @@
         {% endif %}
         <section class="content merchant" data-content="merchant">
             <article class="list">
-                {% for chall in challenges %}
+                {% for chall in lists.M %}
                 <section class="item" data-cid="{{ chall.cid }}" style="background-image: url(/css/img/item.jpg);">
                     <div class="detail">
                         <p class="name">{{ chall.name }}</p>
                         <p class="line">
                             <span class="icon-time"></span>
-                            <span class="time">20 June, 2015</span>
+                            <span class="time">{{ chall.create|date('d M, Y') }}</span>
                             <span class="price">${{ chall.fee }}</span>
                             <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
                         </p>
@@ -47,7 +47,25 @@
                 {% endfor %}
             </article>
         </section>
-        <section class="content individual hide" data-content="individual"></section>
+        <section class="content individual hide" data-content="individual">
+            {% for chall in lists.I %}
+            <section class="item" data-cid="{{ chall.cid }}" style="background-image: url({{ chall.imgs[0]|default('/css/img/item.jpg')}});">
+                <div class="detail">
+                    <p class="name">{{ chall.name }}</p>
+                    <p class="line">
+                        <span class="icon-time"></span>
+                        <span class="time">{{ chall.create|date('d M, Y') }}</span>
+                        <!-- <span class="price">${{ chall.fee }}</span> -->
+                        <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
+                    </p>
+                    <p class="line">
+                        <span class="icon-location"></span>
+                        <span class="location">{{ chall.location }}</span>
+                    </p>
+                </div>
+            </section>
+            {% endfor %}
+        </section>
     </section>
 </section>
 {% endblock %}

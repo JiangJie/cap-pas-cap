@@ -28,7 +28,7 @@ exports.publish = function*(next) {
     // const launch = params.launch;
     const imgs = params.imgs;
 
-    const chall = {creator, name, type, start, end, location, fee, max, desc};
+    let chall = {creator, name, type, start, end, location, fee, max, desc};
 
     deadline && (chall.deadline = deadline);
     difficulty && (chall.difficulty = difficulty);
@@ -52,9 +52,12 @@ exports.publish = function*(next) {
 
     chall.create = new Date();
 
+    chall = yield* Challenge.create(chall);
     this.state.extra = {
-        result: yield* Challenge.create(chall)
+        result: chall
     };
+
+    yield* Feed.publishChallenge(creator, chall.cid);
 
     yield* next;
 };

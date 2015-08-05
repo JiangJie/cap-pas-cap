@@ -48,6 +48,14 @@ exports.joinChallenge = function*(uid, cid) {
     yield Feed.insert(feed);
 };
 
+exports.publishChallenge = function*(uid, cid) {
+    const feed = {uid, cid};
+    feed.create = new Date();
+    feed.type = 4;
+
+    yield Feed.insert(feed);
+};
+
 exports.followIndividual = function*(uid, ta) {
     const feed = {uid, ta};
     feed.create = new Date();

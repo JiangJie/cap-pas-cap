@@ -91,10 +91,28 @@ exports.comment = function*() {
 
 exports.search = function*() {
     const q = (this.query.q || '').trim();
+    const type = (this.query.type || '').trim();
 
-    q && (this.state.challenges = yield* Challenge.queryByName(q));
+    let users = yield* User.getAll();
+    let challenges = yield* Challenge.queryByTypeAndName(type, q);
 
-    this.state.type = 'sport';
+    users = users.reduce(function(ret, item) {
+        ret[item.uid] = item;
+        return ret;
+    }, {});
+
+    challenges = challenges.reduce(function(ret, item) {
+        ret.I = ret.I || [];
+        ret.M = ret.M || [];
+
+        if(users[item.creator] && users[item.creator].type === 'M') ret.M.push(item);
+        else ret.I.push(item);
+
+        return ret;
+    }, {});
+
+    this.state.lists = challenges;
+    this.state.type = this.query.type;
     yield* this.render('result');
 };
 

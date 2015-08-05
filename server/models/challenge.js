@@ -74,6 +74,20 @@ exports.queryByName = function*(q) {
     return yield Challenge.find({name: q});
 };
 
+exports.queryByTypeAndName = function*(type, name) {
+    name && (name = new RegExp(name, 'ig'));
+
+    if(!type) {
+        if(!name) return [];
+
+        return yield Challenge.find({name: name});
+    }
+
+    if(!name) return yield Challenge.find({type: type});
+
+    return yield Challenge.find({type: type, name: name});
+};
+
 exports.addReview = function*(cid, review) {
     yield Challenge.findOne({cid: cid}).addToSet({reviews: review});
 };

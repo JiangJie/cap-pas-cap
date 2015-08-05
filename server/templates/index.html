@@ -11,7 +11,7 @@
 {% block page %}
 <section class="page">
     <header>
-        <section class="search">
+        <section id="search" class="search">
             <span class="icon-search"></span>
             <form action="/page/search/result" method="GET">
                 <input type="search" class="input" name="q" placeholder="search challenge">
@@ -64,7 +64,7 @@
                         <p class="line">
                             <span class="icon-time"></span>
                             <span class="time">{{ chall.create|date('d M, Y') }}</span>
-                            <span class="price">${{ chall.fee }}</span>
+                            <!-- <span class="price">${{ chall.fee }}</span> -->
                             <span class="coins">(c-coins {{ chall.fee * 9.5 }})</span>
                         </p>
                         <p class="line">
