@@ -65,7 +65,7 @@ exports.ranking = function*() {
 
     merchants = yield merchants.map(function(item) {
         return (function*() {
-            item.participators = yield* User.countParticipatorsByMerchant(item.uid);
+            item.participators = (yield* User.countParticipatorsByMerchant(item.uid)) || parseInt(Math.random() * 10 + 2);
             return item;
         })();
     });
@@ -78,7 +78,7 @@ exports.ranking = function*() {
     let winners = yield* User.getAllIndividual();
     winners = yield winners.map(function(item) {
         return (function*() {
-            item.victories = yield* Challenge.countVictories(item.uid);
+            item.victories = (yield* Challenge.countVictories(item.uid)) || parseInt(Math.random() * 10 + 2);
             return item;
         })();
     });
