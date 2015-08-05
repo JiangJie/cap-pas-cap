@@ -39,6 +39,8 @@ exports.detail = function*() {
 
     chall.moments && (chall.moments[0].winner = users[chall.moments[0].winner].nickname || chall.moments[0].winner);
 
+    chall.merchant = yield* User.isMerchant(chall.creator);
+
     this.state.challenge = chall;
     this.state.tab = this.query.tab || 'detail';
 

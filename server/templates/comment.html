@@ -23,7 +23,7 @@
         {% endfor %}
     </section>
     <footer>
-        <form id="commentForm" action="/api/challenge/{{ cid }}/review/{{ rid }}/comment" method="POST">
+        <form id="commentForm" action="/api/challenge/{{ cid }}/review/{{ rid }}/comment" method="POST" data-cid="{{ cid }}">
             <input id="desc" type="text" placeholder="Send review" required>
             <input id="submit" type="submit" value="Send">
         </form>

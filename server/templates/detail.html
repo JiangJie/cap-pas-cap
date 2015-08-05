@@ -23,7 +23,7 @@
                 <div class="bar"></div>
             </div>
             {% endif %}
-            <div class="tab" data-tab="review">
+            <div class="tab{% if tab === 'review' %} active{% endif %}" data-tab="review">
                 <span class="text">Reviews</span>
                 <div class="bar"></div>
             </div>
@@ -72,11 +72,13 @@
                 {% endfor %}
             </section>
             <footer>
-                <span class="fee">${{ challenge.fee }} (c-coin {{ challenge.fee * 0.95 }})</span>
+                <span class="fee">{% if challenge.merchant %}${{ challenge.fee }} {% endif %}(c-coin {{ challenge.fee * 0.95 }})</span>
                 <span class="join">{{ challenge.joinedCount|default(0) }} Joined</span>
                 {% if user.type !== 'M' %}
                 {% if challenge.hasJoined %}
                 <button class="btn disabled">Joined</button>
+                {% elseif challenge.isOver %}
+                <button class="btn disabled">Join</button>
                 {% else %}
                 <a class="btn" href="/page/challenge/{{ challenge.cid }}/order">Join</a>
                 {% endif %}

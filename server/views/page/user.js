@@ -25,7 +25,20 @@ exports.home = function*() {
     // 商家
     if(info.type === 'M') return yield* this.render('merchant');
 
-    this.state.feeds = yield* Feed.getMyAllFeeds(uid);
+    let feeds = yield* Feed.getMyAllFeeds(uid);
+    feeds = feeds.reduce(function(ret, item) {
+        const date = item.create.getDate();
+        const time = 1e8 - parseInt('' + item.create.getFullYear() + item.create.getMonth() + date);
+        item.date = date;
+        
+        ret[time] = ret[time] || [];
+
+        ret[time].push(item);
+
+        return ret;
+    }, {});
+    console.log(feeds);
+    this.state.feedsList = feeds;
 
     yield* this.render('home');
 };

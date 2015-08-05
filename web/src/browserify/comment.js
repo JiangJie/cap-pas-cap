@@ -9,6 +9,7 @@ function bindEvent() {
 
         e.preventDefault();
 
+        var cid = this.dataset.cid;
         var desc = $('#desc').val().trim();
         if(!desc) return alert('Please fill comment.');
 
@@ -26,8 +27,8 @@ function bindEvent() {
             data: data
         }).done(function(res) {
             console.log('success', res);
-            // window.location.href = '/';
-            window.location.reload();
+            window.location.href = '/page/challenge/' + cid + '?tab=review';
+            // window.location.reload();
         }).fail(function(err) {
             console.log('fail', arguments);
 

@@ -21,7 +21,7 @@
         <button id="follow" class="btn" data-uid="{{ ta.uid }}">Follow</button>
         {% endif %}
         {% endif %}
-        <span class="icon-crown"></span>
+        <!-- <span class="icon-crown"></span> -->
         <section class="info">
             <span class="icon-male {{ ta.gender|default('') }}"></span>
             <span class="nickname">{{ ta.nickname }}</span>
@@ -36,12 +36,13 @@
     </header>
     <section class="timeline">
         {% set map = {'edit': 'Edit', 'publish': 'Launch a challenge activity', 'favorite': 'Like a challenge activity', 'join': 'Accept a challenge activity', 'review': 'Post a review to', 'comment': 'Post a comment to', 'follow': 'Follow'} %}
-        {% for feed in feeds %}
+        {% for feeds in feedsList %}
         <article>
             <div class="date">
-                <p class="month">{{ feed.create|date('M') }}</p>
-                <p class="day">{{ feed.create|date('d') }}</p>
+                <p class="month">{{ feeds[0].create|date('M') }}</p>
+                <p class="day">{{ feeds[0].date }}</p>
             </div>
+            {% for feed in feeds %}
             <section class="feed">
                 <div class="icon icon-{{ feed.type }}"></div>
                 <div class="detail">
@@ -52,6 +53,7 @@
                     <p class="time">{{ feed.create|date('g:i') }}</p>
                 </div>
             </section>
+            {% endfor %}
         </article>
         {% endfor %}
     </section>
