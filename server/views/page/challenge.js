@@ -103,6 +103,7 @@ exports.order = function*() {
     const cid = this.params.cid;
 
     const chall = yield* Challenge.findByCid(cid);
+    chall.merchant = yield* User.isMerchant(chall.creator);
 
     chall.hasJoined = yield* User.hasJoined(uid, cid);
 

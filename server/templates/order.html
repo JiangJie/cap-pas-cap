@@ -27,9 +27,13 @@
         <p class="item amount">
             <span>Amount</span>
             <span class="num">
+                {% if challenge.merchant %}
                 <span id="div" class="icon-div">-</span>
                 <span id="num">1</span>
                 <span id="add" class="icon-add">+</span>
+                {% else %}
+                <span id="num">1</span>
+                {% endif %}
             </span>
         </p>
         <p class="item price">

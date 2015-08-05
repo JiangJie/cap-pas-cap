@@ -7,7 +7,7 @@ function bindEvent() {
     var price = Number($price.html()) || 0;
     var $num = $('#num');
     var $total = $('#total');
-    var num;
+    var num = 1;
 
     $('#div').on('tap', function() {
         num = Math.max(Number($num.html()) - 1, 0);
