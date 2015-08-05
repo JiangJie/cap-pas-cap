@@ -31,7 +31,7 @@ exports.moments = function*() {
     challenges = yield challenges.map(function(item) {
         return (function*() {
             item.difficulty = new Array(item.difficulty || 1);
-            item.participators = yield* User.countParticipantsByCid(item.cid);
+            item.participators = yield* User.countParticipatorsByCid(item.cid);
             return item;
         })();
     });
@@ -40,7 +40,7 @@ exports.moments = function*() {
         ret.I = ret.I || {};
         ret.M = ret.M || {};
 
-        const date = item.create.toDateString();
+        const date = item.end.toDateString();
 
         if(users[item.creator] && users[item.creator].type === 'M') {
             ret.M[date] = ret.M[date] || [];
