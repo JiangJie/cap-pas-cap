@@ -10,6 +10,7 @@
         width: 100%;
         background: #fff;
         display: block;
+        transform: translateZ(0);
 
         .back {
             width: .75rem;
@@ -38,6 +39,7 @@
     .detail {
         footer {
             position: fixed;
+            transform: translateZ(0);
             bottom: 0;
             background: rgba(0, 0, 0, .75);
             z-index: 100;
@@ -184,7 +186,7 @@
             bottom: 1rem;
             left: 50%;
             z-index: 100;
-            transform: translateX(-50%);
+            transform: translate3d(-50%, 0, 0);
             .btn {
                 display: block;
                 width: 5rem;
