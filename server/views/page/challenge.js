@@ -37,7 +37,7 @@ exports.detail = function*() {
         item.creator = users[item.creator];
     });
 
-    chall.moments && (chall.moments[0].winner = users[chall.moments[0].winner].nickname || chall.moments[0].winner);
+    chall.moments && (chall.moments[0].winner = users[chall.moments[0].winner] && users[chall.moments[0].winner].nickname || chall.moments[0].winner);
 
     chall.merchant = yield* User.isMerchant(chall.creator);
 
