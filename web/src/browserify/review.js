@@ -55,7 +55,8 @@ function bindEvent() {
         var winner = $uid && $uid.trim();
         var desc = $('#desc').val().trim();
 
-        if (url.split('/').pop() === 'moment') {
+        var tab = url.split('/').pop();
+        if (tab === 'moment') {
             if (!winner) return alert('Please fill up all the description.');
         }
 
@@ -77,7 +78,7 @@ function bindEvent() {
             data: data
         }).done(function(res) {
             console.log(res);
-            window.location.href = '/page/challenge/' + res.result.cid;
+            window.location.href = '/page/challenge/' + res.result.cid + '?tab=' + tab;
         }).fail(function(xhr) {
             alert('Publish failed. Try again!');
             $submit.removeClass('disabled');
