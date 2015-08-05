@@ -55,5 +55,7 @@ exports.moments = function*() {
 
     this.state.lists = challenges;
 
+    this.state.menu = 'moments';
+
     yield * this.render('moments');
 };

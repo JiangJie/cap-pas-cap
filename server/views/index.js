@@ -23,5 +23,7 @@ exports.index = function*(next) {
     }, {});
     this.state.lists = challenges;
 
+    this.state.menu = 'challenges';
+
     yield * this.render('index');
 };

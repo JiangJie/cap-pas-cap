@@ -46,6 +46,8 @@ exports.detail = function*() {
 };
 
 exports.ranking = function*() {
+    this.state.menu = 'ranking';
+    
     yield* this.render('ranking');
 };
 

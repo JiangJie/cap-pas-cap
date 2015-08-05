@@ -20,6 +20,8 @@ exports.home = function*() {
 
     this.state.followed = info.followers && ~info.followers.indexOf(uid);
 
+    this.state.menu = 'profile';
+
     // 商家
     if(info.type === 'M') return yield* this.render('merchant');
 
